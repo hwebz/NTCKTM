@@ -1,0 +1,90 @@
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+  .header-image-not-found, .header-image-post {
+    .slide-info {
+      position: absolute;
+    }
+
+    .col-sm-8 {
+      .light-color {
+        margin-top: 60px;
+        .intro-title {
+          font-size: 80px;
+        }
+      }
+    }
+
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .header-image-not-found, .header-image-post {
+
+    .col-sm-8 {
+      .light-color {
+        margin-top: 30px;
+        .intro-title {
+          font-size: 65px;
+          padding-top: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .header-image-not-found, .header-image-post {
+    .slide-info {
+      width: 100%;
+    }
+
+    .col-sm-8 {
+      text-align: center;
+      width: 100%;
+      .light-color {
+        border: none;
+        margin-top: 30px;
+
+        .intro-title {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .header-image-not-found, .header-image-post {
+    .col-sm-8 {
+      .light-color {
+        margin-top: 15px;
+        .intro-title {
+          font-size: 25px;
+
+          .intro-readmore {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+  .header-image-not-found, .header-image-post {
+    .col-sm-8 {
+      .light-color {
+        margin-top: 2px;
+        .intro-cate {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

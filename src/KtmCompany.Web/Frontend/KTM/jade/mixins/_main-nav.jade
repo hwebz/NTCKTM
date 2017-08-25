@@ -1,0 +1,94 @@
+-var selected = 'home'; //default
+-var menu = { 'home': '#', 'brands': '#', 'company': '#', 'investor relations': '#', 'careers': '#', 'news': '#' };
+
+mixin main-nav
+	ul.main-nav
+		each val, key in menu
+			if selected === key
+				li.active
+					a(href=val, title=key)= key
+			else
+				li
+					a(href=val, title=key)= key
+					.sub-menu
+						.container
+							.row
+								.col-sm-12
+									ul
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+										li
+											a(href='#', title='KTM') Sub menu 1
+		li.function-addon
+			a(href='#', title='KTM')
+				span.fa.fa-search
+			.sub-menu
+				.container
+					.row
+						.col-sm-12
+							form.search-form
+								input(class="input-form", value="", name="form-search", placeholder="Search")
+		li.function-addon
+			a(href='#', title='KTM')
+				span.fa.fa-globe
+			.sub-menu
+				.container
+					.row
+						.col-sm-12
+							ul
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1
+								li
+									a(href='#', title='KTM') Sub menu 1

@@ -1,0 +1,29 @@
+﻿@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Implementation.Validation
+@model KtmCompany.Web.Models.BlockTypes.EPiServerForms.CustomChoiceElementBlock
+
+@{
+    var formElement = Model.FormElement;
+    var labelText = Model.Label;
+    var items = Model.GetItems();
+    var isRequireField = Model.GetElementValidators().OfType<RequiredValidator>().Any();
+}
+
+<div class="Form__Element FormChoice input-field CustomChoiceElementBlock" id="@formElement.Guid" data-epiforms-element-name="@formElement.Code" @formElement.AttributesString>
+    <div class="Form__Element__ValidationError at-error" style="display: none" data-epiforms-linked-name="@formElement.Code">
+    </div>
+    <div class="CustomChoiceElementContainer">
+        @if (isRequireField)
+        {
+            <span class="icon-require" style="float: left;margin-top: 10px">*</span>
+        }
+        @foreach (var item in items)
+        {
+            var checkedString = item.Checked.HasValue && item.Checked.Value ? "checked" : string.Empty;
+            <div class="input-inline">
+                <input type="checkbox" class="FormChoice__Input FormChoice__Input--Checkbox" name="@formElement.Code" value="@item.Value" @checkedString onchange="formElementValueChanged(this.parentElement.parentElement.parentElement);"/>
+                <span>@item.Caption</span>
+            </div>
+        }
+    </div>
+</div>

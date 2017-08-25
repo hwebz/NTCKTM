@@ -1,0 +1,140 @@
+﻿extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+	title Brands
+block header
+	header.header
+		.container
+			.row
+				.col-sm-12.po-s
+					include ./blocks/_shared/_header.jade
+	include ./blocks/_brandVideoBanner.jade
+block content
+	section.section
+		.container
+			.row
+				.col-sm-4.row-intro
+					.block-main-intro
+						.outer-main-intro
+							a(href="#", class="intro-cate color-1") KTM
+							h3.intro-title READY TO RACE
+							p.intro-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+				.col-sm-8.right-module
+					.inner-block-article
+						h3.heading Explore our premium range
+						p.description "READY TO RACE" – für KTM sind diese drei Worte weit mehr als ein bloßer Slogan. Sie stehen für die gesamte Philosophie des Unternehmens, Fahrzeuge zu entwickeln, die sich bereits ab Werk 100%ig in jedem Rennen behaupten können. Vom Händler direkt auf die Strecke und rein in den Wettkampf um den Sieg. Entwickler, Ingenieure und Fahrer sind dabei durch einen gemeinsamen Nenner verbunden: die bedingungslose Leidenschaft für Motorräder. Die gesamte KTM Familie lebt es weltweit vor. Unzählige Offroad-Welt- und Europameistertitel sowie fulminante Siege bei den schwierigsten Rennen der Welt sprechen für sich. Und KTM Supermotos, Naked Bikes, Superbikes und der X-Bow zeigen auf Asphalt, was „oranger“ Vorsprung bedeutet.
+	+slider("slider-1")
+	section.section#section-1
+		.container
+			.row
+				.col-sm-4.row-intro#row-about-company
+					.block-main-intro
+						+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more')
+				.col-sm-4.module-feature
+					.block-text
+						.text-focus
+							p 122.00$
+								span Last Price
+						.text-des
+							p 2015.12.02
+							p 09:06:15 am
+							p +/- 0.00€
+					.block-text
+						.text-focus
+							p 122.00$
+								span Last Price
+						.text-des
+							p 2015.12.02
+							p 09:06:15 am
+							p +/- 0.00€
+				.col-sm-4.module-feature
+					.block-text
+						.text-focus
+							p 122.00$
+								span Last Price
+						.text-des
+							p 2015.12.02
+							p 09:06:15 am
+							p +/- 0.00€
+					.block-text
+						.text-focus
+							p 122.00$
+								span Last Price
+						.text-des
+							p 2015.12.02
+							p 09:06:15 am
+							p +/- 0.00€
+	+slider("slider-2")
+	section.section
+		.container
+			.row
+				.col-sm-4.row-intro
+					.block-main-intro
+						+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more')
+				.col-sm-8#section-timeline
+					.section-timeline
+						.timeline-row
+							.timeline-year
+								span 1990
+							.timeline-content
+								.timeline-summary
+									h3 Birth of a Legend
+									p Husqvarna’s first motorcycle was unveiled in 1903 - a ‘motorised bicycle’. As the oldest motorcycle manufacturer with uninterrupted production, Husqvarna has thankfully learnt a thing or two over the course of 110-years of development.
+								.timeline-full
+									p Husqvarna’s first motorcycle was unveiled in 1903 - a ‘motorised bicycle’. As the oldest motorcycle manufacturer with uninterrupted production, Husqvarna has thankfully learnt a thing or two over the course of 110-years of development.
+							.timeline-cta
+								span.fa.fa-angle-down
+						.timeline-row
+							.timeline-year
+								span 1990
+							.timeline-content
+								.timeline-summary
+									h3 Birth of a Legend
+									p Husqvarna’s first motorcycle was unveiled in 1903 - a ‘motorised bicycle’. As the oldest motorcycle manufacturer with uninterrupted production, Husqvarna has thankfully learnt a thing or two over the course of 110-years of development.
+								.timeline-full
+									p Husqvarna’s first motorcycle was unveiled in 1903 - a ‘motorised bicycle’. As the oldest motorcycle manufacturer with uninterrupted production, Husqvarna has thankfully learnt a thing or two over the course of 110-years of development.
+							.timeline-cta
+								span.fa.fa-angle-down
+	div(id="slider-3",class="carousel slide slide-img", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/slide-1.jpg", alt="KTM")
+		div.section-info.col-sm-4
+			.block-main-intro.light-color
+				+row-intro('THINGS MOVE FASTER IN THE WORLD OF SX', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'ENTER THE WORLD OF SX')
+	section(class="section section-bg", style="background-image:url('images/people-1.jpg')")
+		.container
+			.row
+				.col-sm-4.row-intro#row-intro-news
+					.block-main-intro
+						+row-intro('The Vision', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.')
+						.type-of-categories
+							ul
+								li.active
+									a(href="#", title="KTM")
+										span All News
+								li
+									a(href="#", title="KTM")
+										span Ktm Group
+								li
+									a(href="#", title="KTM")
+										span Ktm
+								li
+									a(href="#", title="KTM")
+										span Husqvarna motorcycles
+				.right-module.col-sm-8
+					.row
+						.col-sm-6
+							h2.heading Living at extremes
+							p.description Dakar Rally is the toughest race of all. Everything is tested to its very limits, every day (and night), non-stop for 17 days and over 15 000 km! It is more than a race, it is the ultimate adventure - a true challenge for the bike, body and support crew. Each day holds unknown surprises, twists and turns for the entire team. Success is impossible without every one of our team giving 100% no matter what is thrown in front of us. KTM have been to the edge and back, winning the Dakar Rally for 14 years straight. With an unquenchable sense of adventure the KTM team truly lives the READY TO RACE motto!
+	div(id="slider-4",class="carousel slide slide-img", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/slide-1.jpg", alt="KTM")
+		div.section-info.col-sm-4
+			.block-main-intro.light-color
+				+row-intro('THINGS MOVE FASTER IN THE WORLD OF SX', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'ENTER THE WORLD OF SX')
+	footer
+		include ./blocks/_shared/_footer.jade

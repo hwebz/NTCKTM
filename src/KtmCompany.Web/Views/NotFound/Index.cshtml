@@ -1,0 +1,31 @@
+﻿@using KtmCompany.Web.Infrastructure.Extensions
+
+@model NotFoundViewModel
+
+<div id="404-main-slider" data-ride="carousel" class="carousel slide header-main-image header-text">
+    <div role="listbox" class="carousel-inner">
+        <div class="item active">
+            <picture>
+                <source srcset="~/Frontend/KTM/images/404-header-image-480.jpg" media="(max-width: 480px)">
+                <source srcset="~/Frontend/KTM/images/404-header-image-992.jpg" media="(max-width: 992px)">
+                <source srcset="~/Frontend/KTM/images/404-header-image-1200.jpg" media="(max-width: 1200px)">
+                <img srcset="~/Frontend/KTM/images/404-header-image.jpg">
+            </picture>
+            <div class="container slide-info">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="block-main-intro light-color">
+                            <div class="outer-main-intro">
+                                <a href="#" class="intro-cate">@Model.Title</a>
+                                <h3 class="intro-title">@Model.Text.ToMultiLineHTMLText(1)</h3>
+                                <a href="/" class="intro-readmore">@Html.TranslateFallback("/views/pagenotfound/backtohome", "Back to home")
+                                    <span class="fa fa-arrow-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

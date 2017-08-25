@@ -1,0 +1,168 @@
+extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+    title Home Page
+block header
+    header.header.header-image-post
+        .container
+            .row
+                .col-sm-12.po-s
+                    include ./blocks/_shared/_header.jade
+        section.section(style="position:relative;")
+            img(src='images/main-slider.jpg', alt='Header image post')
+            .container.slide-info
+                .row
+                    .col-sm-4
+                        .block-main-intro.light-color
+                            .outer-main-intro
+                                a(href="#", class="intro-cate") Contact
+                            h3.intro-title Lorem ipsum dolor sit amet enim etiam ullamcorper
+                                a(href="#", class="intro-readmore") Contact Us
+                                    span.fa.fa-arrow-down
+block content
+    section.section.selected-new.contact-us
+        .container
+            .row
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        +row-intro('Contact Us', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis.')
+
+                        p.guide-to-webs For enquiries about our products, please visit our websites:
+
+                        p.link
+                            a(href="#", class="link-btns")
+                                span ktm.com
+                                span.fa.fa-arrow-right
+                            br
+                            a(href="#", class="link-btns")
+                                span Husqvarna-motorcycles.com
+                                span.fa.fa-arrow-right
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 IR Service
+                            .description.post-content
+                                p Our Investor Relations Department is always available to assist you with requests for shareholder information.
+                            .address
+                                p KTM AG<br />Mag. Viktor Sigl, MBA<br />5230 Mattighofen, Stallhofnerstrasse 3<br /><u>ir@ktm.com</u>
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Governance contact
+                            .description.post-content
+                                p If you like to find out more about our company, simply contact us by e-mail. We are happy to provide you with information at any time.
+                            .address
+                                p KTM AG<br />Mag. VAdele Prenner<br />5230 Mattighofen, Stallhofnerstrasse 3<br /><u>ir@ktmpowersports.com</u>
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Press contact
+                            .description.post-content
+                                p Please address your media questions directly to the press department. They are always pleased to provide you with information.
+                            .address
+                                p KTM AG<br />A-5230 Mattighofen, Stallhofnerstrasse 3<br />+43 7742/6000-0<br /><u>info@ktmpress.com</u>
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 HR Contact
+                            .description.post-content
+                                p For questions according to our vacant positions please call us:
+                            .address
+                                p 5230 Mattighofen, Stallhofnerstrasse 3
+            .row
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        +row-intro('Contact Form', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis.')
+
+                .news-module.col-sm-8
+                    .row.contact-form
+                        form(action="#", method="post")
+                            .col-sm-6
+                                .gender
+                                    .male
+                                        input(type="checkbox", name="gender", checked=true)
+                                        span Male
+                                    .female
+                                        input(type="checkbox", name="gender", value="Female")
+                                        span Female
+                                .personal-inform
+                                    .input-field
+                                        .alert-message
+                                            p Message to alert when user provides wrong information.
+                                            span.arrowdown
+                                        input.title.valid(type="text", name="title", value="Dr.", placeholder="Title")
+
+                                    .input-field
+                                        .alert-message
+                                            p Message to alert when user provides wrong information.
+                                            span.arrowdown
+                                        input.first-name.valid(type="text", name="firstName", value="Adam", placeholder="First name")
+
+                                    .input-field
+                                        .alert-message
+                                            p Message to alert when user provides wrong information.
+                                            span.arrowdown
+                                        input.last-name(type="text", name="lastName", placeholder="Last name")
+
+                                    .input-field
+                                        .alert-message
+                                            p Message to alert when user provides wrong information.
+                                            span.arrowdown
+                                        input.email(type="text", name="email", placeholder="E-Mail")
+
+                                    .input-field
+                                        .alert-message
+                                            p Message to alert when user provides wrong information.
+                                            span.arrowdown
+                                        input.telephone(type="text", name="telephone", placeholder="Telephone")
+
+                                    .input-field
+                                        .alert-message
+                                            p Message to alert when user provides wrong information.
+                                            span.arrowdown
+                                        input.other-telephone(type="text", name="otherTelephone", placeholder="Telephone")
+
+                                    .input-field.mobile-number-wrapper
+                                        .alert-message
+                                            p Please add mobile number
+                                            span.arrowdown
+                                        input.mobile-number.error(type="text", name="mobileNumber", placeholder="Mobile number")
+                            .col-sm-6
+                                .message-block
+                                    .input-field
+                                        .alert-message
+                                            p Message to alert when user provides wrong information.
+                                            span.arrowdown
+                                        .subject-dropdown
+                                            select.subject.required(name="subject")
+                                                option Subject
+                                                option(value="1") First subject
+                                                option(value="2") Second subject
+                                                option(value="3") Third subject
+                                                option(value="4") Forth subject
+
+                                    .input-field
+                                        .alert-message
+                                            p Message to alert when user provides wrong information.
+                                            span.arrowdown
+                                        textarea.message.required(name="message", placeholder="First name")
+
+                                    p.robot-text <span id="star">*</span> I'm not a robot. Select plane:
+                                        a(href="#")
+                                            span.fa.fa-umbrella
+                                        a(href="#")
+                                            span.fa.fa-star
+                                        a(href="#")
+                                            span.fa.fa-plane
+
+                        .col-sm-3
+                            a(href="#", class="link-btns")
+                                span Send
+                                span.fa.fa-arrow-right
+
+    footer
+        include ./blocks/_shared/_footer.jade

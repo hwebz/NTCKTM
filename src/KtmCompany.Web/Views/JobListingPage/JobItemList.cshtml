@@ -1,0 +1,29 @@
+﻿@using KtmCompany.Web.Infrastructure.Extensions;
+@model JobListingPageViewModel
+
+@if (Model.JobDetailPages != null)
+{
+    var chunkedItems = Model.JobDetailPages.Chunk(2).ToList();
+    if (chunkedItems.Count == 0)
+    {
+        <p>@Html.TranslateFallback("/views/jobitemlist/nojobfound", "No available job found.")</p>
+    }
+    foreach (var row in chunkedItems)
+    {
+        <div class="row">
+            @foreach (var article in row)
+            {
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    @{ Html.RenderPartial("EditorialPageBase", article); }
+                </div>
+            }
+        </div>
+    }
+}
+
+<script type="text/javascript">
+   if (typeof toggleLoadMoreContentsButton == 'function') {
+      var visible = '@Model.IsMoreItemsExist' === 'True';
+      toggleLoadMoreContentsButton(visible);
+   }
+</script>

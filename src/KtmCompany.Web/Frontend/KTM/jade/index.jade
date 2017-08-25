@@ -1,0 +1,149 @@
+﻿extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+	title Home Page
+block header
+	header.header
+		.container
+			.row
+				.col-sm-12.po-s
+					include ./blocks/_shared/_header.jade
+	+main-slider
+block content
+	section.section#section-1
+		.container
+			.row
+				.col-sm-4.row-intro.cut-line#row-about-company
+					.block-main-intro
+						+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more')
+				.col-sm-8.module-feature.first-child
+					.col-sm-6
+						.block-text
+							.text-focus
+								p 122.00$
+									span Last Price
+							.text-des
+								p 2015.12.02
+								p 09:06:15 am
+								p +/- 0.00€
+					.col-sm-6
+						.block-text
+							.text-focus
+								p 122.00$
+									span Last Price
+							.text-des
+								p 2015.12.02
+								p 09:06:15 am
+								p +/- 0.00€
+				.col-sm-8.module-feature
+					.col-sm-6
+						.block-text
+							.text-focus
+								p 122.00$
+									span Last Price
+							.text-des
+								p 2015.12.02
+								p 09:06:15 am
+								p +/- 0.00€
+					.col-sm-6
+						.block-text
+							.text-focus
+								p 122.00$
+									span Last Price
+							.text-des
+								p 2015.12.02
+								p 09:06:15 am
+								p +/- 0.00€
+	+slider("slider-1")
+	section.section
+		.container
+			.row
+				.col-sm-4.row-intro#row-intro-news
+					.block-main-intro
+						//img.sticky-indicator(src='images/sticky_indicator.jpg', alt='Sticky Indicator')
+						+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more')
+				.news-module.col-sm-8
+					.row
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-3 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-2 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-3 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+	+slider("slider-2")
+	section.section
+		.container
+			.row
+				.col-sm-12
+					.quote-module
+						h2
+							|Central to motorcycling,<br />
+							|is performance
+						p 
+							|Its what makes your pulse race every time you head off on your bike.<br />
+							|Performance is central, for without it, success is not an option.
+	section.section
+		.gallery-ui
+			.block-gallery
+				img(src="images/img-1.jpg", alt="KTM", class="img-responsive", style="opacity:1")
+				a(href="#", title="KTM") KTM
+					span.fa.fa-arrow-right
+				div(class="cate-color", style="background: #ff6600")
+			.block-gallery
+				img(src="images/img-2.jpg", alt="KTM", class="img-responsive", style="opacity:1")
+				a(href="#", title="KTM") husqvarna motorcycles
+					span.fa.fa-arrow-right
+				div(class="cate-color", style="background: #002550")
+			span.text-title Our brands
+	footer
+		include ./blocks/_shared/_footer.jade

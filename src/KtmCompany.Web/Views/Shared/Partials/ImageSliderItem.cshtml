@@ -1,0 +1,15 @@
+﻿@using EPiServer.Cms.Shell
+@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Helpers
+
+@model KtmCompany.Web.Models.MediaTypes.ImageFile
+@{
+    var imageSrc = Model.PublicUrl();
+}
+
+<picture>
+    <source srcset="@ImageHelpers.StandardPercentageCrop(imageSrc,(short)ImageScreenWidthPercent.Screen480)" media="(max-width: 480px)" />
+    <source srcset="@ImageHelpers.StandardPercentageCrop(imageSrc,(short)ImageScreenWidthPercent.Screen992)" media="(max-width: 992px)"/>
+    <source srcset="@ImageHelpers.StandardPercentageCrop(imageSrc,(short)ImageScreenWidthPercent.Screen1200)" media="(max-width: 1200px)" />
+    <img srcset="@imageSrc"/>
+</picture>

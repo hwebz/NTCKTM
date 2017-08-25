@@ -1,0 +1,101 @@
+extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+	title Home Page
+block header
+	header.header
+		.container
+			.row
+				.col-sm-12.po-s
+					include ./blocks/_shared/_header.jade
+block content
+	section.section.search-result
+		.container
+			.row
+				.col-sm-4.row-intro#row-intro-news
+					.block-main-intro
+						h3.intro-title Search Results:
+						.search-box
+							span.fa.fa-search
+							input(class="input-search", value="", name="form-search", placeholder="Lorem ipsum dolor sit amet")
+						.type-of-categories
+							ul
+								li.active
+									a(href="#", title="KTM")
+										span All
+										span.result (1,134 Results)
+								li
+									a(href="#", title="KTM")
+										span.color-3 Ktm Group
+										span.result (534 Results)
+								li
+									a(href="#", title="KTM")
+										span.color-1 Ktm
+										span.result (312 Results)
+								li
+									a(href="#", title="KTM")
+										span.color-2 Husqvarna motorcycles
+										span.result (114 Results)
+				.news-module.col-sm-8
+					.row
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") IT &amp; organisation
+								p.item-news-text
+									|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed. Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-3 KTM Group
+								h3
+									a(href="#", title="KTM") Finance, Human Resources, Recht
+								p.item-news-text
+									|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed. Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-2 Husqva Motorcycles
+								h3
+									a(href="#", title="KTM") Technik, Forschung &amp; Entwicklung, Motorsport
+								p.item-news-text
+									|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed. Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") Marketing &amp; Sales, Product Management
+								p.item-news-text
+									|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed. Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") Marketing &amp; Sales, Product Management
+								p.item-news-text
+									|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed. Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-3 KTM Group
+								h3
+									a(href="#", title="KTM") Technik, Forschung &amp; Entwicklung, Motorsport
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span.fa.fa-arrow-right
+					.load-more
+						a(href="#", title="KTM") load more
+							span.fa.fa-plus
+	footer
+		include ./blocks/_shared/_footer.jade

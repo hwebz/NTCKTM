@@ -1,0 +1,188 @@
+extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+    title Home Page
+block header
+    header.header.header-image-post
+        .container
+            .row
+                .col-sm-12.po-s
+                    include ./blocks/_shared/_header.jade
+        section.section(style="position:relative;")
+            img(src='images/main-slider.jpg', alt='Header image post')
+            .container.slide-info
+                .row
+                    .col-sm-4
+                        .block-main-intro.light-color
+                            .outer-main-intro
+                                a(href="#", class="intro-cate") Management board
+                            h3.intro-title Lorem ipsum dolor sit amet
+                                a(href="#", class="intro-readmore") Read more
+                                    span.fa.fa-arrow-down
+block content
+    section.section.selected-new.contact-us.management-board.investor-relations
+        .container
+            .row.first-child
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        +row-intro('Company summary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis.', '')
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .information-block
+                            .post-title
+                                h3 KTM AG strives  to maintain a policy of transparent, timely and comprehensive information and communication with the capital market participants and the general public.
+                            .description.post-content
+                                p We therefore provide information on KTM’s financial situation and future development at regular intervals.
+                            .address
+                                p The Investor Relations Team at KTM AG is convinced that confidence in our company and products can only be secured with a transparent, timely and comprehensive information and communication policy. As a result, we aim to give investors, analysts and the general public a comprehensive insight into the current economic situation and future development.
+        +slider("slider-2")
+        .container
+            .row.group-up.have-top-space
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro-other.outer-main-intro
+                            h3.intro-title KTM Group<br /><span class="green-text"><span class="growup-percentage"></span> 4,00%</span>
+                            p.intro-des KTM AG’s share capital of € 10,845,000.00 is divided into 10,845,000 shares. On 31 December 2014, the market capitalisation of the KTM share, securities identification number 645403, was € 1,464.08 million (10,845,000 shares approved for trading).
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .information-block
+                            .post-title
+                                h3 KTM AG’s share capital of € 10,845,000.00 is divided into 10,845,000 shares.
+                            .description.post-content
+                                p On 31 December 2014, the market capitalisation of the KTM share, securities identification number 645403, was € 1,464.08 million (10,845,000 shares approved for trading). Current share price:
+                            .growup-chart
+                                img(src="images/growup-chart.jpg", alt="Grow up Chart")
+                            .below-description
+                                p For more information on share price development, please visit the Vienna Stock Exchange at
+                                a(href="http://www.wienerborse.at", class="webpage-btn") www.wienerborse.at
+                                    span.fa.fa-arrow-right
+        +investor-image-slider("slider-3", "Financial Report", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed suscipit mi, sit amet pretium tellus. Donec vitae congue velit. ", "See all reports")
+        .container
+            .row.have-top-space
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro-other.outer-main-intro
+                            h3.intro-title KTM Group<br />events 2016
+                            p.intro-des Here you will find the publication dates for financial and company reports, along with the dates of all other company-related events.
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 31 March 2016
+                            .description.post-content
+                                p Publication of Annual Report 2015
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 11 April 2016
+                            .description.post-content
+                                p Record Date "General Meeting"
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 21 April 2016
+                            .description.post-content
+                                p Annual General Meeting
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 25 April 2016
+                            .description.post-content
+                                p Ex-Dividend Day
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 26 April 2016
+                            .description.post-content
+                                p Record Date "Dividends"
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 28 April 2016
+                            .description.post-content
+                                p Dividend Payment Day
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 19 August 2016
+                            .description.post-content
+                                p Publication of half-year Financial Report 2016
+        +slider("slider-4")
+        .container
+            .row.have-top-space.corporate-governance
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro-other.outer-main-intro
+                            h3.intro-title CORPORATE<br />GOVERNANCE
+                            p.intro-des The Austrian Code of Corporate Governance came into effect on 1 October 2002. These regulations prescribe the principles of good business management and serve as an orientation aid for international investors. They are based on the provisions of the Austrian shares, stock market and capital market law as well as on the OECD Guidelines for Corporate Governance.
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .col-sm-12.information-block.whole-block
+                            .post-title
+                                h3 KTM AG has complied with the Austrian Code of Corporate Governance since preparations began for the IPO in autumn 2003.
+                            .description.post-content
+                                p The Code of Corporate Governance is an important part of the cooperation between KTM  AG’s supervisory board and management.
+                            .address
+                                p The Code, which goes beyond the legal provisions, becomes valid through voluntary compliance by a company. Acknowledgement of the Code means that any non-compliance with C Rules ("comply or explain") must be justified. The Company must have the implementation of the Code regularly evaluated by an external institution and must report publicly on the findings.
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Governance system
+                            .description.post-content
+                                p The compliance guidelines contain all of the laws and guidelines within KTM AG as well as the ethical standards and requirements codes that the Company sets for itself.
+                            .download-part.address
+                                .link
+                                    a(href="#", class="webpage-btn") <span class="fa fa-download"></span>KTM AG Compliance guidelines
+                                .link
+                                    a(href="#", class="webpage-btn") <span class="fa fa-download"></span>Comply or explain
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Governance Reports
+                            .description.post-content
+                                p The following Corporate Governance Report has been created according to the Annual Report. The Austrian Corporate Governance Codex is available for downloading at the website of the Corporate Governance working team: <strong>www.corporate-governance.at</strong>
+                            .download-part.address
+                                .download-part.address
+                                    .link
+                                        a(href="#", class="webpage-btn") <span class="fa fa-download"></span>Corporate Governance report 2014
+                                    .link
+                                        a(href="#", class="webpage-btn") <span class="fa fa-download"></span>Corporate Governance report 2013
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Articles of Association
+                            .description.post-content
+                                p Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.
+                            .download-part.address
+                                .link
+                                    a(href="#", class="webpage-btn") <span class="fa fa-download"></span>Articles of association
+
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Governance Reports
+                            .description.post-content
+                                p The CROSS Industries AG, Wels, holds, directly and indirectly, 51,18% of the voting rights in the KTM AG (effective: 31 December 2014), which is within the reach of graduate engineer Stefan Pierer.
+                            .address
+                                p Details concerning the business relations with affiliated companies and persons can be found in point 34 of the consolidated notes of the 2014 Annual Report of the KTM AG.
+        .container
+            .row.have-top-space
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro-other.outer-main-intro
+                            h3.intro-title Investor<br />Relations<br />Policy
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .information-block.whole-block
+                            .post-title
+                                h3 KTM’s long-term goal is to become the most profitable motorcycle manufacturer and the leading power sports brand in Europe.
+                            .description.post-content
+                                p To achieve this, KTM focuses on consolidating its position in the core segments and on exploiting new segments.
+                                p The cooperation with Bajaj Auto Ltd. is one example of a partnership in a new geographic market segment. Expanding the product range and developing new niches are important components of KTM’s long-term growth strategy. KTM’s strategic focus therefore lies in research and development, further expansion of the distribution network, and an efficient supply structure.
+    footer
+        include ./blocks/_shared/_footer.jade

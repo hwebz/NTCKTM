@@ -1,0 +1,130 @@
+extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+    title Home Page
+block header
+    header.header.header-image-post
+        .container
+            .row
+                .col-sm-12.po-s
+                    include ./blocks/_shared/_header.jade
+        section.section(style="position:relative;")
+            img(src='images/main-slider.jpg', alt='Header image post')
+            .container.slide-info
+                .row
+                    .col-sm-4
+                        .block-main-intro.light-color
+                            .outer-main-intro
+                                a(href="#", class="intro-cate") Management board
+                            h3.intro-title Lorem ipsum dolor sit amet
+                                a(href="#", class="intro-readmore") Read more
+                                    span.fa.fa-arrow-down
+block content
+    section.section.selected-new.contact-us.management-board
+        .container
+            .row.first-child
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro
+                            img.avatar(src="images/pierer.png", alt="DI Stefan Pierer")
+                            h3.intro-title DI Stefan<br />Pierer
+                            p.intro-des born 25 November 1956<br />appointed until 29 February 2020
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 CEO, Chairman of the Executive Board of KTM AG and KTM Motorrad AG
+                            .description.post-content
+                                p Responsible for: corporate and product strategy, research and development, motorsport and quality management.
+
+                        .col-sm-6.information-block
+                            .description.post-content
+                                p After graduating from the Montan-University in Leoben (Business and Energy Management), he began his career in 1982 at HOVAL GmbH in Marchtrenk as sales assistant and then later as sales manager and authorised officer. In 1987, Stefan Pierer founded the CROSS holding group in which he acts as shareholder and member of the Board of Directors.
+                            .address
+                                p Supervisory board directorships at listed companies. Chairman of the board at Pankl Racing Systems AG, CROSS Industries AG and member of the supervisory board at ATHOS Immobilien AG
+            .row
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro-other
+                            img.avatar(src="images/plockinger.png", alt="DI Harald Plöckinger")
+                            h3.intro-title DI Harald<br />Plöckinger
+                            p.intro-des born 23 March 1961<br />appointed until 29 February 2020
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Member of the Executive Board of KTM AG and KTM Motorrad AG
+                            .description.post-content
+                                p Responsible for: logistics, business development, business interface with Bajaj, production and procurement.
+
+                        .col-sm-6.information-block
+                            .description.post-content
+                                p Harald Plöckinger completed his education at the Technical University in Graz (Mechanical Engineering) and started his career at the BMW Group in the engine development division. Between 1990 and 2004 he was an authorised officer, head of production, head of strategic planning and subsequently managing director of Bombardier-Rotax. Since 2004, Harald Plöckinger has been a member of the Executive Board at KTM Motorrad AG and since 2007 at KTM AG as well.
+            .row
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro-other
+                            img.avatar(src="images/roithner.png", alt="Mag. Friedrich Roithner")
+                            h3.intro-title Mag. Friedrich<br />Roithner
+                            p.intro-des born 10 March 1963<br />appointed until 29 February 2020
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Member of the Executive Board of KTM AG
+                            .description.post-content
+                                p Responsible for: financing and risk management.
+
+                        .col-sm-6.information-block
+                            .description.post-content
+                                p After graduating from the University of Linz (Business Administration), Friedrich Roithner started his career as an auditing assistant at one of the big four tax consultancy and auditing companies in Austria (focussing on tax consultancy and auditing). In 1992, he joined Austria Metall AG where he was a member of the Management Board from 2002 to 2006. Since 2006, Friedrich Roithner has been part of the management team at CROSS Group. In 2010, Friedrich Roithner became CFO of CROSS Industries AG and Cross Motorsport Systems AG, and then in 2011 a member of the Executive Board of KTM AG.
+                            .address
+                                p Supervisory board directorships at listed companies
+                                p Member of the supervisory board at Pankl Racing Systems AG and All for One Steeb AG
+            .row
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro-other
+                            img.avatar(src="images/sigl.png", alt="Mag. Viktor Sigl, MBA")
+                            h3.intro-title Mag. Viktor<br />Sigl, MBA
+                            p.intro-des born 29 June 1974<br />appointed until 29 February 2020
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Member of the Executive Board of KTM AG and KTM Motorrad AG
+                            .description.post-content
+                                p Responsible for: finance, controlling, law, insurance, HR and IT & organization
+
+                        .col-sm-6.information-block
+                            .description.post-content
+                                p After graduating from the Johannes Kepler University in Linz with a degree in Business Administration, he started his professional carrier at KPMG in the field of financial auditing and tax consultancy. In 2005, after completing his tax consultancy examinations and an MBA program at the University of Toronto, Viktor Sigl joined voestalpine AG to become head of Corporate Tax & Finance Advisory. Before joining the KTM group, he was commercial director in the field of international industrial assembly.
+            .row
+                .col-sm-4.row-intro
+                    .block-main-intro
+                        .outer-main-intro-other
+                            img.avatar(src="images/trunkenpolz.png", alt="Mag. Ing.Hubert Trunkenpolz")
+                            h3.intro-title Mag. Ing.<br />Hubert<br />Trunkenpolz
+                            p.intro-des born 17 May 1962<br />appointed until 29 February 2020
+
+                .news-module.col-sm-8
+                    .row.post-detail
+                        .col-sm-6.information-block
+                            .post-title
+                                h3 Member of the Executive Board of KTM AG and KTM Motorrad AG
+                            .description.post-content
+                                p Responsible for: sales, marketing and customer service.
+
+                        .col-sm-6.information-block
+                            .description.post-content
+                                p After graduating from the Johannes Kepler University Linz (Business Administration), Hubert Trunkenpolz started his career at ISA Audivisual Communication Corp. as marketing manager and subsequently at TRUMAG as sales manager/managing director. He has been at CROSS Group since 1992 and a member of the Executive Board of KTM Motorrad AG since 2004. Hubert Trunkenpolz also became a member of the Executive Board of KTM AG in 2007.
+                    .board-note
+                        p ​The supervisory board approved the appointment of supervisory board members and comparable seats outside the Group.
+    footer
+        include ./blocks/_shared/_footer.jade

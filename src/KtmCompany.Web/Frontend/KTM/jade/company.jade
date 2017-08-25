@@ -1,0 +1,71 @@
+extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+    title Home Page
+block header
+    header.header.company-header
+        .container
+            .row
+                .col-sm-12.po-s
+                    include ./blocks/_shared/_header.jade
+        section.section(style="position:relative;")
+            img(src='images/company-slider.jpg', alt='Header image post')
+            .container.slide-info
+                .row
+                    .col-sm-4
+                        .block-main-intro.light-color
+                            .outer-main-intro
+                                a(href="#", class="intro-cate") Company
+                            h3.intro-title Loresum<br />dolor sit<br />amet
+                                a(href="#", class="intro-readmore") Read more
+                                    span.fa.fa-arrow-down
+block content
+    .company-page
+        section.section#section-1
+            .container
+                .row
+                    .col-sm-4.row-intro.cut-line
+                        .block-main-intro
+                            +row-intro('Company strategy', '​Building premium quality performance vehicles is only half the task. Connecting customers with these vehicles is equally as important. ', '')
+                    .col-sm-8.company-struture
+                        .structure-detail
+                            h3.intro-title As the umbrella company for the KTM and Husqvarna Motorcycles brands, the KTM GROUP demands top performance in all areas.
+                            p This especially includes our authorized dealers, who we require to provide KTM and Husqvarna customers with nothing less than first-class service. As the backbone of the KTM and Husqvarna marketing organizations, customers are central to our business and sales focus. Each year the KTM GROUP invests heavily in growing this area through further development, training and optimization of the services offered to our customers.
+                            p Every area of the business and touch point with the customer shows that our organization truly lives and reflects the respective brands. Whether it is the sale of new and used vehicles, branded clothing and accessories, branded premium optional performance parts or Original Spare Parts. We insist on high levels of customer service - both in the workshops and showrooms, as well as with dealers providing advisory services and information on the many topics relevant to building an authentic motorcycle experience. This carries through to experiential business divisions such as KTM Adventure Tours, KTM and Husqvarna Finance and KTM Care warranty extensions for roadworthy motorcycles.
+                            p The KTM GROUP remains in close contact with all of its dealers via the KTM and Husqvarna sales offices. This enables us to stay close to the action, developments and progression in the market while allowing us to present appropriate products and experiences at KTM and Husqvarna dealers consistent with each brand’s core values and market expectations.
+                            p Working in partnership with 31 international sales subsidiaries and two additional joint ventures in New Zealand and Dubai, our staff service and attend to over 2,000 dealers and importers worldwide on behalf of both KTM Sportmotorcycle GmbH and Husqvarna Motorcycles GmbH.
+                            p This ensures that all KTM and Husqvarna dealers have one valuable thing in common: they all live the spirit of the brands at all times.
+        +company-slider("slider-1", 'A Visionary Team', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed suscipit mi, sit amet pretium tellus. Donec vitae congue velit. ', 'Meet our management')
+
+        section.section#section-2
+            .container
+                .row
+                    .col-sm-4.row-intro.cut-line
+                        .block-main-intro
+                            +row-intro('Company strategy', '​Building premium quality performance vehicles is only half the task. Connecting customers with these vehicles is equally as important. ', '')
+                    .col-sm-8.company-struture
+                        .structure-detail
+                            h3.intro-title KTM AG has been listed on the Vienna Stock Exchange since December 2003 and forms the ultimate parent of the KTM Group.
+                            p The most important equity holdings of KTM AG are KTM Sportmotorcycle GmbH, Husqvarna Motorcycles GmbH, KTM Technologies GmbH, KTM Immobilien GmbH and the minority interest in Kiska GmbH. KTM AG with registered office in Mattighofen produces and develops race-ready offroad and street motorcycles. The subsidiaries of KTM Group also include KTM-Racing AG and KTM Sportcar GmbH, among others. KTM's products are distributed via 31 sales subsidiaries and two joint ventures in Dubai and New Zealand, to about 2,000 independent dealers and importers worldwide.
+                            img(src='images/company-structure.png', alt='Company structure diagram')
+        +company-image-slider("slider-2", 'A Visionary Team', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed suscipit mi, sit amet pretium tellus. Donec vitae congue velit. ', '')
+
+        section.section#section-3
+            .container
+                .row
+                    .col-sm-4.row-intro.cut-line
+                        .block-main-intro
+                            +row-intro('Company philosophy', '​​Since KTM’s foundation in 1953, the KTM GROUP has gained more than 60 years of expertise within the two - wheeled market.', '')
+                    .col-sm-8.company-struture
+                        .structure-detail
+                            h3.intro-title Starting out as an offroad only motorcycle producer, KTM GROUP progressed to be an innovative manufacturer of street motorcycles and premium sport cars too.
+                            p Today, driven by the passion of its employees, KTM GROUP’s clear vision is to become the biggest manufacturer of sport motorcycles worldwide. To accomplish this vision, the company’s consistent long-term strategy is built on three pillars including brand, globalization and innovation.
+                            p The KTM GROUP’s corporate success is grounded in strengthening the core values of it’s two primary brands and communicating them appropriately. The promise implicit in the READY TO RACE philosophy for KTM and PIONEERING SINCE 1903 for Husqvarna Motorcycles will always be delivered on in every product. The clear profile of the KTM GROUP brands and their continuity are mainstays of the group’s success. Having KTM GROUP products and related services used globally, and growing rapidly, is another important factor of the continued vision.
+                            p Geared for the future, KTM GROUP successfully markets products that were developed with a great deal of craftsmanship. With a long history and strong interest in motorsport for both brands, we constantly strive to develop our overall product range, to identify developing trends and to define new ones. Innovation and the highest development standards are crucial to achieving this vision.
+                            p By launching KTM’s sports car, the KTM X-BOW, KTM GROUP proved that it is capable of developing new products outside of its traditional core business. The experience gained in terms of lightweight vehicle construction is invaluable in developing new vehicle concepts. Additionally, KTM GROUP intends to take a leading developmental role in electric powertrain innovation. The experience gained from our research project to develop a high-power electric motorcycle in the KTM FREERIDE-E proved the potential of electric powertrains. Building on this research, KTM GROUP is developing technology that supports alternate forms of mobility in urban settings.
+        +company-slider-with-form("slider-3", 'Company Worldwide', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed suscipit mi, sit amet pretium tellus. Donec vitae congue velit. ', 'Find Location')
+
+    footer
+        include ./blocks/_shared/_footer.jade

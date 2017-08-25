@@ -1,0 +1,29 @@
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .quote-module {
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+  .news-module {
+    .col-sm-6 {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+  .item-news {
+    h3 {
+      font-size: 20px;
+    }
+  }
+}

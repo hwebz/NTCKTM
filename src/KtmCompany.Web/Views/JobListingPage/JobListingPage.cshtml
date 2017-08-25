@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/Views/Shared/PagePartials/JobListingPageUI.cshtml";
+}
+@model JobListingPage
+
+@section JobFilter
+{
+    @{
+        Html.RenderAction("Index", "JobFilter");
+    }
+}
+
+<div id="resultsPlaceHolder" class="row-list-jobs"></div>
+<div class="load-more" style="display: none" id="loadMoreContents">
+    <a href="">@Html.TranslateFallback("/views/joblistpage/loadmorejobs", "Load more jobs")<span class="fa fa-plus"></span></a>
+</div>
+
+@section Scripts
+{
+<script>
+    (function () {
+        $(document).ready(function () {
+            FilterJob();
+        });
+
+        $('#loadMoreContents').click(function () {
+            var params = $.urlParams();
+            loadJobs(parseInt($('#currentPageIndex').val()) + 1, $('#pageSize').val(), params.JobPosition, params.Country)
+                .then(function(data){
+                    $('#resultsPlaceHolder').append(data);
+                });
+
+            return false;
+        });
+
+        function FilterJob() {
+            var params = $.urlParams();
+            loadJobs(1, $('#pageSize').val(), params.JobPosition, params.Country)
+                .then(function(data){
+                    $('#resultsPlaceHolder').html(data);
+                    $(".url-listing-item").on("click", function () {
+                        changeUrlParam($(this).attr("href"), params);
+                        return false;
+                    });
+                });
+        }
+    })();
+</script>
+}

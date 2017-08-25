@@ -1,0 +1,128 @@
+﻿@using EPiServer
+@using KtmCompany.Web.Helpers
+@model SearchPageViewModel
+
+<section class="section search-result first-section sticky-container">
+    <div class="container">
+        <div class="row tripple-row table-style">
+            <div id="row-intro-news" class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line padding--first-section-bottom">
+                <div class="block-main-intro">
+                    <div class="outer-main-intro">
+                        <h3 class="intro-title">@Html.TranslateFallback("/views/searchpage/searchresults", "Search Results:")</h3>
+                        <div class="search-box">
+                            <span class="ktm-icon ktm-icon-search-mini"></span>
+                            <input value="@Model.SearchCriteria" name="form-search" id="searchText" placeholder="@Html.TranslateFallback("/views/searchpage/searchtext", "Search Text")" class="input-search">
+                        </div>
+                        <div class="type-of-categories-mobile">
+                            <div class="category-dropdown">
+                                <select name="category" class="category">
+                                    <option value="1">@Html.TranslateFallback("/views/searchpage/all", "All") (@Model.TotalResults @Html.TranslateFallback("/views/searchpage/results", "Results"))</option>
+                                    @if (Model.TermFacetItem != null)
+                                    {
+                                        foreach (var item in Model.TermFacetItem)
+                                        {
+                                            <option value="@item.Term" class="category" data-content='@item.Term'>@item.Term (@item.Count @Html.TranslateFallback("/views/searchpage/results", "Results"))</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="type-of-categories">
+                            <ul>
+                                <li class="active">
+                                    <a href="#" class="category">
+                                        <span>@Html.TranslateFallback("/views/searchpage/all", "All")</span>
+                                        <span class="result"> (@Model.TotalResults @Html.TranslateFallback("/views/searchpage/results", "Results"))</span>
+                                    </a>
+                                </li>
+                                @if (Model.TermFacetItem != null)
+                                {
+                                    foreach (var item in Model.TermFacetItem)
+                                    {
+                                        <li>
+                                            <a href="#" class="category" data-content='@item.Term'>
+                                                <span>@item.Term</span>
+                                                <span class="result">(@item.Count @Html.TranslateFallback("/views/searchpage/results", "Results"))</span>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 table-row padding--first-section-bottom seperate-line-right">
+                <div id="resultsPlaceHolder">
+                    @{
+                        Html.RenderPartial("ResultListItems", Model);
+                    }
+                </div>
+                <div class="load-more" style="display: none" id="loadMoreContents">
+                    <a href="">@Html.TranslateFallback("/views/searchpage/loadmore", "Load more")<span class="fa fa-plus"></span></a>
+                </div>
+            </div>
+            @Html.HiddenFor(x => x.CurrentPage.PageSize, new { id = "pageSize" })
+            @Html.HiddenFor(x => x.ContentCategory, new { id = "contentCategory" })
+            @Html.HiddenFor(x => x.CurrentPageIndex, new { id = "currentPageIndex" })
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $('a.category').click(function (event) {
+        event.preventDefault();
+        var category = $(this).attr('data-content');
+        LoadContentsByCategory(category);
+        $('.type-of-categories li').removeClass('active');
+        setActiveItemsDirectory(category);
+
+        $(this).parents().find(".outer-main-intro").css("top", 0);
+    });
+
+    $('select.category').change(function () {
+        var category = $(this).children(":selected").val();
+        LoadContentsByCategory(category);
+    });
+
+    function LoadContentsByCategory(category) {
+        $('#contentCategory').val(category);
+        $('#currentPageIndex').val(0);
+        LoadMoreContents(false);
+    }
+
+    $('#searchText').keypress(function (event) {
+        if (event.keyCode == 10 || event.keyCode == 13) {
+            var searchText = $('#searchText').val();
+            var url = '@(Model.CurrentPage.GetFriendlyUrl())';
+            url = url + '?&searchText=' + searchText;
+            window.location.href = url;
+        }
+    });
+
+    $('#loadMoreContents').click(function (event) {
+        LoadMoreContents(true);
+        return false;
+    });
+
+    function LoadMoreContents(isAppendContent) {
+        $('.loading').fadeIn('fast');
+        var currentPageIndex = parseInt($('#currentPageIndex').val());
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("LoadMoreArticles", "SearchPage")',
+            data: { 'pageSize': $('#pageSize').val(), 'currentPageIndex': currentPageIndex, 'category': $('#contentCategory').val(), 'searchText': $('#searchText').val() },
+            dataType: 'html',
+            success: function (data) {
+                if (isAppendContent) {
+                    $('#resultsPlaceHolder').append(data);
+                } else {
+                    $('#resultsPlaceHolder').html(data);
+                }
+                $('#currentPageIndex').val(currentPageIndex + 1);
+                $('.loading').fadeOut('fast');
+            }
+        });
+    }
+
+</script>

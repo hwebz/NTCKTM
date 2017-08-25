@@ -1,0 +1,132 @@
+﻿.black-bold-link {
+    color: #000000;
+    font-weight: bold;
+}
+
+.black-bold-link:hover {
+    color: #d7d7d7;
+    text-decoration: underline;
+}
+.tinymce.back-to-prev {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #000;
+  display: block;
+  border-top: 1px solid #d9d9d9;
+  padding-top: 30px;
+  margin-top: 30px;
+  font-family: "TradeGothicBoldCon", Arial, Helvetica, sans-serif; 
+  width: 100%;
+}
+.tinymce.back-to-prev span{
+  color: #000;
+}
+
+.tinymce.back-to-prev span a, .tinymce.back-to-prev a {
+    color: #000;
+    text-decoration: none;
+}
+.tinymce.back-to-prev:hover, .tinymce.back-to-prev span:hover, .tinymce.back-to-prev a:hover {
+    text-decoration: none;
+    color: #7d7d7d !important; 
+}
+.tinymce.back-to-prev span {
+    margin-right: 10px; 
+}
+/*.back-to-prev:before {
+    content: '';
+    border: 20px solid transparent;
+    position: absolute;
+    left: -35px;
+    background: transparent url("../images/left-arrow-1.png") no-repeat left 50%;
+}
+.back-to-prev:hover {
+  background-position: 100% 50%; 
+}*/
+.loading {
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+
+.blackColorText .act-form .select-box label, .blackColorText .input-inline, .blackColorText .icon-require, .genericcontentblock .slider-part .link .webpage-btn, .structure-detail .slider-part .link .webpage-btn, .whiteColorText .CustomDateSelectionBlock select, .whiteColorText .FormTextbox, .whiteColorText .FormTextbox--Textarea {
+    color: #000;
+}
+.share-price .block-main-intro .outer-main-intro .webpage-btn, .whiteColorText .CustomLabelBlock, .whiteColorText .CustomCheckboxBlock, .whiteColorText .CustomCheckboxBlock a, .whiteColorText .CustomDateSelectionBlock label, .whiteColorText .icon-require, .whiteColorText {
+    color: #fff;
+}
+.EPiServerForms .Form__Element .Form__Element__ValidationError.at-error {
+    color: #fff;
+}
+.career-contact .item-news-category {
+    margin-bottom: 0px;
+}
+.career-contact h3 {
+    margin-bottom: 30px;
+}
+@media only screen and (min-width: 1630px) {
+    .whiteColorText .block .outer-main-intro {
+        padding: 0px;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .whiteColorText .block .outer-main-intro {
+       padding: 0px;
+    }
+}
+.whiteColorText .block .outer-main-intro {
+    padding: 0px;
+}
+
+.act-form .blackColorText .submit-btn {
+    position: relative;
+    color: #000;
+}
+
+.genericblock-border-bottom {
+  padding-bottom: 69px;
+  border-bottom: 1px solid #d9d9d9; 
+}
+
+@media only screen and (max-width: 767px) {
+    .genericblock-border-bottom .module-with-icon-mobile{
+        padding-bottom: 0;
+        border-bottom: none; 
+    }
+}
+
+.tinymce.next-event, .tinymce.event-title {
+    color: #000;    
+}
+.light-color .tinymce.next-event,.light-color  .tinymce.event-title {
+    color: #fff;    
+}
+a.tinymce {
+    color: #000;        
+}
+.light-color a.tinymce{
+    color: #fff;    
+}
+.outer-main-intro.hide-sticky-icon:before {
+    display: none;
+}
+.textblock.col-lg-6.col-md-6.col-sm-12.col-xs-12:nth-child(odd) {
+    padding-left: 0px;
+}
+.textblock.col-lg-6.col-md-6.col-sm-12.col-xs-12:nth-child(even) {
+    padding-right: 0px;
+}
+@media only screen and (max-width: 767px) {
+    .textblock.col-lg-6.col-md-6.col-sm-12.col-xs-12:nth-child(odd) {
+        padding-right: 0px;
+    }
+
+    .textblock.col-lg-6.col-md-6.col-sm-12.col-xs-12:nth-child(even) {
+        padding-left: 0px;
+    }
+}
+.content-slider-block .owl-item.active .item {
+    opacity: 1;
+}
+.selected-new .post-detail .job-detail ul li {
+    background: none;
+}

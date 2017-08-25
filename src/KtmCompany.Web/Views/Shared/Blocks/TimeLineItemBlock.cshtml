@@ -1,0 +1,57 @@
+﻿@using EPiServer.Find.Helpers
+@model TimeLineItemBlock
+@{
+    var renderForMobile = ViewData["renderForMobile"] != null ? (bool)ViewData["renderForMobile"] : false;
+}
+
+@if (renderForMobile)
+{
+    <div class="section-timeline">
+        <div class="timeline-row">
+            <div class="timeline-year">
+                <p class="year">@Html.PropertyFor(x => x.Year)</p>
+                <p class="title">@Html.PropertyFor(x => x.Heading)</p>
+            </div>
+            <div class="timeline-content">
+                @if (Model.MainBody.IsNotNull() && !Model.MainBody.IsEmpty)
+                {
+                    <div class="timeline-full">
+                        <p>@Html.PropertyFor(x => x.MainBody)</p>
+                    </div>
+                }
+            </div>
+            <div class="timeline-cta">
+                @if (Model.MainBody.IsNotNull() && !Model.MainBody.IsEmpty)
+                {
+                    <span class="fa fa-angle-down btn-toggle"></span>
+                }
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="timeline-row">
+        <div class="timeline-year">
+            <span>@Html.PropertyFor(x => x.Year)</span>
+        </div>
+        <div class="timeline-content">
+            <div class="timeline-summary">
+                <h3>@Html.PropertyFor(x => x.Heading)</h3>
+                <p>@Html.PropertyFor(x => x.Abstract)</p>
+            </div>
+            @if (Model.MainBody.IsNotNull() && !Model.MainBody.IsEmpty)
+            {
+                <div class="timeline-full">
+                    <p>@Html.PropertyFor(x => x.MainBody)</p>
+                </div>
+            }
+        </div>
+        <div class="timeline-cta">
+            @if (Model.MainBody.IsNotNull() && !Model.MainBody.IsEmpty)
+            {
+                <span class="fa fa-angle-down btn-toggle"></span>
+            }
+        </div>
+    </div>
+}

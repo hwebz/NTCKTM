@@ -1,0 +1,148 @@
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+  .brands-page {
+    .right-block {
+      margin: 0;
+      padding-top: 50px;
+    }
+  }
+
+  .right-module {
+    padding-left: 50px;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .brands-page {
+    .right-block {
+      padding-top: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .section {
+    #row-intro-news {
+      .type-of-categories {
+        display: none;
+      }
+
+      .type-of-categories-mobile {
+        display: block;
+      }
+    }
+
+    .row-intro {
+      border: none;
+      padding-right: 15px;
+    }
+    #section-timeline-mobile {
+      display: block;
+      padding: 0 15px 25px 15px;
+      margin-top: -18px;
+
+      .section-timeline {
+
+        .timeline-year {
+          font-size: 40px;
+          float: none;
+          padding-bottom: 30px;
+          position: relative;
+          .year {
+            float: left;
+            vertical-align: text-bottom;
+          }
+          .title {
+            font-size: 20px;
+            padding-left: 85px;
+            position: absolute;
+            bottom: -30px;
+            line-height: 1;
+          }
+        }
+
+        .timeline-content {
+          margin-left: 0;
+          padding-left: 0;
+          border: none;
+          padding-bottom: 0px;
+        }
+
+        .timeline-content, .timeline-cta {
+          clear: both;
+        }
+      }
+    }
+
+    #section-timeline {
+      display: none;
+    }
+
+    #row-intro-news {
+      .type-of-categories-mobile {
+
+        .category-dropdown {
+          background: white url(../images/dropdown-icon.png) no-repeat right 10px center;
+	      background-size: initial;
+          margin-bottom: 30px;
+
+
+          select {
+            border: 1px solid #d9d9d9;
+            width: 100%;
+            padding: 10px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    .right-module {
+      padding: rem(0 15px 50px 15px);
+    }
+
+    .no-space-bottom {
+      padding-bottom: 0;
+    }
+  }
+
+  .section-bg {
+    background-image: none;
+
+    .bg-img {
+      display: block;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .brands-page {
+    .right-block {
+      padding-top: 0;
+    }
+  }
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+.section-bg {
+    .bg-img {
+        @include respond-to-min($tabletSize) {
+            display: none;
+        }
+    }
+  }

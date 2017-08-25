@@ -1,0 +1,21 @@
+﻿@using EPiServer.HtmlParsing
+@using EPiServer.Web.Mvc.Html
+@using Geta.EPi.Extensions.Helpers
+@model EPiServer.XForms.XForm
+@if (ViewData["XFormActionResult"] is EPiServer.Web.Mvc.XForms.XFormSuccessActionResult)
+{
+    <strong>Form posted.</strong>
+}
+else
+{
+    using (Html.BeginXForm(Model, htmlAttributes: new { @class = "form xform" }))
+    {
+        if (Model != null)
+        {
+            foreach (HtmlFragment fragment in (IEnumerable<HtmlFragment>)ViewData["XFormFragments"] ?? Model.CreateHtmlFragments())
+            {
+                @Html.Fragment(XFormHelper.CleanupXFormHtmlMarkup(fragment))
+            }
+        }
+    }
+}

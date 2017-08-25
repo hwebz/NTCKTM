@@ -1,0 +1,24 @@
+﻿@using EPiServer.Core
+@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Models.PageTypes.Constants
+@model ContentSliderBlock
+
+@{
+    var guid = Guid.NewGuid();
+    var slidingItems = Model.FilteredSlidingItems;
+}
+<div class="block content-slider-block">
+    <div id="@guid" data-ride="carousel" class="media-carousel slide @(Model.SliderItemType == ContentSliderItemType.Image ? "slide-img carousel-fade" : "slide-text ov-v") exception"
+         data-interval="@(Model.IsAutoSliding == true ? Model.SlidingInterval.ToString() : "false")" @Html.EditAttributes(m => m.SlidingItems)>
+        <div role="listbox" class="carousel-inner owl-theme owl-carousel">
+            @foreach (var item in slidingItems)
+            {
+                <div class="item">
+                    @{ Html.RenderContentData(item.ContentLink.Get<IContent>(), false, TagNames.ContentSlider); }
+                </div>
+            }
+        </div>
+    </div>    
+</div>
+
+@Html.FullRefreshPropertiesMetaData(new []{ "SlidingItems" })

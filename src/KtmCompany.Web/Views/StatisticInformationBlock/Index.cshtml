@@ -1,0 +1,75 @@
+﻿@using EPiServer.Editor
+@using EPiServer.Forms.Helpers
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+
+@model StatisticInformationViewModel
+
+@{
+    var blockImg = Model.Image != null ? "block-img" : "";
+}
+<div class="block-text @blockImg">
+    @if (Model.Image == null)
+    {
+        <div class="text-focus">
+            <div class="block-focus">
+                <div class="text-focus-right">
+                    @if (PageEditing.PageIsInEditMode || !string.IsNullOrEmpty(Model.Sign))
+                    {
+                        <i class="sign">@Html.PropertyFor(x => x.Sign)</i>
+                    }
+                    @if (PageEditing.PageIsInEditMode)
+                    {
+                        if (!string.IsNullOrEmpty(Model.ExternalSourceUrl))
+                        {
+                            <i class="counter decimal" @Html.EditAttributes(x => x.NumberDisplay)>@Html.PropertyFor(x => x.NumberDisplay)</i>
+                        }
+                        else
+                        {
+                            <i class="counter decimal" @Html.EditAttributes(x => x.Number)>@Html.PropertyFor(x => x.Number)</i>
+                        }
+                    }
+                    else
+                    {
+                        <div class="animation-counter">
+                            <div class="block-animated">
+                                @if (!string.IsNullOrEmpty(Model.ExternalSourceUrl))
+                                {
+                                    <i data-from="0" data-to="@Model.NumberDisplay" data-speed="5000" data-refresh-interval="50" class="counter decimal">@Model.NumberDisplay</i>
+                                }
+                                else
+                                {
+                                    <i data-from="0" data-to="@Model.Number" data-speed="5000" data-refresh-interval="50" class="counter decimal">@Model.Number</i>
+                                }
+                            </div>
+                        </div>
+                    }
+                    @if (PageEditing.PageIsInEditMode || !string.IsNullOrEmpty(Model.Unit))
+                    {
+                        <i class="unit">@Html.PropertyFor(x => x.Unit)</i>
+                    }
+                    @if (PageEditing.PageIsInEditMode || !string.IsNullOrEmpty(Model.Title))
+                    {
+                        <span>@Html.PropertyFor(m => m.Title)</span>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-focus" style="background: url('@Model.Image.GetFriendlyUrl()') no-repeat center bottom; background-size: contain" @Html.EditAttributes(x => x.Image)></div>
+    }
+
+    <div class="text-des">
+        @if (PageEditing.PageIsInEditMode || !string.IsNullOrEmpty(Model.RightTitle))
+        {
+            <p class="uppercase" @Html.EditAttributes(m => m.RightTitle)>@Model.RightTitle.ToMultiLineHTMLText()</p>
+        }
+        @if (PageEditing.PageIsInEditMode || !string.IsNullOrEmpty(Url.ContentUrl(Model.CallToAction)))
+        {
+            <a class="intro-readmore" href="@Url.ContentUrl(Model.CallToAction)" @Html.EditAttributes(x => x.CallToAction)>@Html.PropertyFor(m => m.CallToActionTitle) <span class="fa fa-arrow-right"></span></a>
+        }
+    </div>
+</div>

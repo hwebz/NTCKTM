@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="Norwegian" id="no">
+    <groups>
+      <groups>
+        <seo>Søkemotoroptimalisering</seo>
+        <sitesettings>Webområdeinnstillinger</sitesettings>
+        <advanced>Avansert</advanced>
+      </groups>
+    </groups>
+    <contenttypes>
+      <startpage>
+        <name>Startsiden</name>
+        <description>Startside for nettstedet.</description>
+      </startpage>
+      <standardpage>
+        <name>Standardside</name>
+        <description>Standardside.</description>
+      </standardpage>
+      <searchpage>
+        <name>Søkesiden</name>
+        <description>Søkesiden av nettstedet.</description>
+      </searchpage>
+      <imageblock>
+        <name>Bilde</name>
+        <description>Bilde med tittel og alt-tekst.</description>
+      </imageblock>
+      <genericmedia>
+        <name>Generisk fil</name>
+      </genericmedia>
+      <imagefile>
+        <name>Bildefil</name>
+      </imagefile>
+      <icontentdata>
+        <properties>
+          <footercontent>
+            <caption>Innhold bunn</caption>
+            <help>Innhold til siden.</help>
+          </footercontent>
+          <googleanalytics>
+            <caption>Google Analytics ID</caption>
+            <help>Google Analytics ID - eksempel: XXXXX-Y</help>
+          </googleanalytics>
+          <mainintro>
+            <caption>Hoved intro</caption>
+            <help>En ingressen til siden.</help>
+          </mainintro>
+          <mainimage>
+            <caption>Hovedbildet</caption>
+            <help>Hovedbilde blokk på siden.</help>
+          </mainimage>
+          <thumbnailimageurl>
+            <caption>Thumbnail bildet</caption>
+            <help>Thumbnail bilde på siden.</help>
+          </thumbnailimageurl>
+          <mainbody>
+            <caption>Brødtekst</caption>
+            <help>Brødtekst av siden.</help>
+          </mainbody>
+          <heading>
+            <caption>Overskrift</caption>
+            <help>Overskriften på siden.</help>
+          </heading>
+          <metatitle>
+            <caption>Meta tittel</caption>
+            <help>Meta tittelen på siden.</help>
+          </metatitle>
+          <metadescription>
+            <caption>Meta beskrivelse</caption>
+            <help>Meta beskrivelse av siden.</help>
+          </metadescription>
+          <hidefromsearch>
+            <caption>Skjule fra søk</caption>
+            <help>Angir om siden skal være skjult fra søk.</help>
+          </hidefromsearch>
+          <pagesize>
+            <caption>Sidestørrelse</caption>
+            <help>Antall treff per side.</help>
+          </pagesize>
+          <nohitstext>
+            <caption>Tekst ved 0 treff</caption>
+            <help>Tekst å vise hvis ingen treff ble returnert av søket.</help>
+          </nohitstext>
+          <summarytext>
+            <caption>Resultat tekst</caption>
+            <help>Resultat teksten på siden.</help>
+          </summarytext>
+          <imageurl>
+            <caption>Bilde link</caption>
+            <help>Link til bilde.</help>
+          </imageurl>
+          <captiontext>
+            <caption>Bildetekst</caption>
+          </captiontext>
+          <alttext>
+            <caption>Alternativ tekst</caption>
+          </alttext>
+          <description>
+            <caption>Beskrivelse</caption>
+          </description>
+        </properties>
+      </icontentdata>
+    </contenttypes>
+    <views>
+      <search>
+        <nomatches>Ingen treff</nomatches>
+        <defaultsummarytext>resultater</defaultsummarytext>
+      </search>
+      <error>
+        <errorhasoccured>En feil har skjedd</errorhasoccured>
+        <controllername>Kontrollernavn</controllername>
+        <actionname>Handlingsnavn</actionname>
+        <stacktrace>Stabel spor</stacktrace>
+        <tryagain>Vennligst prøv igjen om en liten stund</tryagain>
+        <pagenotfound>Siden ble ikke funnet</pagenotfound>
+      </error>
+    </views>
+    <validation>
+    </validation>
+  </language>
+</languages>

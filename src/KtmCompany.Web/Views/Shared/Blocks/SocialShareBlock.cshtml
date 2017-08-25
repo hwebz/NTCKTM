@@ -1,0 +1,42 @@
+﻿@using KtmCompany.Web.Helpers
+@model SocialShareBlock
+@{
+    var guid = Guid.NewGuid();        
+}
+<div>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=@Model.PublisherId" async="async"></script>
+
+</div>
+@if (!Model.ForMobile)
+{
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div>
+        <div class="addthis_sharing_toolbox addthis_sharing_toolbox_desktop"><span>@Model.Name</span></div>
+    </div>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    if (string.IsNullOrEmpty(ConfigurationSettingHelpers.GetGeneralSocialShareMobileBlock().PublisherId))
+    {
+        <style>
+            @@media screen and (max-width: 320px) {
+                .addthis_sharing_toolbox_desktop .at-share-tbx-element.addthis_32x32_style .at-share-btn, .addthis_sharing_toolbox_desktop .at-share-tbx-element.addthis_32x32_white_style .at-share-btn {
+                    max-width: 26px !important;
+                    max-height: 26px !important;
+                }
+
+                .addthis_sharing_toolbox_desktop span.at-icon-wrapper {
+                    width: 26px !important;
+                    height: 26px !important;
+                }
+            }
+        </style>
+    }
+}
+else
+{
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div>
+        <div class="addthis_sharing_toolbox"><span>@Model.Name</span></div>
+    </div>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+}

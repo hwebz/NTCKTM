@@ -1,0 +1,81 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Models.EditorModels
+@using KtmCompany.Web.Models.MediaTypes
+@model IList<MediaItem>
+
+@{
+    var renderForDesktop = ViewData["renderForDesktop"] != null ? (bool)ViewData["renderForDesktop"] : true;
+}
+@functions
+{
+    private string GenerateClassString(bool renderForDesktop)
+    {
+        return renderForDesktop ? "col-md-4 col-sm-6 col-xs-12" : "item";
+    }
+}
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        if (item.MediaFile.IsNullOrEmpty())
+        {
+            <div class="@GenerateClassString(renderForDesktop)">
+                <div class="item-grid item-text">
+                    <div class="thumbnail">
+                        <img src="/Frontend/KTM/images/default-image.jpg" class="img-responsive"/>
+                    </div>
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h4 class="title">@item.Title</h4>
+                            <p>@item.Abstract.ToMultiLineHTMLText(1)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            var content = item.MediaFile.GetContent();
+            if (content is VideoFile)
+            {
+                <div class="@GenerateClassString(renderForDesktop)">
+                    <div class="item-grid item-video">
+                        <div class="thumbnail">
+                            @if (item.Thumbnail.IsNullOrEmpty())
+                            {
+                                <img src="/Frontend/KTM/images/default-image.jpg" class="img-responsive">
+                            }
+                            else
+                            {
+                                <img src="@Url.ContentUrl(item.Thumbnail)" class="img-responsive">
+                            }
+                            <a href="@Url.ContentUrl(item.MediaFile)" class="html5lightbox" data-width="480" data-height="320" title="@Url.ContentUrl(item.Title)">
+                                <span class="icon-play"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (content is ImageFile)
+            {
+                <div class="@GenerateClassString(renderForDesktop)">
+                    <div class="item-grid">
+                        <div class="thumbnail">
+                            <img src="@Url.ContentUrl(item.MediaFile)" class="img-responsive">
+                        </div>
+                        @if (!string.IsNullOrEmpty(item.Title) || !string.IsNullOrEmpty(item.Abstract))
+                        {
+                            <div class="overlay">
+                                <div class="overlay-content">
+                                    <h4 class="title">@item.Title</h4>
+                                    <p>@item.Abstract.ToMultiLineHTMLText(1)</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+	title Home Page
+block header
+	header.header
+		.container
+			.row
+				.col-sm-12.po-s
+					include ./blocks/_shared/_header.jade
+block content
+	section.section.boring
+		.container
+			.row
+				.col-sm-4.row-intro#row-intro-news
+					.block-main-intro
+						+row-intro('KTM AG', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis.')
+						.type-of-categories
+							ul
+								li.active
+									a(href="#", title="KTM")
+										span All News
+								li
+									a(href="#", title="KTM")
+										span.color-3 Ktm Group
+								li
+									a(href="#", title="KTM")
+										span.color-3 Ktm
+				.news-module.col-sm-8
+					.row
+						h3.inform-title Media Owner
+						.col-sm-6
+							.inform
+								.block-txt
+									p KTM Sportmotorcycle GmbH
+									
+								.block-txt
+									p Betriebsgebiet Süd
+										|<br /> Stallhofner Straße 3
+										|<br /> A-5230 Mattighofen 
+										|<br /> Austria
+										
+								.block-txt
+									p Phone: +43 (0)7742/6000-0 
+										|<br /> Fax: +43 (0)7742/6000-303
+										
+								.block-txt
+									p.para-title Bank details: 
+									p Deutsche Bank Wien
+									p Swift: DEUTATWW 
+									p IBAN: AT87 1910 0000 3801 8001
+									p UID No.: ATU 636 409 56
+									p FN 295902 a, regional court Ried im Innkreis
+									p Chamber of Commerce of Upper Austria, technical groups for the automotive industry and vehicle trade
+										
+								.block-txt
+									p.para-title Managing director
+									p Mag. Viktor Sigl, MBA
+									p Mag. Hubert Trunkenpolz
+									p Mag. Florian Kecht
+								
+						.col-sm-6
+							.inform
+								.block-txt
+									p.para-title Ownership structure
+									p Directly and wholly owned subsidiary of <span class="underline-txt">KTM AG</span> (FN 107673 v, Stallhofner Straße 3, 5230 Mattighofen), the ownership structure of which, due to the <span class="underline-txt">listing</span> on the Vienna Stock Exchange and the resulting publicity and diversified holdings, cannot be represented in its entirety.
+								
+								.block-txt
+									p.para-title Content responsibility
+									p KTM marketing department
+								
+								.block-txt
+									p.para-title Technical responsibility
+									p KTM IT department
+								
+								.block-txt
+									p.para-title Design
+									p <span class="underline-txt">spanKiska GmbH</span>
+								
+								.block-txt
+									p.para-title Programming
+									p <span class="underline-txt">Cyberhouse GmbH</span>
+									p Agency for Interactive Communication
+	footer
+		include ./blocks/_shared/_footer.jade

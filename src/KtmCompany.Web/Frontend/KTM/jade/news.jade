@@ -1,0 +1,101 @@
+﻿extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+	title Home Page
+block header
+	header.header
+		.container
+			.row
+				.col-sm-12.po-s
+					include ./blocks/_shared/_header.jade
+	+slider-news("slider-3")
+block content
+	section.section
+		.container
+			.row
+				.col-sm-4.row-intro#row-intro-news
+					.block-main-intro
+						+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.')
+						.type-of-categories
+							ul
+								li.active
+									a(href="#", title="KTM")
+										span All News
+								li
+									a(href="#", title="KTM")
+										span.color-3 Ktm Group
+								li
+									a(href="#", title="KTM")
+										span.color-1 Ktm
+								li
+									a(href="#", title="KTM")
+										span.color-2 Husqvarna motorcycles
+				.news-module.col-sm-8
+					.row
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span
+										img.rigth-arrow(src="images/img_trans.gif")
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-3 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span
+										img.rigth-arrow(src="images/img_trans.gif")
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-2 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span
+										img.rigth-arrow(src="images/img_trans.gif")
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span
+										img.rigth-arrow(src="images/img_trans.gif")
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-1 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span
+										img.rigth-arrow(src="images/img_trans.gif")
+						.col-sm-6
+							.item-news
+								p.item-news-category.color-3 KTM
+								h3
+									a(href="#", title="KTM") KTM still on record course
+								p.item-news-text
+									|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+								a(href="#", class="item-news-readmore")
+									span
+										img.rigth-arrow(src="images/img_trans.gif")
+					.load-more
+						a(href="#", title="KTM") load more news
+							span.fa.fa-plus
+	footer
+		include ./blocks/_shared/_footer.jade

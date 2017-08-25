@@ -1,0 +1,43 @@
+@import "vars";
+
+.search-result {
+	background: url(../images/detail-header-bg.png) repeat-x top left;
+
+	.outer-main-intro {
+		padding: 0;
+	}
+
+	.search-box {
+		border: 1px solid #d9d9d9;
+		width: 80%;
+		padding: 5px 10px;
+		margin: 30px 0;
+		position: relative;
+
+		.fa {
+			position: absolute;
+			top: 35%;
+		}
+
+		.input-search {
+			border: none;
+			padding: 10px;
+			width: 90%;
+		}
+
+		@include respond-to-max($tabletSize) {
+			width: 100%;
+		}
+	}
+	.item-news {
+		h3 {
+			font-family: "TradeGothicBoldCon", Arial, Helvetica, sans-serif;
+		}
+	}
+
+	.result {
+		font-family: $font-base;
+		margin-left: 10px;
+		font-size: 14px;
+	}
+}

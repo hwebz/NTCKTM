@@ -1,0 +1,1969 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43A99D37-D201-4105-B626-2C3BC961F41B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KtmCompany.Web</RootNamespace>
+    <AssemblyName>KtmCompany.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <IgnoreDeployManagedRuntimeVersion>True</IgnoreDeployManagedRuntimeVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ExcludeFilesFromDeployment>*.cs;**\.git\**\*.*;Web.*.config;episerver.*.Config;*.csproj;**\readme.txt;episerverFramework.*.config;appSettings.*.config;connectionStrings.*.config;**\*.cs;</ExcludeFilesFromDeployment>
+    <ExcludeFoldersFromDeployment>Controllers;BootstrapperTasks;Properties;</ExcludeFoldersFromDeployment>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AntiXSS.4.3.0\lib\net40\AntiXssLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BVNetwork.EPi404, Version=4.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BVN.404Handler.4.0.4\lib\net45\BVNetwork.EPi404.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="dotless.Core, Version=1.4.1.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\dotless.1.4.1.0\lib\dotless.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiBootstrapArea, Version=3.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiBootstrapArea.3.2.1\lib\net452\EPiBootstrapArea.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.Core.9.5.1\lib\net45\EPiServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ApplicationModules, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Framework.9.5.1\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Cms.Shell.UI, Version=9.3.5.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.UI.Core.9.3.5\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Configuration, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.Core.9.5.1\lib\net45\EPiServer.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Framework.9.5.1\lib\net45\EPiServer.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data.Cache, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Framework.9.5.1\lib\net45\EPiServer.Data.Cache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Enterprise, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.Core.9.5.1\lib\net45\EPiServer.Enterprise.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Events, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Framework.9.5.1\lib\net45\EPiServer.Events.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Find, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Find.11.0.0.3701\lib\net45\EPiServer.Find.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Find.Blocks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.Blocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Find.Cms, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.Cms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Find.Framework, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Find.Framework.11.0.0.3701\lib\net45\EPiServer.Find.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Find.Optimizations, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.Optimizations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Find.Statistics, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.Statistics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Find.UI, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Forms, Version=1.0.0.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Forms.1.0.0.9000\Lib\EPiServer.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Framework, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Framework.9.5.1\lib\net45\EPiServer.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.GoogleAnalytics, Version=1.9.2.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.GoogleAnalytics.1.9.2.9000\lib\EPiServer.GoogleAnalytics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ImageLibrary, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.Core.9.5.1\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Licensing, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Framework.9.5.1\lib\net45\EPiServer.Licensing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.LinkAnalyzer, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.Core.9.5.1\lib\net45\EPiServer.LinkAnalyzer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Logging.Log4Net">
+      <HintPath>..\..\packages\EPiServer.Logging.Log4Net.2.0.0\lib\net45\EPiServer.Logging.Log4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Packaging, Version=3.2.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EPiServer.Packaging.3.2.3\lib\net45\EPiServer.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Packaging.CmdAPI">
+      <HintPath>..\..\packages\EPiServer.Packaging.3.2.3\lib\net45\EPiServer.Packaging.CmdAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Framework.9.5.1\lib\net45\EPiServer.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell.UI, Version=9.3.5.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.UI.Core.9.3.5\lib\net45\EPiServer.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.UI, Version=9.3.5.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.UI.Core.9.3.5\lib\net45\EPiServer.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Web.WebControls, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.Core.9.5.1\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.XForms, Version=9.5.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.CMS.Core.9.5.1\lib\net45\EPiServer.XForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Foundation.Core, Version=0.8.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Foundation.Core.0.8.12\lib\net452\Foundation.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Foundation.Core.UI, Version=0.7.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Foundation.Core.UI.0.7.15\lib\net45\Foundation.Core.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Geta.EPi.Extensions, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Geta.EPi.Extensions.1.4.1\lib\net451\Geta.EPi.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Geta.SEO.Sitemaps">
+      <HintPath>..\..\packages\Geta.SEO.Sitemaps.1.5.3\lib\net45\Geta.SEO.Sitemaps.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Glimpse.AspNet.1.9.2\lib\net45\Glimpse.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Mvc4, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Glimpse.Mvc4.1.5.3\lib\net40\Glimpse.Mvc4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AntiXSS.4.3.0\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ImageResizer.3.4.3\lib\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Mvc, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ImageResizer.Mvc.3.4.3\lib\ImageResizer.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.DiskCache, Version=3.4.3.103, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ImageResizer.Plugins.DiskCache.3.4.3\lib\ImageResizer.Plugins.DiskCache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.EPiServerBlobReader">
+      <HintPath>..\..\packages\ImageResizer.Plugins.EPiServerBlobReader.2.0.1\lib\net452\ImageResizer.Plugins.EPiServerBlobReader.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MenuPin, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MenuPin.3.2.0\lib\net45\MenuPin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.5.40416.9020, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Core.2.5.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.7.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RazorEngine.3.7.0\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.1.6.186, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\structuremap-signed.3.1.6.186\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.6.186, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\structuremap-signed.3.1.6.186\lib\net40\StructureMap.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Web">
+      <HintPath>..\..\packages\structuremap.web-signed.3.1.6.186\lib\net40\StructureMap.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <HintPath>..\..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization.Less, Version=1.3.0.0, Culture=neutral, PublicKeyToken=9b7581e0240fe480, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Web.Optimization.Less.1.3.3\lib\net40\System.Web.Optimization.Less.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
+    <Compile Include="App_Start\Initialization\ContentInitialization.cs" />
+    <Compile Include="App_Start\Initialization\CustomizedRenderingInitialization.cs" />
+    <Compile Include="App_Start\Initialization\DependencyResolverInitialization.cs" />
+    <Compile Include="App_Start\Initialization\FilterInitialization.cs" />
+    <Compile Include="App_Start\Initialization\SwapBootstrapRendererInitModule.cs" />
+    <Compile Include="Controllers\ArticleListingPageController.cs" />
+    <Compile Include="Controllers\ArticlesBlockController.cs" />
+    <Compile Include="Controllers\CompanyLocationsBlockController.cs" />
+    <Compile Include="Controllers\CustomFormContainerBlockController.cs" />
+    <Compile Include="Controllers\DefaultPageController.cs" />
+    <Compile Include="Controllers\GlobalController.cs" />
+    <Compile Include="Controllers\JobFilterController.cs" />
+    <Compile Include="Controllers\JobDetailPageController.cs" />
+    <Compile Include="Controllers\JobListingPageController.cs" />
+    <Compile Include="Controllers\ManagementBoardPageController.cs" />
+    <Compile Include="Controllers\NotFoundController.cs" />
+    <Compile Include="Controllers\PageControllerBase.cs" />
+    <Compile Include="Controllers\BlockPreviewController.cs" />
+    <Compile Include="Controllers\RelatedContentsBlockController.cs" />
+    <Compile Include="Controllers\SearchPageController.cs" />
+    <Compile Include="Controllers\SharePriceDataBlockController.cs" />
+    <Compile Include="Controllers\StatisticInformationBlockController.cs" />
+    <Compile Include="Enums\ContentSliderItemType.cs" />
+    <Compile Include="Enums\GoogleMapMarker.cs" />
+    <Compile Include="Enums\FormType.cs" />
+    <Compile Include="Enums\ImageScreenWidthPercent.cs" />
+    <Compile Include="Enums\TextAlign.cs" />
+    <Compile Include="Enums\ImageWidth.cs" />
+    <Compile Include="Enums\NumberOfColumns.cs" />
+    <Compile Include="Enums\VideoLayoutOption.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CategoryHelpers.cs" />
+    <Compile Include="Helpers\CommonHelpers.cs" />
+    <Compile Include="Helpers\ConfigurationSettingHelpers.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\ImageHelpers.cs" />
+    <Compile Include="Infrastructure\Attributes\CategorySelectManyAttribute.cs" />
+    <Compile Include="Infrastructure\Attributes\CategorySelectOneAttribute.cs" />
+    <Compile Include="Infrastructure\Bundling\BundleConfig.cs" />
+    <Compile Include="Infrastructure\CategoryConstants.cs" />
+    <Compile Include="Infrastructure\CustomBootstrapContentAreaRenderer.cs" />
+    <Compile Include="Infrastructure\DependencyInjection\StructureMapRegistry.cs" />
+    <Compile Include="Infrastructure\DependencyInjection\TaskRegistry.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\CategorySelectionFactory.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\CategorySelectOneEditorDescriptor.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\CountrySelectionFactory.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\DateOnlyEditorDescriptor.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\GeoPointSelectorEditorDescriptor.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\HideCategoryEditorDescriptor.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\HidePropertiesInEditMode.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\LocationBlockEditorDescriptor.cs" />
+    <Compile Include="Infrastructure\EditorDescriptors\RegionSelectionFactory.cs" />
+    <Compile Include="Infrastructure\Extensions\CategoryExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\ContentAreaExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\DateExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\LinqExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\StringExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\UrlExtensions.cs" />
+    <Compile Include="Infrastructure\FoundationViewEngine.cs" />
+    <Compile Include="Infrastructure\NoWrappersContentAreaRenderer.cs" />
+    <Compile Include="Infrastructure\Properties\SocialLinkItemListProperty.cs" />
+    <Compile Include="Infrastructure\Properties\TextInformationItemListProperty.cs" />
+    <Compile Include="Infrastructure\Properties\MediaItemListProperty.cs" />
+    <Compile Include="Infrastructure\Properties\CategoryColorItemListProperty.cs" />
+    <Compile Include="Infrastructure\Properties\ContactUsListProperty.cs" />
+    <Compile Include="Infrastructure\RegionManager.cs" />
+    <Compile Include="Models\BlockTypes\Common\LeftGenericContentBlock.cs" />
+    <Compile Include="Models\BlockTypes\CareerPathsBlock.cs" />
+    <Compile Include="Models\BlockTypes\Common\LocationBlock.cs" />
+    <Compile Include="Models\BlockTypes\ContentSliderBlock.cs" />
+    <Compile Include="Models\BlockTypes\DocumentListingBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomCheckboxBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomLabelBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomSectionHeadingBlock.cs" />
+    <Compile Include="Models\BlockTypes\IFrameContentBlock.cs" />
+    <Compile Include="Models\BlockTypes\InvestorSharePriceBlock.cs" />
+    <Compile Include="Models\BlockTypes\MediaStreamBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomCaptchaElementBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomChoiceElementBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomDateSelectionBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomElementBlockBase.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomFormContainerBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomSelectionElementBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomSubmitButtonElementBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomTextareaElementBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\CustomTextBoxElementBlock.cs" />
+    <Compile Include="Models\BlockTypes\EPiServerForms\ICustomElementBlockBase.cs" />
+    <Compile Include="Models\BlockTypes\GenericContentBlock.cs" />
+    <Compile Include="Models\BlockTypes\RowLayoutBlock.cs" />
+    <Compile Include="Models\BlockTypes\SharePriceDataBlock.cs" />
+    <Compile Include="Models\BlockTypes\TestimonialItemBlock.cs" />
+    <Compile Include="Models\EditorModels\MediaItem.cs" />
+    <Compile Include="Models\BlockTypes\MediaListingBlock.cs" />
+    <Compile Include="Models\BlockTypes\NewsletterBlock.cs" />
+    <Compile Include="Models\BlockTypes\PartnersBlock.cs" />
+    <Compile Include="Models\BlockTypes\RelatedContentsBlock.cs" />
+    <Compile Include="Models\EditorModels\SocialLinkItem.cs" />
+    <Compile Include="Models\EditorModels\TextInformationItem.cs" />
+    <Compile Include="Models\BlockTypes\TextInformationListingBlock.cs" />
+    <Compile Include="Models\EditorModels\ContactUs.cs" />
+    <Compile Include="Models\MediaTypes\DocumentFile.cs" />
+    <Compile Include="Models\MediaTypes\ExcelFile.cs" />
+    <Compile Include="Models\MediaTypes\MediaDataBase.cs" />
+    <Compile Include="Models\MediaTypes\PDFFile.cs" />
+    <Compile Include="Models\MediaTypes\CompressedFile.cs" />
+    <Compile Include="Models\MediaTypes\SVGImageFile.cs" />
+    <Compile Include="Models\PageTypes\ContactUsPage.cs" />
+    <Compile Include="Models\PageTypes\JobDetailPage.cs" />
+    <Compile Include="Models\PageTypes\JobListingPage.cs" />
+    <Compile Include="Models\PersistentModels\GeoPoint.cs" />
+    <Compile Include="Infrastructure\Properties\LogoLinkItemListProperty.cs" />
+    <Compile Include="Infrastructure\Properties\PropertyListBase.cs" />
+    <Compile Include="Infrastructure\Properties\StringListProperty.cs" />
+    <Compile Include="Infrastructure\SiteUIHint.cs" />
+    <Compile Include="Infrastructure\TemplateCoordinator.cs" />
+    <Compile Include="Models\BlockTypes\ArticlesBlock.cs" />
+    <Compile Include="Models\BlockTypes\BackgroundVideoBlock.cs" />
+    <Compile Include="Models\BlockTypes\BlockDataBase.cs" />
+    <Compile Include="Models\BlockTypes\Common\FooterBlock.cs" />
+    <Compile Include="Models\BlockTypes\Common\HeaderBlock.cs" />
+    <Compile Include="Models\BlockTypes\Common\SiteSettingsBlock.cs" />
+    <Compile Include="Models\BlockTypes\CompanyLocationsBlock.cs" />
+    <Compile Include="Models\BlockTypes\CompanyLocationItemBlock.cs" />
+    <Compile Include="Models\BlockTypes\DataBlock.cs" />
+    <Compile Include="Models\BlockTypes\GenericContentBlockBase.cs" />
+    <Compile Include="Models\BlockTypes\ImageBannerBlock.cs" />
+    <Compile Include="Models\BlockTypes\InformationTabItemBlock.cs" />
+    <Compile Include="Models\BlockTypes\InformationTabsBlock.cs" />
+    <Compile Include="Models\BlockTypes\MenuNavigationItemBlock.cs" />
+    <Compile Include="Models\BlockTypes\MouseoverBlock.cs" />
+    <Compile Include="Models\BlockTypes\MouseoverItemBlock.cs" />
+    <Compile Include="Models\BlockTypes\SocialShareBlock.cs" />
+    <Compile Include="Models\BlockTypes\StageSliderBlock.cs" />
+    <Compile Include="Models\BlockTypes\StatementBlock.cs" />
+    <Compile Include="Models\BlockTypes\StatisticInformationBlock.cs" />
+    <Compile Include="Models\BlockTypes\TestimonialBlock.cs" />
+    <Compile Include="Models\BlockTypes\TextBlock.cs" />
+    <Compile Include="Models\BlockTypes\TimeLineBlock.cs" />
+    <Compile Include="Models\BlockTypes\TimeLineItemBlock.cs" />
+    <Compile Include="Models\BlockTypes\VideoBlock.cs" />
+    <Compile Include="Models\EditorModels\CategoryColorItem.cs" />
+    <Compile Include="Models\EditorModels\HeadLine.cs" />
+    <Compile Include="Models\EditorModels\LogoLinkItem.cs" />
+    <Compile Include="Models\MediaTypes\GenericMedia.cs" />
+    <Compile Include="Models\MediaTypes\ImageFile.cs" />
+    <Compile Include="Models\MediaTypes\VideoFile.cs" />
+    <Compile Include="Models\PageTypes\ArticleListingPage.cs" />
+    <Compile Include="Models\PageTypes\ArticlePage.cs" />
+    <Compile Include="Models\PageTypes\BrandPage.cs" />
+    <Compile Include="Models\PageTypes\Constants\TagNames.cs" />
+    <Compile Include="Models\PageTypes\GenericContentPage.cs" />
+    <Compile Include="Models\PageTypes\ManagementBoardPage.cs" />
+    <Compile Include="Models\PageTypes\MemberPage.cs" />
+    <Compile Include="Models\PageTypes\PageDataBase.cs" />
+    <Compile Include="Models\PageTypes\EditorialPageBase.cs" />
+    <Compile Include="Models\PageTypes\SearchPage.cs" />
+    <Compile Include="Models\PageTypes\StartPage.cs" />
+    <Compile Include="Models\PageTypes\GroupNames.cs" />
+    <Compile Include="Models\SocialAccountBlock.cs" />
+    <Compile Include="Models\ViewModels\ArticleListingPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\ArticlesBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\BlocksPreviewViewModel.cs" />
+    <Compile Include="Models\ViewModels\CompanyLocationItemViewModel.cs" />
+    <Compile Include="Models\ViewModels\CompanyLocationsBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\FooterViewModel.cs" />
+    <Compile Include="Models\ViewModels\HeaderViewModel.cs" />
+    <Compile Include="Models\ViewModels\JobFilterViewModel.cs" />
+    <Compile Include="Models\ViewModels\JobListingPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\ManagementBoardPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\MetaDataViewModel.cs" />
+    <Compile Include="Models\ViewModels\NotFoundViewModel.cs" />
+    <Compile Include="Models\ViewModels\RelatedContentsBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\SearchPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\Search\TermFaceItem.cs" />
+    <Compile Include="Models\ViewModels\StatisticInformationViewModel.cs" />
+    <Compile Include="Plugins\CleanUpPagePlugin.aspx.cs">
+      <DependentUpon>CleanUpPagePlugin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plugins\CleanUpPagePlugin.aspx.designer.cs">
+      <DependentUpon>CleanUpPagePlugin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Static\StaticHtmlController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Content Include="500.html" />
+    <Content Include="App_Data\EPiServerDB_2ec6460e.mdf" />
+    <Content Include="App_Data\EPiServerDB_2ec6460e_log.ldf">
+      <DependentUpon>EPiServerDB_2ec6460e.mdf</DependentUpon>
+    </Content>
+    <Content Include="ClientResources\googlemaps\async.js" />
+    <Content Include="ClientResources\googlemaps\Editor.js" />
+    <Content Include="ClientResources\googlemaps\nls\Labels.js" />
+    <Content Include="ClientResources\googlemaps\nls\sv\Labels.js" />
+    <Content Include="ClientResources\googlemaps\WidgetTemplate.css" />
+    <Content Include="ClientResources\googlemaps\WidgetTemplate.html" />
+    <Content Include="ClientResources\Scripts\Editors\ColorPicker.js" />
+    <Content Include="ClientResources\Scripts\Editors\DateTextBoxEditor.js" />
+    <Content Include="ClientResources\Scripts\Editors\extendedContentArea.js" />
+    <Content Include="ClientResources\Scripts\Editors\FilterableSelectionEditor.js" />
+    <Content Include="ClientResources\Scripts\Editors\LocationBlockContainer.js" />
+    <Content Include="ClientResources\Scripts\MenuPin\MenuPinInit.js" />
+    <Content Include="ClientResources\Styles\ColorPicker.css" />
+    <Content Include="ClientResources\Styles\Styles.css" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="Deploy\Geta.Staging\robots.txt" />
+    <Content Include="Deploy\Geta.Test\robots.txt" />
+    <Content Include="Deploy\KTM.Live.1\License.config" />
+    <Content Include="Deploy\KTM.Live.1\robots.txt" />
+    <Content Include="Deploy\KTM.Live.2\robots.txt" />
+    <Content Include="Deploy\KTM.Live.Edit\robots.txt" />
+    <Content Include="Deploy\KTM.Staging.1\License.config" />
+    <Content Include="Deploy\KTM.Staging.1\robots.txt" />
+    <Content Include="Deploy\KTM.Staging.Edit\License.config" />
+    <Content Include="Deploy\KTM.Staging.Edit\robots.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="Frontend\KTM\css\custom.css" />
+    <Content Include="Frontend\KTM\css\Editor.css" />
+    <Content Include="Frontend\KTM\css\style-old-ie.css" />
+    <Content Include="Frontend\KTM\css\style.css" />
+    <Content Include="Frontend\KTM\fonts\tradegothic-boldcondtwenty-webfont.svg" />
+    <Content Include="Frontend\KTM\fonts\TradeGothicLT.svg" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.svg" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-bold-webfont.svg" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-cn18-webfont.svg" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcombold-webfont.svg" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.svg" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcomcondensed-webfont.svg" />
+    <Content Include="Frontend\KTM\gulpfile.js" />
+    <Content Include="Frontend\KTM\images\404-header-image-1200.jpg" />
+    <Content Include="Frontend\KTM\images\404-header-image-480.jpg" />
+    <Content Include="Frontend\KTM\images\404-header-image-992.jpg" />
+    <Content Include="Frontend\KTM\images\404-header-image-mobile.jpg" />
+    <Content Include="Frontend\KTM\images\404-header-image.jpg" />
+    <Content Include="Frontend\KTM\images\ajax-loader.gif" />
+    <Content Include="Frontend\KTM\images\caption-background.jpg" />
+    <Content Include="Frontend\KTM\images\clear-input.png" />
+    <Content Include="Frontend\KTM\images\default-image.jpg" />
+    <Content Include="Frontend\KTM\images\detail-header-bg.png" />
+    <Content Include="Frontend\KTM\images\dot.jpg" />
+    <Content Include="Frontend\KTM\images\down-arrow-white.png" />
+    <Content Include="Frontend\KTM\images\down-arrow.png" />
+    <Content Include="Frontend\KTM\images\download-icon-white.png" />
+    <Content Include="Frontend\KTM\images\download-icon.png" />
+    <Content Include="Frontend\KTM\images\dropdown-icon.png" />
+    <Content Include="Frontend\KTM\images\fa-plus.png" />
+    <Content Include="Frontend\KTM\images\icon.png" />
+    <Content Include="Frontend\KTM\images\img_trans.gif" />
+    <Content Include="Frontend\KTM\images\left-arrow-1.png" />
+    <Content Include="Frontend\KTM\images\left-arrow.png" />
+    <Content Include="Frontend\KTM\images\logo.png" />
+    <Content Include="Frontend\KTM\images\pause-icon.png" />
+    <Content Include="Frontend\KTM\images\pin-1.png" />
+    <Content Include="Frontend\KTM\images\pin-2.png" />
+    <Content Include="Frontend\KTM\images\pin-3.png" />
+    <Content Include="Frontend\KTM\images\play-icon.png" />
+    <Content Include="Frontend\KTM\images\refresh.png" />
+    <Content Include="Frontend\KTM\images\required.png" />
+    <Content Include="Frontend\KTM\images\right-arrow-white-d1.png" />
+    <Content Include="Frontend\KTM\images\right-arrow-white.png" />
+    <Content Include="Frontend\KTM\images\right-arrow.png" />
+    <Content Include="Frontend\KTM\images\search-icon.png" />
+    <Content Include="Frontend\KTM\images\search.png" />
+    <Content Include="Frontend\KTM\images\up-arrow-white.png" />
+    <Content Include="Frontend\KTM\images\valid.png" />
+    <Content Include="Frontend\KTM\images\warning.png" />
+    <Content Include="Frontend\KTM\js\blocks\left-sticky.js" />
+    <Content Include="Frontend\KTM\js\blocks\video-banner-controller.js" />
+    <Content Include="Frontend\KTM\js\common.js" />
+    <Content Include="Frontend\KTM\js\common.min.js" />
+    <Content Include="Frontend\KTM\js\company-location.js" />
+    <Content Include="Frontend\KTM\js\CustomEPiServerFormValidation.js" />
+    <Content Include="Frontend\KTM\js\froogaloop2.min.js" />
+    <Content Include="Frontend\KTM\js\html5boxplayer.swf" />
+    <Content Include="Frontend\KTM\js\html5lightbox.js" />
+    <Content Include="Frontend\KTM\js\index.min.js" />
+    <Content Include="Frontend\KTM\js\jquery-ui.min.js" />
+    <Content Include="Frontend\KTM\js\jquery.countTo.js" />
+    <Content Include="Frontend\KTM\js\jquery.min.js" />
+    <Content Include="Frontend\KTM\js\jquery.mobile.js" />
+    <Content Include="Frontend\KTM\js\jquery.nav.js" />
+    <Content Include="Frontend\KTM\js\jquery.pagenav.js" />
+    <Content Include="Frontend\KTM\js\jquery.waypoints.js" />
+    <Content Include="Frontend\KTM\js\ktm.js" />
+    <Content Include="Frontend\KTM\js\map.js" />
+    <Content Include="Frontend\KTM\js\map.min.js" />
+    <Content Include="Frontend\KTM\js\mobile-detect.js" />
+    <Content Include="Frontend\KTM\js\owl.carousel.min.js" />
+    <Content Include="Frontend\KTM\js\picturefill.min.js" />
+    <Content Include="Frontend\KTM\js\skins\default\html5boxplayer_fullscreen.png" />
+    <Content Include="Frontend\KTM\js\skins\default\html5boxplayer_hd.png" />
+    <Content Include="Frontend\KTM\js\skins\default\html5boxplayer_playpause.png" />
+    <Content Include="Frontend\KTM\js\skins\default\html5boxplayer_playvideo.png" />
+    <Content Include="Frontend\KTM\js\skins\default\html5boxplayer_volume.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-close-fullscreen.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-close.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-fullscreen-close.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-loading.gif" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-navnext.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-navprev.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-next-2.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-next-fullscreen.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-next.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-pause-2.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-pause.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-play-2.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-play.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-playvideo.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-prev-2.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-prev-fullscreen.png" />
+    <Content Include="Frontend\KTM\js\skins\default\lightbox-prev.png" />
+    <Content Include="Frontend\KTM\js\skins\default\nav-arrows-next.png" />
+    <Content Include="Frontend\KTM\js\skins\default\nav-arrows-prev.png" />
+    <Content Include="Frontend\KTM\js\sticky.js" />
+    <Content Include="Frontend\KTM\js\vendor.min.js" />
+    <Content Include="Frontend\KTM\js\video.js" />
+    <Content Include="Frontend\KTM\package.json" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.eot" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.woff" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-bold-webfont.eot" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-bold-webfont.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-bold-webfont.woff" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-cn18-webfont.eot" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-cn18-webfont.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcom-cn18-webfont.woff" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcombold-webfont.eot" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcombold-webfont.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcombold-webfont.woff" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\TradeGothicLTComBold.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.eot" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.woff" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\TradeGothicLTComBoldCondensed.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcomcondensed-webfont.eot" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcomcondensed-webfont.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\tradegothicltcomcondensed-webfont.woff" />
+    <Content Include="Frontend\KTM\fonts\tradegothic\TradeGothicLTComCondensed.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic-boldcondtwenty-webfont.eot" />
+    <Content Include="Frontend\KTM\fonts\tradegothic-boldcondtwenty-webfont.otf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic-boldcondtwenty-webfont.ttf" />
+    <Content Include="Frontend\KTM\fonts\tradegothic-boldcondtwenty-webfont.woff" />
+    <Content Include="Frontend\KTM\fonts\TradeGothicLT.eot" />
+    <Content Include="Frontend\KTM\fonts\TradeGothicLT.ttf" />
+    <Content Include="Frontend\KTM\fonts\TradeGothicLT.woff" />
+    <Content Include="Global.asax" />
+    <Content Include="JsonResources\regions.json" />
+    <Content Include="lang\KTMDE.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
+    <Content Include="modules\_protected\CMS\CMS.zip" />
+    <Content Include="modules\_protected\CMS\web.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\Forms.less" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\FormsIcons.less" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\ViewMode\EPiServerForms.less" />
+    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\module.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\ParagraphTextElementBlock.cshtml" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\RangeElementBlock.cshtml" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\UrlElementBlock.cshtml" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServer.GoogleAnalytics.zip" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServerGoogleAnalytics.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\module.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\Views\Web.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\web.config" />
+    <Content Include="modules\_protected\Foundation.Core.UI\Foundation.Core.UI.zip" />
+    <Content Include="modules\_protected\repository.config" />
+    <Content Include="modules\_protected\Shell\Shell.zip" />
+    <Content Include="modules\_protected\Shell\web.config" />
+    <Content Include="connectionStrings.Debug.config">
+      <DependentUpon>connectionStrings.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="connectionStrings.Geta.Staging.config">
+      <DependentUpon>connectionStrings.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="connectionStrings.Geta.Test.config">
+      <DependentUpon>connectionStrings.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="connectionStrings.KTM.Live.1.config">
+      <DependentUpon>connectionStrings.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="connectionStrings.KTM.Live.2.config">
+      <DependentUpon>connectionStrings.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="connectionStrings.KTM.Live.Edit.config">
+      <DependentUpon>connectionStrings.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="connectionStrings.KTM.Staging.1.config">
+      <DependentUpon>connectionStrings.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="connectionStrings.KTM.Staging.Edit.config">
+      <DependentUpon>connectionStrings.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+	<Content Include="episerver.Debug.config">
+      <DependentUpon>episerver.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="episerver.Geta.Staging.config">
+      <DependentUpon>episerver.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="episerver.Geta.Test.config">
+      <DependentUpon>episerver.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="episerver.KTM.Live.1.config">
+      <DependentUpon>episerver.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="episerver.KTM.Live.2.config">
+      <DependentUpon>episerver.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="episerver.KTM.Live.Edit.config">
+      <DependentUpon>episerver.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="episerver.KTM.Staging.1.config">
+      <DependentUpon>episerver.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="episerver.KTM.Staging.Edit.config">
+      <DependentUpon>episerver.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.config">
+      <DependentUpon>web.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.Debug.config">
+      <DependentUpon>EPiServerFind.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.Geta.Staging.config">
+      <DependentUpon>EPiServerFind.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.Geta.Test.config">
+      <DependentUpon>EPiServerFind.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.KTM.Live.1.config">
+      <DependentUpon>EPiServerFind.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.KTM.Live.2.config">
+      <DependentUpon>EPiServerFind.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.KTM.Live.Edit.config">
+      <DependentUpon>EPiServerFind.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.KTM.Staging.1.config">
+      <DependentUpon>EPiServerFind.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFind.KTM.Staging.Edit.config">
+      <DependentUpon>EPiServerFind.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFramework.Debug.config">
+      <DependentUpon>EPiServerFramework.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFramework.Geta.Staging.config">
+      <DependentUpon>EPiServerFramework.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFramework.Geta.Test.config">
+      <DependentUpon>EPiServerFramework.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFramework.KTM.Live.1.config">
+      <DependentUpon>EPiServerFramework.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFramework.KTM.Live.2.config">
+      <DependentUpon>EPiServerFramework.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFramework.KTM.Live.Edit.config">
+      <DependentUpon>EPiServerFramework.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFramework.KTM.Staging.1.config">
+      <DependentUpon>EPiServerFramework.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="EPiServerFramework.KTM.Staging.Edit.config">
+      <DependentUpon>EPiServerFramework.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
+    <Content Include="Frontend\KTM\sass\blocks\_404.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_boring.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_careers.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_company.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_contact.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_contact.scss.orig" />
+    <Content Include="Frontend\KTM\sass\blocks\_investor-downloads.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_investor-relations.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_investor-share-price.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_management-board.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_messy.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_search.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_selected-new-header.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_selected-new.scss" />
+    <Content Include="Frontend\KTM\sass\blocks\_timeline.scss" />
+    <Content Include="Frontend\KTM\sass\mixins\_mixins_media.scss" />
+    <Content Include="Frontend\KTM\sass\mixins\_mixins_utils.scss" />
+    <Content Include="Frontend\KTM\sass\mixins\_variables.scss" />
+    <Content Include="Frontend\KTM\sass\nice-select.scss" />
+    <Content Include="Frontend\KTM\sass\owl.carousel.scss" />
+    <Content Include="Frontend\KTM\sass\owl.theme.default.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-404.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-brands-1.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-careers.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-carousel.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-company.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-contact.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-data-block.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-footer.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-investor-relations.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-main-nav.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-main-slider.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-news.scss" />
+    <Content Include="Frontend\KTM\sass\responsive\_responsive-text.scss" />
+    <Content Include="Frontend\KTM\sass\style-old-ie.scss" />
+    <Content Include="Frontend\KTM\sass\style.scss" />
+    <Content Include="Frontend\KTM\sass\_animate.scss" />
+    <Content Include="Frontend\KTM\sass\_bootstrap-custom.scss" />
+    <Content Include="Frontend\KTM\sass\_common_share.scss" />
+    <Content Include="Frontend\KTM\sass\_fonts.scss" />
+    <Content Include="Frontend\KTM\sass\_vars.scss" />
+    <Content Include="Deploy\KTM.Live.Edit\License.config" />
+    <Content Include="Deploy\KTM.Live.2\License.config" />
+    <Content Include="redirect.maps.config" />
+    <Content Include="redirect.rules.config" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="lang\Find.xml" />
+    <Content Include="lang\FoundationEN.xml" />
+    <Content Include="lang\FoundationNO.xml" />
+    <Content Include="lang\KTMEN.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="modules\Geta.SEO.Sitemaps\AdminManageSitemap.aspx" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\command\EditImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\command\ImageChoiceCommands.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\command\NewForm.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\command\NewImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\command\ViewFormData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\Forms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\FormsContentTypes.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\FormsContentTypesViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\FormsViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\component\templates\FormsContentTypes.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\CreateContent.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\CreateContentViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\ChoiceEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\ChoiceWithEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\CollectionEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\ContentAreaEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\DefaultGridAssembler.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\DependAllowMultiSelectAndFeedEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\EmailTemplateActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\ImageChoiceItemsEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\OptionListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\ParagraphTextEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\CollectionEditorModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\ExternalFeedSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\VisitorDataSourceSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\WebhookActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\_EditorMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\_PlaceHolderMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\contentediting\editors\_WidgetListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\dgrid\Formatters.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\FormsModule.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\ModuleSettings.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\Forms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\FormsIcons.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\CaptchaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FeedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FileUploadElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormContainerBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormStepBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ImageChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\NumberElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ParagraphTextElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\PredefinedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\RangeElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ResetButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SelectionElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SubmitButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextareaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextboxElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\UrlElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\VisitorDataHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\themes\sleek\images\formIcons16x16.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ChoiceItem.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ChoiceItemWithPreviewableText.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ChoiceItemWithSelection.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\command\CreateContentFromSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ContentTypeService.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\Downloader.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\DropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ExportDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ExportSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ExternalSystemDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ExternalSystemSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\FieldSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\FieldSelectorDialog.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\FormContainer.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\FormsContentType.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\FormsContentTypeGroup.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\FormsContentTypeList.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\FormsData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\ImageChoiceSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\overlay\ContentArea.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\PlaceHolderDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\PlaceHolderSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\SelectorMenuBase.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\TargetPageEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\TargetPageSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\templates\ChoiceItem.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\templates\FieldSelector.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\templates\FieldSelectorDialog.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\templates\FormsContentType.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\templates\FormsContentTypeGroup.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\templates\FormsData.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\viewmodels\DependeesViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\viewmodels\FieldMappingTokenListViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\viewmodels\FormsDataViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\_ChoiceItemWith.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\_ContentAreaMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\widget\_SelectionMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\epi-forms\_UtilityMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\ViewMode\EPiServerForms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\ViewMode\EPiServerForms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\1.0.0.9000\ClientResources\ViewMode\EPiServerForms_prerequisite.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\EmbeddedLangFiles\EPiServer.Forms_EN.xml" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\CaptchaElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\ChoiceElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\FileUploadElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\FormContainerBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\FormStepBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\ImageChoiceElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\NumberElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\PredefinedHiddenElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\ResetButtonElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\SelectionElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\SubmitButtonElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\TextareaElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\TextboxElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\VisitorDataHiddenElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\FormContainerInitScript.ascx" />
+    <Content Include="opensearch.xml" />
+    <Content Include="Plugins\CleanUpPagePlugin.aspx" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="connectionStrings.config">
+      <DependentUpon>web.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="episerver.config">
+      <DependentUpon>web.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="EPiServerFramework.config">
+      <DependentUpon>web.config</DependentUpon>
+      <TransformOnBuild>true</TransformOnBuild>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="EPiServerLog.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="module.config" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Static\HtmlRelease\r3.7\404.html" />
+    <Content Include="Static\HtmlRelease\r3.7\boring.html" />
+    <Content Include="Static\HtmlRelease\r3.7\brands-timeline.html" />
+    <Content Include="Static\HtmlRelease\r3.7\brands.html" />
+    <Content Include="Static\HtmlRelease\r3.7\career-professional-1.html" />
+    <Content Include="Static\HtmlRelease\r3.7\career-professional-2.html" />
+    <Content Include="Static\HtmlRelease\r3.7\career-professional.html" />
+    <Content Include="Static\HtmlRelease\r3.7\careers.html" />
+    <Content Include="Static\HtmlRelease\r3.7\company.html" />
+    <Content Include="Static\HtmlRelease\r3.7\contact.html" />
+    <Content Include="Static\HtmlRelease\r3.7\css\owl.carousel.css" />
+    <Content Include="Static\HtmlRelease\r3.7\css\owl.theme.default.css" />
+    <Content Include="Static\HtmlRelease\r3.7\css\style.css" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic-boldcondtwenty-webfont.svg" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\TradeGothicLT.svg" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.svg" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-bold-webfont.svg" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-cn18-webfont.svg" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcombold-webfont.svg" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.svg" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcomcondensed-webfont.svg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\404-header-image-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\404-header-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\404-header-image-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\404-header-image-mobile.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\404-header-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brand-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brand-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-husqvarna-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-husqvarna-image-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-husqvarna-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-main-slider-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-main-slider-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-main-slider-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-main-slider.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-1-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-1-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-1-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-2-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-2-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-2-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-3-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-3-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-3-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-3.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-4-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-4-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-4-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-1-slider-4.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-header-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-header-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-1-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-1-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-1-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-2-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-2-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-2-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-3-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-3-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-3-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\brands-slider-3.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-people-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-people-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-people-3.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-people-4.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-tag-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-tag-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-tag-3.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-tag-4.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-tag-5.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-p-tag-6.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-people-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-people-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-people-3.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\c-people-4.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\caption-background.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-header-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-paths.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-slide-1-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-slide-1-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-slide-1-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-slide-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-slide-2-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-slide-2-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-slide-2-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\career-slide-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\ceo.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\clear-input.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-slider.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-structure-mobile.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-structure.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-team-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-team-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-team-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-team.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-vision-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-vision-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-vision-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\company-vision.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\contact-header-image-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\contact-header-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\contact-header-image-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\contact-header-image-mobile.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\contact-header-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\detail-header-bg.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\document.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\dot.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\down-arrow-white.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\down-arrow.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\download-icon-white.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\download-icon.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\dropdown-icon.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\facebook-icon.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\general-meeting-bg.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\growup-chart.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\home-slide-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\home-slide-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-apple.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-child.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-clock.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-clother.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-cuver-arrow.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-document.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-email.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-gift.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-glass.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-hand.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-phone.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-poly.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon-weight.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\icon.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\img-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\img-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\img_trans.gif" />
+    <Content Include="Static\HtmlRelease\r3.7\images\intern.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-downloads-header-image-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-downloads-header-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-downloads-header-image-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-downloads-header-image-mobile.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-downloads-header-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-relations-header-image-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-relations-header-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-relations-header-image-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-relations-header-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-relations-slider-1-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-relations-slider-1-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-relations-slider-1-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-relations-slider-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-share-price-header-image-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-share-price-header-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-share-price-header-image-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-share-price-header-image-mobile.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\investor-share-price-header-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\left-arrow-1.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\left-arrow.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\logo.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\main-slider-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\main-slider-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\main-slider-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\main-slider-mobile.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\main-slider.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\management-board-header-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\management-board-header-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\management-board-header-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\management-board-header-mobile.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\management-board-header.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\news-extra-slider-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\news-extra-slider-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\news-extra-slider-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\news-extra-slider.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\partner-1.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\partner-2.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\partner-3.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\partner-4.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\partner-5.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\partner-6.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\pause-icon.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\people-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\people-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\personal-1.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\personal-2.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\personal-3.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\pierer.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\pin-1.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\pin-2.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\pin-3.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\play-icon.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\plockinger.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\required.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\right-arrow-white-d1.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\right-arrow-white.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\right-arrow.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\roithner.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\search.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-header-image-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-header-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-header-image-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-header-image-mobile.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-header-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-header-post-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-header-video-poster.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-post-image-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-post-image-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-post-image-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\selected-new-post-image.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\share-price-bg.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\sigl.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-1-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-1-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-1-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-2-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-2-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-2-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-2.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-news-1-1200.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-news-1-480.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-news-1-992.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\slide-news-1.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\sticky_indicator.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\trunkenpolz.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\twitter-icon.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\up-arrow-white.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\valid.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\video-poster.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\images\warning.png" />
+    <Content Include="Static\HtmlRelease\r3.7\images\worker.jpg" />
+    <Content Include="Static\HtmlRelease\r3.7\index.html" />
+    <Content Include="Static\HtmlRelease\r3.7\investor-downloads.html" />
+    <Content Include="Static\HtmlRelease\r3.7\investor-relations.html" />
+    <Content Include="Static\HtmlRelease\r3.7\investor-share-price.html" />
+    <Content Include="Static\HtmlRelease\r3.7\js\common.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\jquery-2.2.1.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\jquery-ui.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\jquery.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\jquery.mobile.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\jquery.nav.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\jquery.pagenav.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\jquery.waypoints.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\map.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\owl.carousel.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\picturefill.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\sticky.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\valida.2.1.6.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\vendor.min.js" />
+    <Content Include="Static\HtmlRelease\r3.7\js\video.js" />
+    <Content Include="Static\HtmlRelease\r3.7\ktm_dot_com_clip.mp4" />
+    <Content Include="Static\HtmlRelease\r3.7\management-board.html" />
+    <Content Include="Static\HtmlRelease\r3.7\news-additional-info.html" />
+    <Content Include="Static\HtmlRelease\r3.7\news-thankyou.html" />
+    <Content Include="Static\HtmlRelease\r3.7\news.html" />
+    <Content Include="Static\HtmlRelease\r3.7\search.html" />
+    <Content Include="Static\HtmlRelease\r3.7\selected-job.html" />
+    <Content Include="Static\HtmlRelease\r3.7\selected-new-header.html" />
+    <Content Include="Static\HtmlRelease\r3.7\selected-new.html" />
+    <Content Include="Static\Html\404.html" />
+    <Content Include="Static\Html\boring.html" />
+    <Content Include="Static\Html\brands-timeline.html" />
+    <Content Include="Static\Html\brands.html" />
+    <Content Include="Static\Html\career-professional-1.html" />
+    <Content Include="Static\Html\career-professional-2.html" />
+    <Content Include="Static\Html\career-professional.html" />
+    <Content Include="Static\Html\careers.html" />
+    <Content Include="Static\Html\company.html" />
+    <Content Include="Static\Html\contact.html" />
+    <Content Include="Static\Html\css\owl.carousel.css" />
+    <Content Include="Static\Html\css\owl.theme.default.css" />
+    <Content Include="Static\Html\css\style.css" />
+    <Content Include="Static\Html\css\style.css.map" />
+    <Content Include="Static\Html\fonts\tradegothic-boldcondtwenty-webfont.eot" />
+    <Content Include="Static\Html\fonts\tradegothic-boldcondtwenty-webfont.otf" />
+    <Content Include="Static\Html\fonts\tradegothic-boldcondtwenty-webfont.svg" />
+    <Content Include="Static\Html\fonts\tradegothic-boldcondtwenty-webfont.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic-boldcondtwenty-webfont.woff" />
+    <Content Include="Static\Html\fonts\TradeGothicLT.eot" />
+    <Content Include="Static\Html\fonts\TradeGothicLT.svg" />
+    <Content Include="Static\Html\fonts\TradeGothicLT.ttf" />
+    <Content Include="Static\Html\fonts\TradeGothicLT.woff" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.eot" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.svg" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.woff" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-bold-webfont.eot" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-bold-webfont.svg" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-bold-webfont.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-bold-webfont.woff" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-cn18-webfont.eot" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-cn18-webfont.svg" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-cn18-webfont.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcom-cn18-webfont.woff" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcombold-webfont.eot" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcombold-webfont.svg" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcombold-webfont.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcombold-webfont.woff" />
+    <Content Include="Static\Html\fonts\tradegothic\TradeGothicLTComBold.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.eot" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.svg" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.woff" />
+    <Content Include="Static\Html\fonts\tradegothic\TradeGothicLTComBoldCondensed.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcomcondensed-webfont.eot" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcomcondensed-webfont.svg" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcomcondensed-webfont.ttf" />
+    <Content Include="Static\Html\fonts\tradegothic\tradegothicltcomcondensed-webfont.woff" />
+    <Content Include="Static\Html\fonts\tradegothic\TradeGothicLTComCondensed.ttf" />
+    <Content Include="Static\Html\images\404-header-image-1200.jpg" />
+    <Content Include="Static\Html\images\404-header-image-480.jpg" />
+    <Content Include="Static\Html\images\404-header-image-992.jpg" />
+    <Content Include="Static\Html\images\404-header-image-mobile.jpg" />
+    <Content Include="Static\Html\images\404-header-image.jpg" />
+    <Content Include="Static\Html\images\brand-1.jpg" />
+    <Content Include="Static\Html\images\brand-2.jpg" />
+    <Content Include="Static\Html\images\brands-1-husqvarna-image-480.jpg" />
+    <Content Include="Static\Html\images\brands-1-husqvarna-image-992.jpg" />
+    <Content Include="Static\Html\images\brands-1-husqvarna-image.jpg" />
+    <Content Include="Static\Html\images\brands-1-main-slider-1200.jpg" />
+    <Content Include="Static\Html\images\brands-1-main-slider-480.jpg" />
+    <Content Include="Static\Html\images\brands-1-main-slider-992.jpg" />
+    <Content Include="Static\Html\images\brands-1-main-slider.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-1-1200.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-1-480.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-1-992.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-1.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-2-1200.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-2-480.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-2-992.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-2.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-3-1200.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-3-480.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-3-992.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-3.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-4-1200.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-4-480.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-4-992.jpg" />
+    <Content Include="Static\Html\images\brands-1-slider-4.jpg" />
+    <Content Include="Static\Html\images\brands-header-image-480.jpg" />
+    <Content Include="Static\Html\images\brands-header-image.jpg" />
+    <Content Include="Static\Html\images\brands-slider-1-1200.jpg" />
+    <Content Include="Static\Html\images\brands-slider-1-480.jpg" />
+    <Content Include="Static\Html\images\brands-slider-1-992.jpg" />
+    <Content Include="Static\Html\images\brands-slider-1.jpg" />
+    <Content Include="Static\Html\images\brands-slider-2-1200.jpg" />
+    <Content Include="Static\Html\images\brands-slider-2-480.jpg" />
+    <Content Include="Static\Html\images\brands-slider-2-992.jpg" />
+    <Content Include="Static\Html\images\brands-slider-2.jpg" />
+    <Content Include="Static\Html\images\brands-slider-3-1200.jpg" />
+    <Content Include="Static\Html\images\brands-slider-3-480.jpg" />
+    <Content Include="Static\Html\images\brands-slider-3-992.jpg" />
+    <Content Include="Static\Html\images\brands-slider-3.jpg" />
+    <Content Include="Static\Html\images\c-p-people-1.jpg" />
+    <Content Include="Static\Html\images\c-p-people-2.jpg" />
+    <Content Include="Static\Html\images\c-p-people-3.jpg" />
+    <Content Include="Static\Html\images\c-p-people-4.jpg" />
+    <Content Include="Static\Html\images\c-p-tag-1.jpg" />
+    <Content Include="Static\Html\images\c-p-tag-2.jpg" />
+    <Content Include="Static\Html\images\c-p-tag-3.jpg" />
+    <Content Include="Static\Html\images\c-p-tag-4.jpg" />
+    <Content Include="Static\Html\images\c-p-tag-5.jpg" />
+    <Content Include="Static\Html\images\c-p-tag-6.jpg" />
+    <Content Include="Static\Html\images\c-people-1.jpg" />
+    <Content Include="Static\Html\images\c-people-2.jpg" />
+    <Content Include="Static\Html\images\c-people-3.jpg" />
+    <Content Include="Static\Html\images\c-people-4.jpg" />
+    <Content Include="Static\Html\images\caption-background.jpg" />
+    <Content Include="Static\Html\images\career-header-image.jpg" />
+    <Content Include="Static\Html\images\career-paths.jpg" />
+    <Content Include="Static\Html\images\career-slide-1-1200.jpg" />
+    <Content Include="Static\Html\images\career-slide-1-480.jpg" />
+    <Content Include="Static\Html\images\career-slide-1-992.jpg" />
+    <Content Include="Static\Html\images\career-slide-1.jpg" />
+    <Content Include="Static\Html\images\career-slide-2-1200.jpg" />
+    <Content Include="Static\Html\images\career-slide-2-480.jpg" />
+    <Content Include="Static\Html\images\career-slide-2-992.jpg" />
+    <Content Include="Static\Html\images\career-slide-2.jpg" />
+    <Content Include="Static\Html\images\ceo.jpg" />
+    <Content Include="Static\Html\images\clear-input.png" />
+    <Content Include="Static\Html\images\company-slider.jpg" />
+    <Content Include="Static\Html\images\company-structure-mobile.png" />
+    <Content Include="Static\Html\images\company-structure.png" />
+    <Content Include="Static\Html\images\company-team-1200.jpg" />
+    <Content Include="Static\Html\images\company-team-480.jpg" />
+    <Content Include="Static\Html\images\company-team-992.jpg" />
+    <Content Include="Static\Html\images\company-team.jpg" />
+    <Content Include="Static\Html\images\company-vision-1200.jpg" />
+    <Content Include="Static\Html\images\company-vision-480.jpg" />
+    <Content Include="Static\Html\images\company-vision-992.jpg" />
+    <Content Include="Static\Html\images\company-vision.jpg" />
+    <Content Include="Static\Html\images\contact-header-image-1200.jpg" />
+    <Content Include="Static\Html\images\contact-header-image-480.jpg" />
+    <Content Include="Static\Html\images\contact-header-image-992.jpg" />
+    <Content Include="Static\Html\images\contact-header-image-mobile.jpg" />
+    <Content Include="Static\Html\images\contact-header-image.jpg" />
+    <Content Include="Static\Html\images\detail-header-bg.png" />
+    <Content Include="Static\Html\images\document.jpg" />
+    <Content Include="Static\Html\images\dot.jpg" />
+    <Content Include="Static\Html\images\down-arrow-white.png" />
+    <Content Include="Static\Html\images\down-arrow.png" />
+    <Content Include="Static\Html\images\download-icon-white.png" />
+    <Content Include="Static\Html\images\download-icon.png" />
+    <Content Include="Static\Html\images\dropdown-icon.png" />
+    <Content Include="Static\Html\images\facebook-icon.png" />
+    <Content Include="Static\Html\images\general-meeting-bg.jpg" />
+    <Content Include="Static\Html\images\growup-chart.jpg" />
+    <Content Include="Static\Html\images\home-slide-1.jpg" />
+    <Content Include="Static\Html\images\home-slide-2.jpg" />
+    <Content Include="Static\Html\images\icon-apple.jpg" />
+    <Content Include="Static\Html\images\icon-child.jpg" />
+    <Content Include="Static\Html\images\icon-clock.jpg" />
+    <Content Include="Static\Html\images\icon-clother.jpg" />
+    <Content Include="Static\Html\images\icon-cuver-arrow.jpg" />
+    <Content Include="Static\Html\images\icon-document.jpg" />
+    <Content Include="Static\Html\images\icon-email.jpg" />
+    <Content Include="Static\Html\images\icon-gift.jpg" />
+    <Content Include="Static\Html\images\icon-glass.jpg" />
+    <Content Include="Static\Html\images\icon-hand.jpg" />
+    <Content Include="Static\Html\images\icon-phone.jpg" />
+    <Content Include="Static\Html\images\icon-poly.jpg" />
+    <Content Include="Static\Html\images\icon-weight.jpg" />
+    <Content Include="Static\Html\images\icon.png" />
+    <Content Include="Static\Html\images\img-1.jpg" />
+    <Content Include="Static\Html\images\img-2.jpg" />
+    <Content Include="Static\Html\images\img_trans.gif" />
+    <Content Include="Static\Html\images\intern.jpg" />
+    <Content Include="Static\Html\images\investor-downloads-header-image-1200.jpg" />
+    <Content Include="Static\Html\images\investor-downloads-header-image-480.jpg" />
+    <Content Include="Static\Html\images\investor-downloads-header-image-992.jpg" />
+    <Content Include="Static\Html\images\investor-downloads-header-image-mobile.jpg" />
+    <Content Include="Static\Html\images\investor-downloads-header-image.jpg" />
+    <Content Include="Static\Html\images\investor-relations-header-image-1200.jpg" />
+    <Content Include="Static\Html\images\investor-relations-header-image-480.jpg" />
+    <Content Include="Static\Html\images\investor-relations-header-image-992.jpg" />
+    <Content Include="Static\Html\images\investor-relations-header-image.jpg" />
+    <Content Include="Static\Html\images\investor-relations-slider-1-1200.jpg" />
+    <Content Include="Static\Html\images\investor-relations-slider-1-480.jpg" />
+    <Content Include="Static\Html\images\investor-relations-slider-1-992.jpg" />
+    <Content Include="Static\Html\images\investor-relations-slider-1.jpg" />
+    <Content Include="Static\Html\images\investor-share-price-header-image-1200.jpg" />
+    <Content Include="Static\Html\images\investor-share-price-header-image-480.jpg" />
+    <Content Include="Static\Html\images\investor-share-price-header-image-992.jpg" />
+    <Content Include="Static\Html\images\investor-share-price-header-image-mobile.jpg" />
+    <Content Include="Static\Html\images\investor-share-price-header-image.jpg" />
+    <Content Include="Static\Html\images\left-arrow-1.png" />
+    <Content Include="Static\Html\images\left-arrow.png" />
+    <Content Include="Static\Html\images\logo.png" />
+    <Content Include="Static\Html\images\main-slider-1200.jpg" />
+    <Content Include="Static\Html\images\main-slider-480.jpg" />
+    <Content Include="Static\Html\images\main-slider-992.jpg" />
+    <Content Include="Static\Html\images\main-slider-mobile.jpg" />
+    <Content Include="Static\Html\images\main-slider.jpg" />
+    <Content Include="Static\Html\images\management-board-header-1200.jpg" />
+    <Content Include="Static\Html\images\management-board-header-480.jpg" />
+    <Content Include="Static\Html\images\management-board-header-992.jpg" />
+    <Content Include="Static\Html\images\management-board-header-mobile.jpg" />
+    <Content Include="Static\Html\images\management-board-header.jpg" />
+    <Content Include="Static\Html\images\news-extra-slider-1200.jpg" />
+    <Content Include="Static\Html\images\news-extra-slider-480.jpg" />
+    <Content Include="Static\Html\images\news-extra-slider-992.jpg" />
+    <Content Include="Static\Html\images\news-extra-slider.jpg" />
+    <Content Include="Static\Html\images\partner-1.png" />
+    <Content Include="Static\Html\images\partner-2.png" />
+    <Content Include="Static\Html\images\partner-3.png" />
+    <Content Include="Static\Html\images\partner-4.png" />
+    <Content Include="Static\Html\images\partner-5.png" />
+    <Content Include="Static\Html\images\partner-6.png" />
+    <Content Include="Static\Html\images\pause-icon.png" />
+    <Content Include="Static\Html\images\people-1.jpg" />
+    <Content Include="Static\Html\images\people-2.jpg" />
+    <Content Include="Static\Html\images\personal-1.png" />
+    <Content Include="Static\Html\images\personal-2.png" />
+    <Content Include="Static\Html\images\personal-3.png" />
+    <Content Include="Static\Html\images\pierer.png" />
+    <Content Include="Static\Html\images\pin-1.png" />
+    <Content Include="Static\Html\images\pin-2.png" />
+    <Content Include="Static\Html\images\pin-3.png" />
+    <Content Include="Static\Html\images\play-icon.png" />
+    <Content Include="Static\Html\images\plockinger.png" />
+    <Content Include="Static\Html\images\required.png" />
+    <Content Include="Static\Html\images\right-arrow-white-d1.png" />
+    <Content Include="Static\Html\images\right-arrow-white.png" />
+    <Content Include="Static\Html\images\right-arrow.png" />
+    <Content Include="Static\Html\images\roithner.png" />
+    <Content Include="Static\Html\images\search.png" />
+    <Content Include="Static\Html\images\selected-new-header-image-1200.jpg" />
+    <Content Include="Static\Html\images\selected-new-header-image-480.jpg" />
+    <Content Include="Static\Html\images\selected-new-header-image-992.jpg" />
+    <Content Include="Static\Html\images\selected-new-header-image-mobile.jpg" />
+    <Content Include="Static\Html\images\selected-new-header-image.jpg" />
+    <Content Include="Static\Html\images\selected-new-header-post-image.jpg" />
+    <Content Include="Static\Html\images\selected-new-header-video-poster.jpg" />
+    <Content Include="Static\Html\images\selected-new-post-image-1200.jpg" />
+    <Content Include="Static\Html\images\selected-new-post-image-480.jpg" />
+    <Content Include="Static\Html\images\selected-new-post-image-992.jpg" />
+    <Content Include="Static\Html\images\selected-new-post-image.jpg" />
+    <Content Include="Static\Html\images\share-price-bg.jpg" />
+    <Content Include="Static\Html\images\sigl.png" />
+    <Content Include="Static\Html\images\slide-1-1200.jpg" />
+    <Content Include="Static\Html\images\slide-1-480.jpg" />
+    <Content Include="Static\Html\images\slide-1-992.jpg" />
+    <Content Include="Static\Html\images\slide-1.jpg" />
+    <Content Include="Static\Html\images\slide-2-1200.jpg" />
+    <Content Include="Static\Html\images\slide-2-480.jpg" />
+    <Content Include="Static\Html\images\slide-2-992.jpg" />
+    <Content Include="Static\Html\images\slide-2.jpg" />
+    <Content Include="Static\Html\images\slide-news-1-1200.jpg" />
+    <Content Include="Static\Html\images\slide-news-1-480.jpg" />
+    <Content Include="Static\Html\images\slide-news-1-992.jpg" />
+    <Content Include="Static\Html\images\slide-news-1.jpg" />
+    <Content Include="Static\Html\images\sticky_indicator.jpg" />
+    <Content Include="Static\Html\images\trunkenpolz.png" />
+    <Content Include="Static\Html\images\twitter-icon.png" />
+    <Content Include="Static\Html\images\up-arrow-white.png" />
+    <Content Include="Static\Html\images\valid.png" />
+    <Content Include="Static\Html\images\video-poster.jpg" />
+    <Content Include="Static\Html\images\warning.png" />
+    <Content Include="Static\Html\images\worker.jpg" />
+    <Content Include="Static\Html\index.html" />
+    <Content Include="Static\Html\investor-downloads.html" />
+    <Content Include="Static\Html\investor-relations.html" />
+    <Content Include="Static\Html\investor-share-price.html" />
+    <Content Include="Static\Html\js\common.min.js" />
+    <Content Include="Static\Html\js\jquery-2.2.1.min.js" />
+    <Content Include="Static\Html\js\jquery-ui.min.js" />
+    <Content Include="Static\Html\js\jquery.min.js" />
+    <Content Include="Static\Html\js\jquery.mobile.js" />
+    <Content Include="Static\Html\js\jquery.nav.js" />
+    <Content Include="Static\Html\js\jquery.pagenav.js" />
+    <Content Include="Static\Html\js\jquery.waypoints.js" />
+    <Content Include="Static\Html\js\map.min.js" />
+    <Content Include="Static\Html\js\owl.carousel.min.js" />
+    <Content Include="Static\Html\js\picturefill.min.js" />
+    <Content Include="Static\Html\js\sticky.js" />
+    <Content Include="Static\Html\js\valida.2.1.6.min.js" />
+    <Content Include="Static\Html\js\vendor.min.js" />
+    <Content Include="Static\Html\js\video.js" />
+    <Content Include="Static\Html\ktm_dot_com_clip.mp4" />
+    <Content Include="Static\Html\management-board.html" />
+    <Content Include="Static\Html\news-additional-info.html" />
+    <Content Include="Static\Html\news-thankyou.html" />
+    <Content Include="Static\Html\news.html" />
+    <Content Include="Static\Html\search.html" />
+    <Content Include="Static\Html\selected-job.html" />
+    <Content Include="Static\Html\selected-new-header.html" />
+    <Content Include="Static\Html\selected-new.html" />
+    <Content Include="Static\StaticHtml.cshtml" />
+    <Content Include="Views\Shared\Partials\PageTextBlock.cshtml" />
+    <Content Include="Views\StatisticInformationBlock\Index.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\StartPage\Index.cshtml" />
+    <Content Include="Views\BlockPreview\Index.cshtml" />
+    <Content Include="Views\Shared\Layouts\_Site.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm.cshtml" />
+    <Content Include="Views\_viewstart.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\NotFound\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Partials\MetaData.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LinkItemCollection.cshtml" />
+    <Content Include="Views\ArticlePage\Index.cshtml" />
+    <Content Include="Views\Shared\Partials\Footer.cshtml" />
+    <Content Include="Views\Shared\Partials\Header.cshtml" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Geta.Test.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\Blocks\BackgroundVideoBlock.cshtml" />
+    <Content Include="Views\BrandPage\Index.cshtml" />
+    <Content Include="Views\Shared\Partials\EditorialPageBase.cshtml" />
+    <Content Include="Views\ArticlesBlock\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\StatementBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\MouseoverBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\MouseoverItemBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\TimeLineBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\TimeLineItemBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\ContentSliderBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\DataBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\SocialShareBlock.cshtml" />
+    <Content Include="Views\ArticleListingPage\ArticleListItem.cshtml" />
+    <Content Include="Views\ArticleListingPage\Index.cshtml" />
+    <Content Include="Views\GenericContentPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\MenuNavigationItemBlock.cshtml" />
+    <Content Include="Views\Shared\Partials\ImageBanner.cshtml" />
+    <Content Include="Views\Shared\Blocks\TextBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\StageSliderBlock.cshtml" />
+    <Content Include="Views\Shared\Partials\TestimonialWithoutLeftBackground.cshtml" />
+    <Content Include="Views\SearchPage\Index.cshtml" />
+    <Content Include="Views\SearchPage\ResultListItems.cshtml" />
+    <Content Include="Views\Shared\Partials\VideoBanner.cshtml" />
+    <Content Include="Views\Shared\Blocks\VideoBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\ImageBannerBlock.cshtml" />
+    <Content Include="Views\ManagementBoardPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\InformationTabItemBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\InformationTabsBlock.cshtml" />
+    <Content Include="Views\CompanyLocationsBlock\Index.cshtml" />
+    <Content Include="Views\ContactUsPage\Index.cshtml" />
+    <Content Include="Views\Shared\Partials\ContactUs.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomCaptchaElementBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomChoiceElementBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomFormContainerBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomSelectionElementBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomSubmitButtonElementBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomTextareaElementBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomTextBoxElementBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomDateSelectionBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\NewsletterBlock.cshtml" />
+    <Content Include="Views\RelatedContentsBlock\Index.cshtml" />
+    <Content Include="Views\JobDetailPage\Index.cshtml" />
+    <Content Include="Views\JobFilter\Index.cshtml" />
+    <Content Include="Views\JobListingPage\Index.cshtml" />
+    <Content Include="Views\JobListingPage\JobItemList.cshtml" />
+    <Content Include="Static\StaticHtmlRelease.cshtml" />
+    <Content Include="Views\Shared\Blocks\MediaStreamBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\GenericContentBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\MediaListingBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\TextInformationListingBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\PartnersBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\LeftGenericContentBlock.cshtml" />
+    <Content Include="Views\Shared\Partials\AttachmentLinks.cshtml" />
+    <Content Include="Views\Shared\Blocks\CareerPathsBlock.cshtml" />
+    <Content Include="Views\Shared\Partials\ImageSliderItem.cshtml" />
+    <Content Include="Views\Shared\Partials\TextSliderItem.cshtml" />
+    <Content Include="Views\Shared\PagePartials\JobListingPage.cshtml" />
+    <Content Include="Views\JobFilter\UI.cshtml" />
+    <Content Include="Views\JobFilter\Partial.cshtml" />
+    <Content Include="Views\Shared\PagePartials\JobListingPageUI.cshtml" />
+    <Content Include="Views\JobListingPage\JobListingPage.cshtml" />
+    <Content Include="Views\Shared\Blocks\IFrameContentBlock.cshtml" />
+    <Content Include="Views\JobDetailPage\JobDetail.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\VideoFile.cshtml" />
+    <Content Include="Views\Shared\Blocks\DocumentListingBlock.cshtml" />
+    <Content Include="Views\SharePriceDataBlock\Index.cshtml" />
+    <Content Include="Web.Geta.Staging.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.KTM.Live.1.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.KTM.Live.2.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.KTM.Live.Edit.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.KTM.Staging.1.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.KTM.Staging.Edit.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Static\Html\css\owl.carousel.css.map" />
+    <Content Include="Static\Html\css\owl.theme.default.css.map" />
+    <Content Include="Static\HtmlRelease\r3.7\css\owl.carousel.css.map" />
+    <Content Include="Static\HtmlRelease\r3.7\css\owl.theme.default.css.map" />
+    <Content Include="Static\HtmlRelease\r3.7\css\style.css.map" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic-boldcondtwenty-webfont.eot" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic-boldcondtwenty-webfont.otf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic-boldcondtwenty-webfont.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic-boldcondtwenty-webfont.woff" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\TradeGothicLT.eot" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\TradeGothicLT.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\TradeGothicLT.woff" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.eot" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-bdcn20-webfont.woff" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-bold-webfont.eot" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-bold-webfont.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-bold-webfont.woff" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-cn18-webfont.eot" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-cn18-webfont.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcom-cn18-webfont.woff" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcombold-webfont.eot" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcombold-webfont.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcombold-webfont.woff" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\TradeGothicLTComBold.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.eot" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcomboldcondensed-webfont.woff" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\TradeGothicLTComBoldCondensed.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcomcondensed-webfont.eot" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcomcondensed-webfont.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\tradegothicltcomcondensed-webfont.woff" />
+    <Content Include="Static\HtmlRelease\r3.7\fonts\tradegothic\TradeGothicLTComCondensed.ttf" />
+    <Content Include="Static\HtmlRelease\r3.7\images\Thumbs.db" />
+    <Content Include="Static\HtmlRelease\r3.7\ktm_dot_com_clip.ogg" />
+    <Content Include="Static\HtmlRelease\r3.7\ktm_dot_com_clip.webm" />
+    <Content Include="Static\Html\ktm_dot_com_clip.ogg" />
+    <Content Include="Static\Html\ktm_dot_com_clip.webm" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomCheckboxBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomSectionHeadingBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\EPiServerForms\CustomLabelBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\RowLayoutBlock.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LinkItem.cshtml" />
+    <Content Include="Views\Shared\Blocks\SocialAccountBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\TestimonialItemBlock.cshtml" />
+    <Content Include="Views\Shared\Partials\TestimonialWithLeftBackground.cshtml" />
+    <Content Include="Views\Shared\Blocks\TestimonialBlock.cshtml" />
+    <Content Include="Views\Shared\Partials\TestimonialItemWithLeftBackground.cshtml" />
+    <Content Include="Views\Shared\Partials\TestimonialItemWithoutLeftBackground.cshtml" />
+    <Content Include="Views\Shared\Blocks\CompanyLocationItemBlock.cshtml" />
+    <Content Include="Views\Shared\Partials\MouseoverItem.cshtml" />
+    <Content Include="Views\Shared\Blocks\InvestorSharePriceBlock.cshtml" />
+    <Content Include="Views\Shared\Partials\MediaListingItems.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Mapping\" />
+    <Folder Include="Services\" />
+    <Folder Include="Static\HtmlRelease\r3.7\fonts\bootstrap\" />
+    <Folder Include="Static\Html\fonts\bootstrap\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Geta.Test|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Label="SlowCheetah">
+    <SlowCheetahToolsPath>$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\..\..\packages\SlowCheetah.2.5.15\tools\))</SlowCheetahToolsPath>
+    <SlowCheetah_EnableImportFromNuGet Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='' ">true</SlowCheetah_EnableImportFromNuGet>
+    <SlowCheetah_NuGetImportPath Condition=" '$(SlowCheetah_NuGetImportPath)'=='' ">$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\Properties\SlowCheetah\SlowCheetah.Transforms.targets ))</SlowCheetah_NuGetImportPath>
+    <SlowCheetahTargets Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='true' and Exists('$(SlowCheetah_NuGetImportPath)') ">$(SlowCheetah_NuGetImportPath)</SlowCheetahTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Geta.Staging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'KTM.Live.1|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'KTM.Live.2|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'KTM.Live.Edit|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'KTM.Staging.1|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'KTM.Staging.Edit|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3401</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://ktmcompany.localtest.me</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Import Project="$(SlowCheetahTargets)" Condition="Exists('$(SlowCheetahTargets)')" Label="SlowCheetah" />
+  <Import Project="..\..\packages\OctoPack.3.0.50\tools\OctoPack.targets" Condition="Exists('..\..\packages\OctoPack.3.0.50\tools\OctoPack.targets')" />
+  <Target Name="EnsureOctoPackImported" BeforeTargets="BeforeBuild" Condition="'$(OctoPackImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\OctoPack.3.0.50\tools\OctoPack.targets') And ('$(RunOctoPack)' != '' And $(RunOctoPack))" Text="You are trying to build with OctoPack, but the NuGet targets file that OctoPack depends on is not available on this computer. This is probably because the OctoPack package has not been committed to source control, or NuGet Package Restore is not enabled. Please enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\OctoPack.3.0.50\tools\OctoPack.targets') And ('$(RunOctoPack)' != '' And $(RunOctoPack))" Text="OctoPack cannot be run because NuGet packages were restored prior to the build running, and the targets file was unavailable when the build started. Please build the project again to include these packages in the build. You may also need to make sure that your build server does not delete packages prior to each build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

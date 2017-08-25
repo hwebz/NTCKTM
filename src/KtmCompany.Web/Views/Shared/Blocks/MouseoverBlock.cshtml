@@ -1,0 +1,10 @@
+﻿@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Models.PageTypes.Constants
+@model MouseoverBlock
+
+<section class="section our-brands">
+    <div class="gallery-ui" data-looptime="@Model.LoopTime" @Html.EditAttributes(x => x.MouseoverArea)>
+        @{ Html.RenderNoWrappersContentArea(Model.MouseoverArea, TagNames.MouseoverItem); }
+        <span class="text-title">@Html.PropertyFor(x => x.Name)</span>
+    </div>
+</section>

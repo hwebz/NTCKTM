@@ -1,0 +1,8 @@
+﻿<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Foundation Search</ShortName>
+  <Description>Geta Foundation Search</Description>
+  <Url type="text/html" method="get" template="http://geta.no/search?q={searchTerms}"/>
+  <Image width="16" height="16">http://geta.no/favicon.ico</Image>
+  <InputEncoding>UTF-8</InputEncoding>
+  <SearchForm>http://geta.no</SearchForm>
+</OpenSearchDescription>

@@ -1,0 +1,33 @@
+﻿@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Implementation.Validation
+@model KtmCompany.Web.Models.BlockTypes.EPiServerForms.CustomSelectionElementBlock
+@{
+    var formElement = Model.FormElement;
+
+    var selectedOption = Model.Items.FirstOrDefault(x => x.Checked.HasValue && x.Checked.Value);
+
+    var placeholderText = Model.PlaceHolder;
+    var defaultOptionItemText = !string.IsNullOrWhiteSpace(placeholderText) ? placeholderText : Html.Translate(string.Format("/episerver/forms/viewmode/selection/{0}", Model.AllowMultiSelect ? "selectoptions" : "selectanoption"));
+    var defaultOptionSelected = Model.Items.Count(x => x.Checked.HasValue && x.Checked.Value) <= 0 ? "selected=\"selected\"" : "";
+    var items = Model.GetItems().ToList();
+    var isRequireField = Model.GetElementValidators().OfType<RequiredValidator>().Any();
+}
+
+<div class="Form__Element FormSelection @Model.GetValidationCssClasses() input-field" data-epiforms-element-name="@formElement.Code">
+    <div class="Form__Element__ValidationError at-error" data-epiforms-linked-name="@formElement.Code" style="display: none">
+    </div>
+    <div class="form-text-title__container">
+        @Model.Label
+    </div>
+    <div class="subject-dropdown">
+        <select name="@formElement.Code" id="@formElement.Guid" @(Model.AllowMultiSelect == true ? "multiple" : "") class="subject @(isRequireField ? "required" : "")" @Html.Raw(formElement.AttributesString) onchange="formElementValueChanged(this.parentElement.parentElement);">
+            <option @defaultOptionSelected value="">@defaultOptionItemText</option>
+            @foreach (var item in items)
+            {
+                var selectedString = item.Checked.HasValue && item.Checked.Value ? "selected=\"selected\"" : string.Empty;
+                var defaultCheckedString = !string.IsNullOrEmpty(selectedString) ? "data-epiforms-default-value=\"true\"" : string.Empty;
+                <option value="@item.Value" @selectedString @defaultCheckedString>@item.Caption</option>
+            }
+        </select>
+    </div>
+</div>

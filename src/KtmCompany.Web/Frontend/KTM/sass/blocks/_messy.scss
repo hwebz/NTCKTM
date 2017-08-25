@@ -1,0 +1,185 @@
+.readmore-link {
+  .block-main-intro {
+    border: none;
+  }
+}
+
+.fa {
+  padding-bottom: 15px;
+  margin-left: 5px;
+}
+
+.fa-arrow-right {
+  background: transparent url('../images/right-arrow.png') no-repeat left 50%;
+  width: 15px;
+  height: 13px;
+  text-indent: -9999px;
+  &:before {
+    display: none;
+  }
+}
+
+.fa-arrow-left {
+  background: transparent url('../images/left-arrow-1.png') no-repeat left 50%;
+  width: 15px;
+  height: 13px;
+  text-indent: -9999px;
+  &:before {
+    display: none;
+  }
+}
+
+.fa-arrow-up {
+  background: transparent url('../images/up-arrow-white.png') no-repeat left 50%;
+  width: 14px;
+  height: 15px;
+  text-indent: -9999px;
+}
+
+a:hover {
+  .fa-arrow-left,
+  .fa-arrow-up {
+    background-position: 100% 50%;
+  }
+}
+
+.fa-arrow-down {
+  background: transparent url('../images/down-arrow-white.png') no-repeat left 50%;
+  width: 14px;
+  height: 13px;
+  text-indent: -9999px;
+}
+
+.our-brands {
+    .fa-arrow-right {
+        background: transparent url('../images/right-arrow-white-d1.png') no-repeat left 50%;
+    }
+    .bottom-link a:hover {
+        color: #d1d1d1;
+        .fa-arrow-right {
+            background: transparent url('../images/right-arrow-white-d1.png') no-repeat right 50%;
+        }
+    }
+}
+
+.carousel,
+.header-image-not-found,
+.investor-relations,
+.additional-info{
+  .fa-arrow-right {
+    background: transparent url('../images/right-arrow-white.png') no-repeat left 50%;
+  }
+}
+
+.carousel.carousel-black-arrow{
+    .fa-arrow-right {
+        background: transparent url('../images/right-arrow.png') no-repeat left 50%;
+    }
+}
+
+#related-post-slider {
+  .fa-arrow-right {
+    background: transparent url('../images/right-arrow.png') no-repeat left 50%;
+    &:hover {
+      background-position: 100% 50%;
+    }
+  }
+
+  .col-sm-4 {
+    padding: 0 25px;
+  }
+}
+
+.news-module {
+  .fa-arrow-right {
+    &:hover {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+.intro-readmore:hover, .webpage-btn:hover {
+  .fa {
+    background-position: 100% 50%;
+  }
+}
+
+.discover-btn {
+  .ktm-button:hover {
+    .fa-arrow-down {
+      /*background-position: 100% 51%;*/
+    }
+  }
+}
+
+.fa-download {
+  width: 16px;
+  height: 15px;
+  margin-right: 5px;
+  background: transparent url('../images/download-icon.png') no-repeat left center;
+  background-size: cover;
+  text-indent: -9999px;
+}
+
+.slide-img, .download-part {
+  .fa-download {
+    background: transparent url('../images/download-icon-white.png') no-repeat left center;
+    background-size: cover;
+  }
+}
+
+.slide-img {
+    .table-data {
+        .fa-download {
+            background: transparent url('../images/download-icon.png') no-repeat left center;
+            background-size: cover;
+          }
+    }
+}
+
+.structure-detail {
+    .download-part {
+      .fa-download {
+        background: transparent url('../images/download-icon.png') no-repeat left center;
+        background-size: cover;
+      }
+    }
+}
+
+select {
+  option {
+    //border-right: 1px solid black;
+  }
+}
+
+.required-icon {
+    font-family: 'TradeGothicBold';
+    color: #808080;
+    font-size: rem(20px);
+    width: 10px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: rem(0 3px 0 0);
+    
+    .newsletter-column &{
+        color: inherit;
+    }
+}
+
+/* do not group these rules */
+*::-webkit-input-placeholder {
+  color: #808080;
+}
+*:-moz-placeholder {
+  /* FF 4-18 */
+  color: #808080;
+}
+*::-moz-placeholder {
+  /* FF 19+ */
+  color: #808080;
+}
+*:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #808080;
+}

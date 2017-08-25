@@ -1,0 +1,90 @@
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+  .contact-us {
+    .contact-form {
+      .message {
+        background-size: 17%;
+      }
+    }
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .contact-us {
+    .contact-form {
+      .message {
+        background-size: 20%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .contact-us {
+    .news-module {
+      padding: 0;
+      margin: 30px 15px 30px 15px;
+      border-bottom: 1px solid #d9d9d9;
+
+      .post-detail {
+        border: none;
+
+        .information-block {
+          margin-bottom: 50px;
+        }
+      }
+    }
+
+    .contact-area {
+      border-bottom: none;
+    }
+
+
+    .row-intro {
+      border-bottom: 1px solid #d9d9d9;
+      padding: 0;
+      margin: 0 15px;
+    }
+
+    .contact-form {
+      .subject-dropdown {
+        .subject {
+          background-position: 94% 50%;
+        }
+      }
+      .message {
+        background-size: 6%;
+      }
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .contact-us {
+    .contact-form {
+      .message {
+        background-size: 10%;
+      }
+    }
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+  .contact-us {
+    .contact-form {
+      .subject-dropdown {
+        .subject {
+          background-position: 90% 50%;
+        }
+      }
+      .message {
+        background-size: 14%;
+      }
+    }
+  }
+}

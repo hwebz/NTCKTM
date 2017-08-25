@@ -1,0 +1,36 @@
+﻿@using EPiServer.Editor
+@using KtmCompany.Web.Helpers
+@model EditorialPageBase
+
+<div class="row-wrapper-block">
+    <section class="section first-section sticky-container">
+        <div class="container">
+            <div class="row tripple-row table-style">
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line">
+                    <div class="block-main-intro">
+                        <div class="outer-main-intro">
+                            @if (!string.IsNullOrEmpty(Model.ContentCategory) || PageEditing.PageIsInEditMode)
+                            {
+                                <a href="#" class="intro-cate" style="color: @CategoryHelpers.GetCategoryColor(Model.ContentCategory)">@Html.PropertyFor(x => x.ContentCategory)</a>
+                            }
+                            <h3 class="intro-title">@Html.PropertyFor(x => x.Heading)</h3>
+                            @if (!string.IsNullOrEmpty(Model.MainIntro) || PageEditing.PageIsInEditMode)
+                            {
+                                <p class="intro-des">@Html.PropertyFor(x => x.MainIntro)</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-8 table-row padding--first-section-bottom seperate-line-right">
+                    <div class="inner-block-article">
+                        @if (!string.IsNullOrEmpty(Model.SubHeader) || PageEditing.PageIsInEditMode)
+                        {
+                            <h3 class="heading">@Html.PropertyFor(x => x.SubHeader)</h3>
+                        }
+                        <p class="description">@Html.PropertyFor(x => x.MainBody)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

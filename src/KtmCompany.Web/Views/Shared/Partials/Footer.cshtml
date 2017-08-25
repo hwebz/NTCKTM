@@ -1,0 +1,72 @@
+﻿@using EPiServer
+@using KtmCompany.Web.Infrastructure.Extensions
+@model FooterViewModel
+
+<footer>
+    <div class="footer-link">
+        <div class="container">
+            <div class="row">
+                <div class="footer-link-left pull-left">
+                    @if (Model.FooterColumn1Links != null && Model.FooterColumn1Links.Any())
+                    {
+                        <div class="block-link">
+                            @Html.PropertyFor(m => m.FooterColumn1Links)
+                        </div>
+                    }
+                    @if (Model.FooterColumn2Links != null && Model.FooterColumn2Links.Any())
+                    {
+                        <div class="block-link">
+                            @Html.PropertyFor(m => m.FooterColumn2Links)
+                        </div>
+                    }
+                    @if (Model.FooterColumn3Links != null && Model.FooterColumn3Links.Any())
+                    {
+                        <div class="block-link">
+                            @Html.PropertyFor(m => m.FooterColumn3Links)
+                        </div>
+                    }
+                </div>
+                <div class="footer-link-right pull-right">
+                    <div class="block-link">
+                        <ul>
+                            <li><span class="fw7">@Html.PropertyFor(x => x.CompanyName)</span></li>
+                        </ul>
+                    </div>
+                    <div class="block-link">
+                        <ul>
+                            <li>
+                                <p>@Html.PropertyFor(x => x.Address1)</p>
+                                <p>@Html.PropertyFor(x => x.Address2) </p>
+                                <p>@Html.PropertyFor(x => x.Country)</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block-link">
+                        <ul>
+                            @if (!string.IsNullOrEmpty(Model.Phone))
+                            {
+                                <li><span>@Html.TranslateFallback("/views/footer/phone", "Phone") @Html.PropertyFor(x => x.Phone)</span></li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.Fax))
+                            {
+                                <li><span>@Html.TranslateFallback("/views/footer/fax", "Fax") @Html.PropertyFor(x => x.Fax)</span></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul>
+                        @Html.PropertyFor(m => m.FooterBottomLinks, new { noRenderULContainer = true})                        
+                        <li><span>&copy; @Html.PropertyFor(x => x.CopyrightInfo)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

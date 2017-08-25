@@ -1,0 +1,14 @@
+extends _root.jade
+block title
+	title News
+block content
+	block page-header
+	section.main-content
+		.container
+			.row
+				aside.col-md-3.col-sm-4.left-column
+					block side-bar
+				main.col-md-9.col-sm-8.right-column
+					block page-body
+block scripts
+	script(src="js/common.min.js" type="text/javascript")

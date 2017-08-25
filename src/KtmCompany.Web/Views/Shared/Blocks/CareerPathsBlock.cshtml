@@ -1,0 +1,55 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Helpers
+@model CareerPathsBlock
+
+<div id="slider-6" data-ride="carousel" class="carousel slide slide-img caption-bg career-path">
+    <div class="section-info">
+        <div class="container">
+            <div class="row tripple-row">
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                    <div class="slider-captions dark-background light-color map-left-side has_bg_img">
+                        <div style="background-image: url('@CommonHelpers.GetLeftBackgroundImage(Model.LeftContent.LeftBackgroundImage)')" class="has_bg_img"></div>
+                        <div class="block-main-intro light-color" @Html.EditAttributes(m => m.LeftContent)>
+                            @Html.DisplayFor(m => m.LeftContent)
+                        </div>
+                        @if (Model.CareerPathItems != null && Model.CareerPathItems.Count > 1)
+                        {
+                            <ol class="carousel-indicators owl-indicators"></ol>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="listbox" class="carousel-inner map-inner hidden-xs">
+        <div class="section-map section-grid section-career-path">
+            <div class="map-section padding-section">
+                <div id="@Guid.NewGuid()" data-ride="carousel" class="slide slide-inner-ktm owl-carousel owl-theme">                    
+                    @if (Model.CareerPathItems != null)
+                    {
+                        foreach (var item in Model.CareerPathItems)
+                        {
+                            <div class="item">
+                                <div class="item-with-icon">
+                                    <span>
+                                        <img src="@item.Image.GetFriendlyUrl()">
+                                    </span>
+                                    <div class="post-title">
+                                        <h3>@item.Title</h3>
+                                    </div>
+                                    <div class="description">
+                                        <p>@item.Abstract</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    } 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@if (Model.CareerPathItems != null && Model.CareerPathItems.Count > 0)
+{
+    Html.RenderPartial("TextInformationListingBlock", new TextInformationListingBlock {TextInformationItems = Model.CareerPathItems }, new ViewDataDictionary {new KeyValuePair<string, object>("renderForMobile", true), new KeyValuePair<string, object>("renderForDesktop", false)});
+}

@@ -1,0 +1,21 @@
+﻿@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+@model PageDataBase
+
+<div class="item-news" data-pageId="@Model.ContentLink.ToString()">
+    @if (!string.IsNullOrEmpty(Model.ContentCategory))
+    {
+        <p class="item-news-category" style="color: @CategoryHelpers.GetCategoryColor(Model.ContentCategory)">@Model.ContentCategory</p>
+    }
+    <h3>
+        <a href="@Model.GetFriendlyUrl()" class="url-listing-item" onmouseover="this.style.color = '@CategoryHelpers.GetCategoryColor(Model.ContentCategory)'" onmouseout="this.style.color = '#000000'">
+            @Model.Heading.StripPreviewText(100)
+        </a>
+    </h3>
+    <p class="item-news-text">
+        @Model.MainIntro.StripPreviewText(280)
+    </p>
+    <a href="@Model.GetFriendlyUrl()" class="item-news-readmore url-listing-item">
+        <span class="fa fa-arrow-right"></span>
+    </a>
+</div>

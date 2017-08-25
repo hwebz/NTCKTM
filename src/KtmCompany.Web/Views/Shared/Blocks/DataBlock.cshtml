@@ -1,0 +1,30 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using KtmCompany.Web.Infrastructure.Extensions
+@model DataBlock
+
+
+@if (PageEditing.PageIsInEditMode)
+{
+    @:<div @Html.EditAttributes(m => m.StatisticInformationItems)>
+}
+@if (Model.StatisticInformationItems != null)
+{
+    var chunkedItems = Model.StatisticInformationItems.GetItems<StatisticInformationBlock>().Chunk(2).ToList();
+
+    for (var index = 0; index < chunkedItems.Count; index++)
+    {
+        <div class="row module-feature @(index == 0 ? "first-child" : "") equal-height-container">
+            @foreach (var item in chunkedItems[index])
+            {
+                <div class="col-xs-12 col-md-6 tripple-column-space equal-height">
+                    @{ Html.RenderContentData(item, false); }
+                </div>
+            }
+        </div>
+    }
+}
+@if (PageEditing.PageIsInEditMode)
+{
+    @:</div>
+}

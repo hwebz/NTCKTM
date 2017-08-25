@@ -1,0 +1,35 @@
+﻿@using EPiServer.Editor
+@using KtmCompany.Web.Infrastructure.Extensions
+@model StatementBlock
+
+<section class="section padding-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="quote-module">
+                    @if (!string.IsNullOrEmpty(Model.Header) || PageEditing.PageIsInEditMode)
+                    {
+                        <h2 @Html.EditAttributes(x => x.Header)>
+                            @Model.Header.ToMultiLineHTMLText(1)
+                        </h2>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.SubHeader) || PageEditing.PageIsInEditMode)
+                    {
+                        <p @Html.EditAttributes(x => x.SubHeader)>
+                            @Model.SubHeader.ToMultiLineHTMLText(1)
+                        </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (PageEditing.PageIsInEditMode)
+{
+    <style type="text/css">
+        .quote-module {
+            opacity: 1;
+        }
+    </style>
+}

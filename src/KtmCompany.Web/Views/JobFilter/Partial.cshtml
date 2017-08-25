@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "UI.cshtml";
+}
+
+@model KtmCompany.Web.Models.ViewModels.JobFilterViewModel
+
+@section Scripts
+{
+<script>
+    $(document).ready(function () {
+        $('#btnJobSearch').click(function () {
+            var params = {};
+            if ($('#position-filter').val()) {
+                params.JobPosition = $('#position-filter').val();
+            }
+            if ($('#country-filter').val()) {
+                params.Country = $('#country-filter').val();
+            }
+
+            $(document).trigger("jobFilterChanged", params);
+
+            return false;
+        });
+    });
+</script>
+}

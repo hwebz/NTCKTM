@@ -1,0 +1,14 @@
+mixin main-slider
+	.main-slider
+		//- video(autoplay="true")
+		//- 	source(src="http://www.ktm.com/globalassets/home/ktm_dot_com_clip.mp4")
+		//- img(src="images/main-slider.jpg", alt="KTM", class="img-responsive")
+		//video#videoBanner(src='http://www.ktm.com/globalassets/home/ktm_dot_com_clip.mp4', poster='http://www.ktm.com/globalassets/home/readytorace.jpg', autoplay, muted)
+		video#videoBanner(src='ktm_dot_com_clip.mp4', poster='http://www.ktm.com/globalassets/home/readytorace.jpg', autoplay, muted)
+		.text-ovelay
+			p(class="text-ovelay-primary", id="text-message", data-text="Hello | What's your<br /> name", data-loop="true", data-duration="3000", data-fade-in="1000", data-fade-out="1000")
+				|The Most Competitive bikes <br />
+				|on the planet
+			p
+				a(href="#section-1", class="ktm-button ktm-ghost-button") Discover
+					span.fa.fa-arrow-down

@@ -1,0 +1,114 @@
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+  .main-slider {
+    .text-ovelay {
+      top: 44%;
+      .text-ovelay-primary {
+        font-size: 80px;
+      }
+    }
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .main-slider {
+    .text-ovelay {
+      top: 50%;
+      .text-ovelay-primary {
+        font-size: 65px;
+      }
+    }
+    
+    .mouse-container {
+      -webkit-transform: scale(0.6);
+      -moz-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+      -o-transform: scale(0.6);
+      transform: scale(0.6);
+      left: 44%;
+      bottom: 15px;
+    }
+
+    .ktm-button {
+      padding: 10px 35px 10px 20px;
+      font-size: 15px;
+
+      span {
+        right: 13px;
+        top: 12px
+      }
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .main-slider {
+    .text-ovelay {
+      .text-ovelay-primary {
+        font-size: 50px;
+        margin-bottom: 20px;
+      }
+    }
+
+
+    .ktm-button {
+      padding: 15px 50px 15px 30px;
+      font-size: 15px;
+
+      span {
+        right: 27px;
+        top: 16px;
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .homepage, .company-news {
+    .row-intro {
+      .intro-readmore {
+        display: none;
+      }
+    }
+  }
+
+  .discover-btn-mobile {
+    display: block;
+  }
+
+  .discover-btn {
+    display: none;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .main-slider {
+    .text-ovelay {
+      .text-ovelay-primary {
+        font-size: 35px;
+      }
+    }
+  }
+  .main-slider {
+    .text-ovelay {
+      #text-message.text-ovelay-primary {
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}

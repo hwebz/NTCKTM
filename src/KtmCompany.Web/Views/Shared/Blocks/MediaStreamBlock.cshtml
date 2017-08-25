@@ -1,0 +1,69 @@
+﻿@using EPiServer.Cms.Shell
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Models.MediaTypes
+@using KtmCompany.Web.Infrastructure.Extensions;
+
+@model MediaStreamBlock
+@{
+    var guid = "slider-9";
+    var chunkedItems = new List<IEnumerable<ImageFile>>();
+    if (Model.ContentArea != null)
+    {
+        var filterItems = Model.ContentArea.GetItems<ImageFile>();
+        filterItems.Shuffle();
+        chunkedItems = filterItems.Chunk(6).ToList();
+    }
+}
+<div id="@guid" data-ride="carousel" class="carousel slide slide-img caption-bg">
+    <div role="listbox" class="carousel-inner map-inner">
+        <div class="section-map">
+            <div id="slide-inner-ktm" data-ride="carousel" class="carousel slide">
+                <div role="listbox" class="carousel-inner grid-section">
+                    @for (var index = 0; index < chunkedItems.Count; index++)
+                    {
+                        <div class="item @(index == 0 ? "active" : "" )">
+                            <div class="section-grid">
+                                <div class="grid-section">
+                                    @foreach (var item in chunkedItems[index])
+                                    {
+                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="item-grid">
+                                                <div class="thumbnail">
+                                                    <img src="@item.PublicUrl()" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-info">
+        <div class="container">
+            <div class="row tripple-row">
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                    <div class="slider-captions dark-background light-color map-left-side has_bg_img" @Html.EditAttributes(m => m.LeftContent)>
+                        <div style="background-image: url('@CommonHelpers.GetLeftBackgroundImage(Model.LeftContent.LeftBackgroundImage)')" class="has_bg_img"></div>
+                        @Html.DisplayFor(m => m.LeftContent)
+
+                        @if (chunkedItems.Count > 1)
+                        {
+                            <ol class="carousel-indicators">
+                                @for (var index = 0; index < chunkedItems.Count; index++)
+                                {
+                                    <li data-target="#@guid" data-slide-to="@index" class="@(index == 0 ? "active" : "" )"></li>
+                                }
+                            </ol>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,212 @@
+.company-header {
+  .section {
+    img {
+      width: 100%;
+    }
+
+    .intro-title {
+      font-size: 80px;
+      .intro-readmore {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+.company-page {
+  .carousel {
+    display: flex;
+    .section-info-map {
+      flex: none;
+      height: inherit !important;
+    }
+  }
+}
+
+.company-page {
+  .timeline-row {
+    .timeline-content {
+      margin-left: 0;
+      padding-left: 0;
+      padding-right: 0;
+      border: none;
+      .timeline-full {
+        display: block;
+      }
+    }
+    .timeline-cta {
+      display: none;
+    }
+  }
+}
+
+.management-board {
+  .timeline-row {
+    .timeline-content {
+      @include respond-to-max($tabletSize) {
+        padding: rem(0 15px);
+      }
+    }
+  }
+}
+
+.structure-detail {
+    @include respond-to-max($tabletSize) {
+        padding-left: rem(15px);
+        padding-right: rem(15px);
+    }
+    img {
+        /*width: 100%;*/
+        height: auto;
+        margin-top: 30px;
+    }
+    .intro-title {
+        margin-top: 0;
+        font-family: "TradeGothicBoldCon", Arial, Helvetica, sans-serif;
+    }
+
+    p {
+        margin-top: 20px;
+    }
+}
+.carousel {
+  .dropdown {
+    select {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.dropdown {
+  select {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.section-info-map {
+background: rgba(0, 0, 0, 0.6) url(../images/caption-background.jpg) no-repeat center center;
+position: relative;
+-webkit-background-size:cover;
+    background-size:cover;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.section-map {
+    padding-left: 0;
+    padding-right: 0;
+    #googleMap {
+    width: 100%;
+    height: 100%;
+}
+}
+
+.company-page {
+  .carousel {
+    .location-detail {
+      color: white;
+      position: absolute;
+      top: -50px;
+      left: 40%;
+      background: url(../images/company-slider.jpg) no-repeat left top;
+      background-size: cover;
+      border: 2px solid orange;
+      padding: 0;
+      .location-box {
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 60px;
+        margin-top: 0;
+        .intro-readmore {
+          color: white;
+        }
+
+        .arrow-location-box {
+          border: 30px solid orange;
+          border-left-color: transparent;
+          border-right-color: transparent;
+          border-bottom-color: transparent;
+          position: absolute;
+          right: 0;
+          bottom: -62px;
+        }
+      }
+
+    }
+  }
+}
+
+.company-button {
+  text-transform: uppercase;
+  font-family: "TradeGothicLT";
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 15px;
+  display: block;
+  color: #ffffff;
+  margin-top: 20px;
+  &:hover {
+    text-decoration: none;
+    color: #ffffff;
+
+    //span {
+    //  -webkit-animation: loop-arrow-down 0.8s;
+    //  animation: loop-arrow-down 0.8s;
+    //  -webkit-animation-iteration-count: infinite;
+    //  animation-iteration-count: infinite;
+    //}
+  }
+
+  span {
+    margin-left: 5px;
+  }
+}
+.map-section {
+    height: rem(300px);
+    @include respond-to-min($tabletSize) {
+        height: rem(600px);
+    }
+    @include respond-to-min($largeSize) {
+        height: rem(800px);
+    }
+}
+
+.location-info {
+  display: none;
+  //position: absolute;
+  //z-index: 1;
+  @include respond-to-max($tabletSize) {
+    display: none;
+  }
+}
+
+.location-info-mobile {
+  display: none;
+  @include respond-to-max($tabletSize) {
+    display: block;
+  }
+
+  .tripple-column-space {
+    padding-right: 0;
+  }
+}
+
+.structure-image-mobile {
+    width: 100%;
+    display: none;
+}
+
+@include respond-to-max($mobileSize) {
+    .structure-image-desktop {
+        display: none;
+    }
+
+    .structure-image-mobile {
+        display: block;
+    }
+}

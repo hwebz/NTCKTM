@@ -1,0 +1,105 @@
+﻿@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Infrastructure
+@model CompanyLocationItemBlock
+@{  
+    var markerSrc = string.Empty;
+    switch (Model.GoogleMapMarker)
+    {
+        case GoogleMapMarker.KTM:
+            markerSrc = "/Frontend/KTM/images/pin-2.png";
+            break;
+        case GoogleMapMarker.Husqvarna://Husqvarna
+            markerSrc = "/Frontend/KTM/images/pin-1.png";
+            break;
+        case GoogleMapMarker.Both://Both
+            markerSrc = "/Frontend/KTM/images/pin-3.png";
+            break;
+    }
+    string regionName = null, countryName = null;
+    if (Model.Location != null)
+    {
+        if (!string.IsNullOrEmpty(Model.Location.Region))
+        {
+            var region = RegionManager.Current.Get(Model.Location.Region);
+            if (region != null)
+            {
+                regionName = region.RegionName;
+            }
+        }
+        if (!string.IsNullOrEmpty(Model.Location.Country))
+        {
+            var country = RegionManager.Current.GetCountryInfo(Model.Location.Country);
+            if (country != null)
+            {
+                countryName = country.CountryName;
+            }
+        }
+    }
+}
+<div data-ride="carousel" class="carousel slide slide-img caption-bg">
+    <div class="section-info">
+        <div class="container">
+            <div class="row tripple-row">
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                    <div class="slider-captions dark-background light-color map-left-side">
+                        <div class="has_bg_img company-location-map-found-bg-img" 
+                             style="background-image: url('@(Model.LeftBackgroundImage.IsNullOrEmpty()?"none":Model.LeftBackgroundImage.GetFriendlyUrl())');" @Html.EditAttributes(m => m.LeftBackgroundImage)></div>
+                    <div class="outer-main-intro">
+                        <h3 class="intro-title">@Html.PropertyFor(m => m.Name)</h3>
+                        <div class="intro-des">
+                            @Html.PropertyFor(m => m.AddressLine1)
+                            @Html.PropertyFor(m => m.AddressLine2)
+                            <div @Html.EditAttributes(m => m.Location)>
+                                @countryName - @regionName
+                            </div>
+                            @Html.TranslateFallback("/views/companylocationsblock/phone)", "Phone"):
+                            <a class='phone' href='tel:@Model.PhoneNumber' @Html.EditAttributes(m => m.PhoneNumber)> @Model.PhoneNumber </a>
+                            <br/>
+                            @Html.TranslateFallback("/views/companylocationsblock/fax)", "Fax"): <span @Html.EditAttributes(m => m.FaxNumber)>@Model.FaxNumber</span>
+                            <br/><a target='_blank' href='mailto:@Model.Email' @Html.EditAttributes(m => m.Email)>@Model.Email</a>
+                            <br/><a target='_blank' href='@Model.Website' @Html.EditAttributes(m => m.Website)>@Model.Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div role="listbox" class="carousel-inner map-inner height-map-inner" @Html.EditAttributes(m => m.GeoLocationString)>
+         <div class="section-map">
+            <div class="map-section">
+                <div id="googleMap" class="right-section"></div>
+            </div>
+        </div>
+    </div>    
+</div>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+    function init_map() {
+        var mapProp = {
+            center: new google.maps.LatLng(@Model.GeoLocation.Latitude, @Model.GeoLocation.Longitude),
+            zoom: 4,
+            scrollwheel: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        if (map != null) {
+            var styles = [{
+                featureType: "landscape",
+                stylers: [{ color: "#e0e0e0" }]
+            }, {
+                featureType: "water",
+                stylers: [{ color: "#ededef" }]
+            }];
+            map.setOptions({ styles: styles });
+        }
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(@Model.GeoLocation.Latitude, @Model.GeoLocation.Longitude),
+            map: map,
+            icon: '@markerSrc'
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', init_map);
+</script>
+@Html.FullRefreshPropertiesMetaData(new []{"GeoLocationString", "LeftBackgroundImage" })

@@ -1,0 +1,7 @@
+﻿@model TestimonialItemBlock
+
+<div class="block">
+    @(Model.LeftContent.LeftBackgroundImage.IsNullOrEmpty() ?
+    Html.Partial("TestimonialItemWithoutLeftBackground", Model)
+    : Html.Partial("TestimonialItemWithLeftBackground", Model))
+</div>

@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "UI.cshtml";
+}
+
+@model JobFilterViewModel
+
+@section Scripts
+{
+<script>
+    $(document).ready(function () {
+        var baseUrl = "@Model.BaseUrl";
+        var params = $.urlParams();
+        var requestedJobPosition = params.JobPosition;
+        var requestedCountry = params.Country;
+        if (requestedJobPosition !== 0 && requestedJobPosition != null) {
+            $('#position-filter').val(requestedJobPosition);
+        }
+        if (requestedCountry !== 0 && requestedCountry != null) {
+            $('#country-filter').val(requestedCountry);
+        }
+
+        $('#btnJobSearch').click(function () {
+            var params = {};
+            if ($('#position-filter').val()) {
+                params.JobPosition = $('#position-filter').val();
+            }
+            if ($('#country-filter').val()) {
+                params.Country = $('#country-filter').val();
+            }
+            changeUrlParam(baseUrl, params);
+
+            return false;
+        });
+    });
+</script>
+ }

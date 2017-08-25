@@ -1,0 +1,62 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Models.BlockTypes.EPiServerForms
+@using KtmCompany.Web.Helpers;
+@using KtmCompany.Web.Infrastructure.Extensions
+
+@model NewsletterBlock
+
+
+@{
+    var form = new CustomFormContainerBlock();
+    if (Model.FormContainerArea != null)
+    {
+        var filterItems = Model.FormContainerArea.GetItems<CustomFormContainerBlock>();
+        if (filterItems.Any())
+        {
+            form = filterItems[0];
+        }
+    }
+
+    var imgUrl = Url.ContentUrl(Model.BackgroundImage);
+}
+
+
+<div id="additional-info" style="background: url('@Model.BackgroundImage.GetFriendlyUrl()') 0 0 no-repeat; background-size: cover;" class="additional-info">
+    <div class="container">
+        @Html.PropertyFor(x => x.FormContainerArea)
+    </div>
+</div>
+
+@if (form != null && !string.IsNullOrEmpty(form.MessageHeadingAfterSubmit))
+{
+    <div class="thank-you-message  whiteColorText" style="display: none">
+        <div data-ride="carousel" class="carousel slide slide-img carousel-fade">
+            <div role="listbox" class="carousel-inner">
+                <div class="item active">
+                    <picture>
+                        <source srcset="@ImageHelpers.StandardPercentageCrop(imgUrl,(short)ImageScreenWidthPercent.Screen480)" media="(max-width: 480px)">
+                        <source srcset="@ImageHelpers.StandardPercentageCrop(imgUrl,(short)ImageScreenWidthPercent.Screen992)" media="(max-width: 992px)">
+                        <source srcset="@ImageHelpers.StandardPercentageCrop(imgUrl,(short)ImageScreenWidthPercent.Screen1200)" media="(max-width: 1200px)">
+                        <img srcset="@imgUrl">
+                    </picture>
+                </div>
+            </div>
+            <div class="section-info">
+                <div class="container">
+                    <div class="row tripple-row">
+                        <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                            <div class="slider-captions dark-background light-color">
+                                <div class="outer-main-intro">
+                                    <h3 class="intro-title">@form.MessageHeadingAfterSubmit</h3>
+                                    <p class="intro-des">@form.MessageAbstractAfterSubmit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

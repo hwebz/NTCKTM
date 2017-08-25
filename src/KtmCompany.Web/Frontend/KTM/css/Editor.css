@@ -1,0 +1,60 @@
+﻿@import url("style.css");
+@import url("custom.css");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+
+.intro-title {
+    EditMenuName: Title;    
+}
+h1 {
+    EditMenuName: Heading 1;    
+    ChangeElementType: true;
+}
+h2 {
+    EditMenuName: Heading 2;    
+    ChangeElementType: true;
+}
+h3 {
+    EditMenuName: Heading 3;    
+    ChangeElementType: true;
+}
+h4 {
+    EditMenuName: Heading 4;    
+    ChangeElementType: true;
+}
+p {
+    EditMenuName: Normal Paragraph;    
+    ChangeElementType: true;
+}
+a.tinymce {
+    EditMenuName: Normal link;    
+    ChangeElementType: true;
+}
+
+a.black-bold-link {
+    EditMenuName: Black Bold Link;    
+    ChangeElementType: true;
+}
+.tinymce, .next-event {
+    EditMenuName: Event Subject;    
+}
+.tinymce, .event-title {
+    EditMenuName: Event Title;    
+}    
+a.intro-readmore {
+    EditMenuName: Next Link;    
+}
+.tinymce, .back-to-prev {
+    EditMenuName: Back Link;    
+}
+.fa, .fa-arrow-left {
+    EditMenuName: Back Link Arrow;    
+}
+.fa, .fa-arrow-right {
+    EditMenuName: Next Link Arrow    
+}
+.fa, .fa-check {
+    EditMenuName: Bullet Check;        
+}
+.green-text {
+    EditMenuName: Green Text;    
+}

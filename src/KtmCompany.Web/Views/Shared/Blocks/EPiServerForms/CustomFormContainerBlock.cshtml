@@ -1,0 +1,272 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Forms
+@using EPiServer.Forms.Configuration
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Forms.Core
+@using EPiServer.Forms.Core.Models
+@using EPiServer.Forms.Helpers
+@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Models.BlockTypes.EPiServerForms
+@model CustomFormContainerBlock
+
+@functions
+{
+    private List<CustomElementBlockBase> GetStepElements(IFormStep step)
+    {
+        var stepElements = new List<CustomElementBlockBase>();
+        foreach (var item in step.Elements)
+        {
+            var sourceContent = (item as FormElement).SourceContent;
+            var customElementBlockBase = new CustomElementBlockBase { ColumnIndex = 1, FullRowWidth = false, SourceContent = sourceContent };
+            var elementBlockBase = sourceContent as ICustomElementBlockBase;
+            if (elementBlockBase != null)
+            {
+                customElementBlockBase.ColumnIndex = elementBlockBase.ColumnIndex;
+                customElementBlockBase.FullRowWidth = elementBlockBase.FullRowWidth;
+            }
+            stepElements.Add(customElementBlockBase);
+        }
+        return stepElements;
+    }
+}
+
+@if (Model.Form != null)
+{
+    <form enctype="multipart/form-data" class="EPiServerForms row act-form" data-epiforms-type="form" id="@Model.Form.FormGuid" action="@(EPiServerFormsSection.Instance.CoreController)/Submit" method="post">
+        @if (PageEditing.PageIsInEditMode)
+        {
+            <link rel="stylesheet" type="text/css" data-epiforms-resource="EPiServerForms.css" href='@ModuleHelper.ToClientResource(typeof (ModuleHelper), "ClientResources/ViewMode/EPiServerForms.css")'/>
+        }
+        else
+        {
+            <!--Meta data, authoring data of this form is transfer to clientside here. We need to take form with language coresponse with current page's language-->
+            <script type="text/javascript" src="@EPiServerFormsSection.Instance.CoreController/GetFormInitScript?formGuid=@Model.Form.FormGuid&formLanguage=@FormsExtensions.GetCurrentPageLanguage()"></script>
+            <!--Meta data, send along as a SYSTEM information about this form, so this can work without JS-->
+            <input type="hidden" class="Form__Element Form__SystemElement FormHidden FormHideInSummarized" name="__FormGuid" value="@Model.Form.FormGuid"/>
+            <input type="hidden" class="Form__Element Form__SystemElement FormHidden FormHideInSummarized" name="__FormHostedPage" value="@FormsExtensions.GetCurrentPageLink().ToString()"/>
+            <input type="hidden" class="Form__Element Form__SystemElement FormHidden FormHideInSummarized" name="__FormLanguage" value="@FormsExtensions.GetCurrentPageLanguage()"/>
+            <input type="hidden" class="Form__Element Form__SystemElement FormHidden FormHideInSummarized" name="__FormCurrentStepIndex" value="@(ViewBag.CurrentStepIndex ?? "")"/>
+            <input type="hidden" class="Form__Element Form__SystemElement FormHidden FormHideInSummarized" name="__FormSubmissionId" value="@ViewBag.FormSubmissionId"/>
+            var statusDisplay = "";
+            var message = "";
+            if (!ViewBag.Submittable || ViewBag.FormFinalized || ViewBag.ValidationFail)
+            {
+                statusDisplay = "Form__Warning__Message";
+                message = ViewBag.Message;
+            }
+
+            <!-- area for showing Form's status or validation -->
+            <div class="Form__Status">
+                @if (ViewBag.FormFinalized)
+                {
+                    <span class="Form__Status__Message @statusDisplay" style="display: none">@message</span>
+                }
+                else
+                {
+                    <span class="Form__Status__Message @statusDisplay" style="display: none">@message</span>
+                }
+            </div>
+        }
+
+        <div class="Form__MainBody @(Model.FormType == FormType.ContactUs || Model.FormType == FormType.Apply ? "blackColorText" : "whiteColorText")">
+            @{
+                var stepIndex = 0;
+                var currentStepIndex = ViewBag.CurrentStepIndex == null ? -1 : (int) ViewBag.CurrentStepIndex;
+                foreach (var step in Model.Form.Steps)
+                {
+                    <section id="@step.Code" data-epiforms-element-name="@step.Code" class="Form__Element FormStep" data-epiforms-stepindex="@stepIndex">
+                        @{
+                            var stepBlock = (step.SourceContent as ElementBlockBase);
+                            if (stepBlock != null)
+                            {
+                                Html.RenderContentData(step.SourceContent, false);
+                            }
+                            //Prepare data
+                            var stepElements = GetStepElements(step);
+                        }
+                        @if (Model.FormType == FormType.ContactUs || Model.FormType == FormType.Apply)
+                        {
+                            <!-- Each FormStep groups the elements below it til the next FormStep -->
+                            for (var elementIndex = 0; elementIndex < stepElements.Count; elementIndex++)
+                            {
+                                var item = stepElements[elementIndex];
+                                if (item.FullRowWidth)
+                                {
+                                    <div class="col-xs-12 col-sm-12 col-md-12 @(Model.FormType == FormType.ContactUs ? "tripple-column-space" : "")">
+                                        @{
+                                            Html.RenderContentData(item.SourceContent, false);
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    for (int stopElementIndex = elementIndex; stopElementIndex < stepElements.Count; stopElementIndex++)
+                                    {
+                                        //Stop when reach end element or reach full width element
+                                        if (stopElementIndex == stepElements.Count - 1 || stepElements[stopElementIndex].FullRowWidth)
+                                        {
+                                            for (var columnIndex = 0; columnIndex < Model.NumberOfColumns; columnIndex++)
+                                            {
+                                                if (stepElements[stopElementIndex].FullRowWidth)
+                                                {
+                                                    stopElementIndex -= 1;
+                                                }
+                                                <div class="col-xs-12 col-sm-12 col-md-@(12/Model.NumberOfColumns) @(Model.FormType == FormType.ContactUs ? "tripple-column-space" : "")">
+                                                    @for (int index = elementIndex; index <= stopElementIndex; index++)
+                                                    {
+                                                        var element = stepElements[index];
+                                                        if ((element.ColumnIndex == columnIndex + 1) ||
+                                                            (element.ColumnIndex > Model.NumberOfColumns && columnIndex == Model.NumberOfColumns - 1)) //Handle when user put ColumnIndex > NumberOfColumns
+                                                        {
+                                                            // render each element of the step
+                                                            Html.RenderContentData(element.SourceContent, false);
+                                                        }
+                                                    }
+                                                </div>
+                                            }
+
+                                            elementIndex = stopElementIndex;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            <!--endof foreach element in step-->
+                        }
+                        else if (Model.FormType == FormType.Newsletter) //This is Newsletter form
+                        {
+                            <div class="col-xs-12 col-sm-6 col-md-4 tripple-column-space table-row newsletter-column">
+                                <div class="outer-main-intro">
+                                    <h3 class="intro-title">@Model.Title</h3>
+                                    <p class="intro-des">@Model.Description</p>
+                                </div>
+                            </div>
+                            <div class="row-wrapper-block row-empty-content">&nbsp;</div>
+
+                            <div class="col-xs-12 col-sm-6 col-md-4 tripple-column-space table-row padding--first-section-bottom newsletter-column remove-padding-top-mobile">
+                                <div class="block-main-intro light-color">
+                                    <div class="act-form">
+                                        @foreach (var item in stepElements)
+                                        {
+                                            if (item.ColumnIndex == 1)
+                                            {
+                                                Html.RenderContentData(item.SourceContent, false);
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-8 tripp tripple-column-space table-row newsletter-column">
+                                <div class="col-xs-12 col-sm-12 col-md-6 newsletter-column">
+                                    <div class="act-form">
+                                        @foreach (var item in stepElements)
+                                        {
+                                            if (item.ColumnIndex == 2)
+                                            {
+                                                Html.RenderContentData(item.SourceContent, false);
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 newsletter-column">
+                                    <div class="act-form">
+                                        @foreach (var item in stepElements)
+                                        {
+                                            if (item.ColumnIndex == 3)
+                                            {
+                                                Html.RenderContentData(item.SourceContent, false);
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </section>
+                    stepIndex++;
+                }
+                <!-- end foreach steps-->
+
+                <!-- show Next/Previous buttons when having Steps > 1 and navigationBar when currentStepIndex is valid-->
+                var currentDisplayStepCount = Model.Form.Steps.Count();
+                if (currentDisplayStepCount > 1 && currentStepIndex > -1 && currentStepIndex < currentDisplayStepCount && !ViewBag.FormFinalized)
+                {
+                    string prevButtonDisableState = (currentStepIndex == 0) || !ViewBag.Submittable ? "disabled" : "";
+                    string nextButtonDisableState = (currentStepIndex == currentDisplayStepCount - 1) || !ViewBag.Submittable ? "disabled" : "";
+
+                    if (Model.ShowNavigationBar)
+                    {
+                        <nav role="navigation" class="Form__NavigationBar">
+                            <button type="submit" name="submit" value="@SubmitButtonType.PreviousStep.ToString()" class="Form__NavigationBar__Action btnPrev" @prevButtonDisableState>@Html.Translate("/episerver/forms/viewmode/stepnavigation/previous")</button>
+
+                            @{
+                                // calculate the progress style on-server-side
+                                var currentDisplayStepIndex = currentStepIndex + 1;
+                                var progressWidth = (100*currentDisplayStepIndex/currentDisplayStepCount) + "%";
+                            }
+
+                            <div class="Form__NavigationBar__ProgressBar">
+                                <div class="Form__NavigationBar__ProgressBar--Progress" style="width: @progressWidth"></div>
+                                <div class="Form__NavigationBar__ProgressBar--Text">
+                                    <span class="Form__NavigationBar__ProgressBar__ProgressLabel">@Html.Translate("/episerver/forms/viewmode/stepnavigation/page")</span> <span class="Form__NavigationBar__ProgressBar__CurrentStep">@currentDisplayStepIndex</span>/<span class="Form__NavigationBar__ProgressBar__StepsCount">@currentDisplayStepCount</span>
+                                </div>
+                            </div>
+
+
+                            <button type="submit" name="submit" value="@SubmitButtonType.NextStep.ToString()" class="Form__NavigationBar__Action btnNext" @nextButtonDisableState>@Html.Translate("/episerver/forms/viewmode/stepnavigation/next")</button>
+                        </nav>
+                    }
+                }
+            } <!--endof if-->
+        </div>
+        <!--endof Form__MainBody-->
+    </form>
+}
+
+@if (!string.IsNullOrEmpty(Model.MessageHeadingAfterSubmit) || PageEditing.PageIsInEditMode)
+{
+    <div class="messageAfterSubmit" style="display: none">
+        <h3 class="intro-title">@Html.PropertyFor(x => x.MessageHeadingAfterSubmit)</h3>
+        <p class="intro-des">@Html.PropertyFor(x => x.MessageAbstractAfterSubmit)</p>
+    </div>
+}
+@if (!PageEditing.PageIsInEditMode)
+{
+    <script src="~/Frontend/KTM/js/CustomEPiServerFormValidation.js"></script>
+    <script>
+    //If we need this function for the whole project, move it to global. At the moment, we only need it for forms
+    if (typeof $$epiforms !== 'undefined') {
+        $$epiforms(".EPiServerForms").on("formsSubmitted", function(event) {
+            var currentEpiform = $(this);
+            var additionalInfo = currentEpiform.closest('.additional-info');
+            var thankYouMessage = additionalInfo.next();
+            if (thankYouMessage.length == 0) {
+                thankYouMessage = currentEpiform.next('.messageAfterSubmit');
+            }
+            var statusMessage = currentEpiform.find('.Form__Status__Message');
+            if (event.isSuccess) {
+                if (thankYouMessage.length > 0) {
+                    statusMessage.hide();
+                    additionalInfo.hide();
+                    thankYouMessage.show();
+                    setTimeout(function() {
+                        thankYouMessage.hide();
+                        currentEpiform.find(".Form__MainBody").show();
+                        additionalInfo.show();
+                    }, 3000);
+                } else {
+                    statusMessage.show();
+                    setTimeout(function() {
+                        statusMessage.hide();
+                        currentEpiform.find(".Form__MainBody").show();
+                        additionalInfo.show();
+                    }, 3000);
+                }
+            } else {
+                thankYouMessage.hide();
+                statusMessage.show();
+            }
+        });
+    }
+    </script>
+}

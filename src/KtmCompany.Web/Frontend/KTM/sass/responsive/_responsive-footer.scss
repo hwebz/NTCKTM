@@ -1,0 +1,141 @@
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .footer-link {
+        .block-link {
+            padding: 0 15px;
+        }
+    }
+}
+
+.footer-link {
+    .footer-link-right {
+        display: none;
+
+        @include respond-to-min($desktopSize) {
+            display: block;
+        }
+
+        .block-link:nth-child(1){
+            padding-left: 0px;
+        }
+    }
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .footer-link {
+        .block-link {
+            padding: 0 5px;
+
+            ul {
+                li {
+                    font-size: 12px;
+
+                    a {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        ul {
+            li {
+                font-size: 12px;
+
+                a {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .footer-link {
+        .block-link {
+            padding: 0 20px;
+
+            ul {
+                li {
+                    font-size: 14px;
+
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        ul {
+            li {
+                font-size: 14px;
+
+                a {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    .footer-link {
+        padding: 30px 15px;
+
+        .block-link {
+            padding: 10px 0;
+            border: none;
+
+            ul {
+                li {
+                    display: inline;
+                    border-right: 1px solid #d9d9d9;
+                    padding-right: 10px;
+                    margin-right: 10px;
+                }
+
+                li:last-child {
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    .footer-link {
+        .block-link {
+            ul {
+                li {
+                    font-size: 12px;
+
+                    a {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        ul {
+            li {
+                font-size: 12px;
+
+                a {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

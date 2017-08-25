@@ -1,0 +1,97 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Find.Helpers
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+
+@model ManagementBoardPageViewModel
+
+@Html.PropertyFor(m => m.CurrentPage.ImageBanner)
+
+@if (Model.Members != null && Model.Members.Any())
+{
+    var firstItem = true;
+    <div class="section-timeline">
+        @foreach (var member in Model.Members)
+        {
+            <section class="section @(firstItem ? "first-section" : "") sticky-container management-board">
+                <div class="container">
+                    <div class="row tripple-row table-style">
+                        <div class="timeline-row @(firstItem ? "show-first" : "")">
+                            <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line @(firstItem ? "" : "padding-section")">
+                                <div class="block-main-intro">
+                                    <div class="outer-main-intro @(firstItem ? "" : "hide-sticky-icon")">
+                                        @if (member.Image != null)
+                                        {
+                                            <img src="@member.Image.GetFriendlyUrl()" alt="@member.Name" class="avatar">
+                                        }
+                                        else
+                                        {
+                                            var defaultImage = ContentReference.StartPage.Get<KtmCompany.Web.Models.PageTypes.StartPage>().SiteSettings.DefaultImage;
+                                            <img src="@ImageHelpers.ResizingW120(defaultImage.GetFriendlyUrl())" alt="@member.Name" class="avatar">
+                                        }
+                                        <h3 class="intro-title">@member.Name</h3>
+                                        <p class="intro-des">
+                                            @if (member.DateOfBirth.HasValue && member.DateOfBirth.Value.Year > 1)
+                                            {
+                                                <span>@Html.TranslateFallback("/views/ManagementBoardPage/born", "born") @member.DateOfBirth.Value.ToGenericFormatDateString()</span>
+                                                <br/>
+                                            }
+                                            @if (member.AppointedUntilDate.HasValue && member.AppointedUntilDate.Value.Year > 1)
+                                            {
+                                                <span>@Html.TranslateFallback("/views/ManagementBoardPage/appointeduntil", "appointed until") @member.AppointedUntilDate.Value.ToGenericFormatDateString()</span>
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-7 col-md-8 table-row @(firstItem ? "" : "padding-section") seperate-line-right">
+                                <div class="row post-detail @(firstItem ? "padding--first-section-bottom" : "")">
+                                    <div class="col-xs-12 col-sm-12 col-md-6 information-block tripple-column-space">
+                                        <div class="post-title">
+                                            <h3>@member.ResponsibleTitle</h3>
+                                        </div>
+                                        @if (!member.ResponsibleDescription.IsNullOrEmpty())
+                                        {
+                                            <div class="description post-content">
+                                                <p>@member.ResponsibleDescription</p>
+                                            </div>
+                                        }
+                                    </div>
+                                    @if (member.BriefHistory.IsNotNull() && !member.BriefHistory.IsEmpty)
+                                    {
+                                        <div class="col-xs-12 col-sm-12 col-md-6 information-block timeline-content tripple-column-space">
+                                            <div class="description post-content timeline-full">
+                                                <p>
+                                                    @member.BriefHistory
+                                                </p>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="timeline-cta">
+                                    @if (member.BriefHistory.IsNotNull() && !member.BriefHistory.IsEmpty)
+                                    {
+                                        <span class="fa @(firstItem ? "fa-angle-up" : "fa-angle-down") btn-toggle"></span>
+                                    }
+                                </div>
+                                @if (member.Equals(Model.Members.Last()) && (!Model.CurrentPage.BottomText.IsNullOrEmpty() || PageEditing.PageIsInEditMode))
+                                {
+                                    <div class="board-note">
+                                        <p @Html.EditAttributes(m => m.CurrentPage.BottomText)>@Model.CurrentPage.BottomText</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            firstItem = false;
+        }
+    </div>
+}
+else if (PageEditing.PageIsInEditMode)
+{
+    <p @Html.EditAttributes(m => m.CurrentPage.BottomText)>@Model.CurrentPage.BottomText</p>
+}

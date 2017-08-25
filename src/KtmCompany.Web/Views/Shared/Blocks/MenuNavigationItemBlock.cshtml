@@ -1,0 +1,10 @@
+﻿@using EPiServer.Web.Mvc.Html
+
+@model MenuNavigationItemBlock
+
+<hr class="hr-indicators" />
+<div>
+    <a href="@Url.ContentUrl(Model.Link) @Html.EditAttributes(m => m.Link)">@Model.Name</a>
+    <br/>
+    @Html.PropertyFor(m => m.SubMenuItems)
+</div>

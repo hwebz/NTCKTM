@@ -1,0 +1,51 @@
+﻿// colors
+$mobileSize: 480px;
+$tabletSize: 768px;
+$desktopSize: 992px;
+$laptopSize: 1200px;
+$largeSize: 1630px;
+
+$blue:          #084C97;
+$cyan:          #1AA0E1;
+$very-light-gray:#EFEFEF;//probably only the submenu uses this
+$light-gray:    #C8C8C7;
+$dark-gray:     #6A6A6A;
+$black:         #1C1C1C;
+$brown:         #633B09;
+$green:         #0F5E22;
+$teal:          #0F7480;
+$purple:        #512576;
+$crimson:       #78053A;
+$orange:        #E69524;
+$pantone-646C:  #598FC0;
+$pantone-7545U: #68757D;
+$pantone-5625C: #7C8D7E;
+$pantone-198U:  #E85978;
+$tripple-space: 70px;
+$tripple-space-tablet: 35px;
+
+$font-bold:"ralewayblack", Helvetica, Arial, sans-serif;
+$font-light:"ralewaylight", Helvetica, Arial, sans-serif;
+$font-medium:"ralewaymedium", Helvetica, Arial, sans-serif;
+
+$gray-base:$black;
+$brand-primary:$blue;
+$font-family-sans-serif: $font-medium;
+
+$nav-primary-height-md:64px;
+$nav-primary-height-sm:64px;
+$container-large-desktop: 1200px;
+
+$whatsnews-color:rgba(26,159,224,1);
+
+$section-padding:64px;
+
+$border-color: #d4d4d4;
+
+//What's News Grid
+$cellW:320px;
+$totalW:$cellW * 6;
+$whatsnew-break-point:$cellW *2 + $cellW/2;
+
+//About-US
+$screen-mobile:320px;

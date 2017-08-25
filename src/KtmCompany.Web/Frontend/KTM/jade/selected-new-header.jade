@@ -1,0 +1,122 @@
+extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+	title Home Page
+block header
+	header.header.header-image-post
+		.container
+			.row
+				.col-sm-12.po-s
+					include ./blocks/_shared/_header.jade
+		section.section(style="position:relative;")
+			img(src='images/main-slider.jpg', alt='Header image post')
+			.container.slide-info
+					.row
+						.col-sm-4
+							.block-main-intro.light-color
+								.outer-main-intro
+									a(href="#", class="intro-cate") KTM
+								h3.intro-title EJB-Loan For R&amp;D Projects
+									a(href="#", class="intro-readmore") See more
+										span.fa.fa-arrow-down
+block content
+	section.section.selected-new
+		.container
+			.row
+				.col-sm-4.row-intro#row-intro-news
+					.block-main-intro
+						+row-intro('EJB-Loan For R&D Projects', '25 May 2016')
+						.social-btns
+							ul
+								li
+									a(href="#", class="facebook-icon")
+								li
+									a(href="#", class="twitter-icon")
+						p.link
+							a(href="#", class="link-btns")
+								span.fa.fa-arrow-left
+								span Back to News
+				.news-module.col-sm-8
+					.row
+						.post-detail
+							.post-title
+								h3 KTM concluded a loan agreement with the European Investment Bank for a loan amounting to 75 million EUR and a six-year maturity.
+							.post-content
+								.related-posts
+									ul
+										li
+											span.fa.fa-check
+											a(href="#") European Investment Bank (EIB) finances R&amp;D-projects
+										li
+											span.fa.fa-check
+											a(href="#") 75 mio. EUR loan with a six-year maturity
+								.post-main-content
+									p With this loan, research and development projects of the next years are financed. The focus of the projects is on road safety, fuel consumption, lightweight construction and electric mobility. Wilhelm Molterer, vice president of the European Investment Bank therefore visited the production facility and the research and development center at the location in Mattighofen.
+									p In the area of electric mobility, he could also convince himself of the new electric endure “Freeride E”. This model has been introduced to the public last week in Saalbach-Hinterglemm and the series production will start in October.
+									p With this financing, KTM further expands its top position as technology leader and therefore continues the global product strategy consequently.
+									
+									img(src='images/img-2.jpg', alt='post image')
+									
+									p.feature-text Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. 
+									p Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices posuere cubilia Curae, Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis natoque penatibus et ultrices volutpat. Nullam wisi ultricies a, gravida vitae, dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae, ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget, bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc. Cum sociis natoque penatibus et ultrices volutpat. Nullam wisi ultricies a, gravida vitae, dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae, ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget, bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc.
+									
+									.videos
+										video#postVideo(src='demo.mp4', poster='http://www.ktm.com/globalassets/home/readytorace.jpg', autoplay, muted)
+										a.fa.fa-play-circle-o
+
+					p.link
+						a(href="#", class="link-btns")
+							span.fa.fa-download
+							span Download PDF
+			.row.other-posts
+				.col-sm-4
+					.item-news
+						p.item-news-category.color-1 KTM
+						h3
+							a(href="#", title="KTM") KTM still on record course
+						p.item-news-text
+							|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+						a(href="#", class="item-news-readmore")
+							span.fa.fa-arrow-right
+				.col-sm-4
+					.item-news
+						p.item-news-category.color-2 KTM GROUP
+						h3
+							a(href="#", title="KTM") Interim Financial Statements 2015
+						p.item-news-text
+							|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year. In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year.
+						a(href="#", class="item-news-readmore")
+							span.fa.fa-arrow-right
+				.col-sm-4
+					.item-news
+						p.item-news-category.color-3 Husqvarna motorcycles
+						h3
+							a(href="#", title="KTM") Production record 2014: More than 100,000 motorcycles
+						p.item-news-text
+							|December 16, 2014, sets another milestone in the history of the KTM AG. Precisely at 9am, the 100,000th motorcycle produced in the business year 2014, a KTM 1190 ADVENTURE MY15, rolled off the assembly line.
+						a(href="#", class="item-news-readmore")
+							span.fa.fa-arrow-right
+				.col-sm-4
+					.item-news
+						p.item-news-category.color-1 KTM
+						h3
+							a(href="#", title="KTM") KTM still on record course
+						p.item-news-text
+							|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year.In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year
+						a(href="#", class="item-news-readmore")
+							span.fa.fa-arrow-right
+				.col-sm-4
+					.item-news
+						p.item-news-category.color-2 KTM GROUP
+						h3
+							a(href="#", title="KTM") Interim Financial Statements 2015
+						p.item-news-text
+							|In the first three quarters of 2015 KTM sold 135,332 vehicles worldwide. Therefore, sales increased by 17% compared to prior year. In the first three quarters, KTM achieved a revenue of EUR 759.1 million compared to EUR 644.8 million in prior year.
+						a(href="#", class="item-news-readmore")
+							span.fa.fa-arrow-right
+				
+				
+	footer
+		include ./blocks/_shared/_footer.jade

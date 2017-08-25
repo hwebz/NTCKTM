@@ -1,0 +1,89 @@
+﻿@using EPiServer.Editor
+@using KtmCompany.Web.Helpers
+
+@model JobDetailPage
+
+<div class="post-detail">
+    <div class="section-context contact-area career-contact">
+        <div class="func-tool application-form" style="display:none">
+            <ul>
+                <li><a class="url-go-back" href="javascript:void(0)"><span class="fa fa-arrow-left"></span>@Html.TranslateFallback("/views/jobdetailpage/back", "Back")</a></li>
+            </ul>
+        </div>
+        <div class="func-tool job-detail">
+            <ul>
+                <li>
+                    @if (string.IsNullOrEmpty(ConfigurationSettingHelpers.GetGeneralSocialShareMobileBlock().PublisherId))
+                    {
+                        @Html.Action("GeneralSocialSharing", "Global")
+                    }
+                    else
+                    {
+                        <div class="hidden-xs">
+                            @Html.Action("GeneralSocialSharing", "Global")
+                        </div>
+                        <div class="visible-xs">
+                            @Html.Action("GeneralSocialSharingMobile", "Global")
+                        </div>
+                    }
+                </li>
+                <li><a class="url-go-back" href="javascript:void(0)"><span class="fa fa-arrow-left"></span>@Html.TranslateFallback("/views/jobdetailpage/back", "Back")</a></li>
+            </ul>
+        </div>
+
+        @{ 
+            var headerClassTitle = "job-detail-title-mobile";
+        }
+
+        @if (!string.IsNullOrEmpty(Model.ContentCategory) || PageEditing.PageIsInEditMode)
+        {
+            headerClassTitle = "";
+            <p href="#" class="item-news-category job-detail-category-mobile" style="color: @CategoryHelpers.GetCategoryColor(Model.ContentCategory)" @Html.EditAttributes(x => x.ContentCategory)>@Model.ContentCategory</p>
+        }
+        <h3 class="@headerClassTitle">@Html.PropertyFor(m => m.Heading)</h3>
+        @Html.PropertyFor(m => m.MainIntro)
+        <div class="job-detail">
+            @Html.PropertyFor(m => m.MainBody)
+            <a href="#" id="button-apply" class="webpage-btn">@Html.TranslateFallback("/views/jobdetailpage/applynow", "Apply now")<span class="fa fa-arrow-right"></span></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        var pageStage = 1;
+        $(document).ready(function () {
+            $("#button-apply").off("click");
+            $("#button-apply").on("click", function () {
+                if (pageStage === 1) {
+                    $(".job-detail").hide();
+                    $(".application-form").show();
+                    pageStage = 2;
+                }
+
+                return false;
+            });
+
+            $(".url-go-back").off("click");
+            $(".url-go-back").on("click", function () {
+                if (pageStage === 2) {
+                    $(".job-detail").show();
+                    $(".application-form").hide();
+                    pageStage = 1;
+                } else if (pageStage === 1) {
+                    $(document).trigger("jobDetailBack");
+                }
+            });
+        });
+    })();
+</script>
+
+<script type="text/javascript">
+        if (typeof $$epiforms !== 'undefined') {
+            $$epiforms(document).ready(function () {
+                var jobPositionAndCountry = $$epiforms(".EPiServerForms").find(".FormHidden:not(.Form__SystemElement)");
+                jobPositionAndCountry.first().val("@Model.JobPosition");
+                jobPositionAndCountry.last().val("@Model.Country");
+            });
+        }
+</script>

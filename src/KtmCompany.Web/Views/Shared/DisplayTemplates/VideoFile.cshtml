@@ -1,0 +1,7 @@
+﻿@using EPiServer.Cms.Shell
+@model KtmCompany.Web.Models.MediaTypes.VideoFile
+
+<div class="videos">
+    <video id="@Guid.NewGuid()" src="@Model.PublicUrl()" muted></video>
+    <span class="video-control"></span>
+</div>

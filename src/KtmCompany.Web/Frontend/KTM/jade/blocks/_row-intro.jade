@@ -1,0 +1,48 @@
+mixin row-intro(title, des, readmore, cate)
+	.outer-main-intro
+		if cate
+			a(href="#", class="intro-cate")= cate
+		h3.intro-title= title
+		p.intro-des= des
+		if readmore
+			a(href="#", class="intro-readmore")= readmore
+				span.fa.fa-arrow-right
+
+mixin row-intro-links(title, des, readmore, cate)
+	.outer-main-intro
+		if cate
+			a(href="#", class="intro-cate")= cate
+		h3.intro-title= title
+		.download-part.address.slider-part
+			.link
+				a(href="#", class="webpage-btn") <span class="fa fa-download"></span> Annual Report 2015
+			.link
+				a(href="#", class="webpage-btn") <span class="fa fa-download"></span> Interim Financial Statement 2015
+		p.intro-des= des
+		if readmore
+			a(href="#", class="intro-readmore")= readmore
+				span.fa.fa-arrow-right
+
+mixin row-intro-with-form(title, des, readmore, cate)
+	.outer-main-intro
+		if cate
+			a(href="#", class="intro-cate")= cate
+		h3.intro-title= title
+		p.intro-des= des
+		.dropdown.continent
+			select(name="continent")
+				option Continent
+				option(value="asia") Asia
+				option(value="africa") Africa
+				option(value="Europe") Europe
+		.dropdown.country
+			select(name="country")
+				option Country
+				option(value="USA") Australia
+				option(value="USA") Mexico
+				option(value="USA") USA
+				option(value="USA") Vietnam
+
+		if readmore
+			a(href="#", class="intro-readmore")= readmore
+				span.fa.fa-arrow-right

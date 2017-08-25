@@ -1,0 +1,79 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Helpers;
+
+@model StageSliderBlock
+
+@{
+    var guid = Guid.NewGuid();
+    var defaultImage = ContentReference.StartPage.Get<KtmCompany.Web.Models.PageTypes.StartPage>().SiteSettings.DefaultImage;
+    var filterItems = Model.SlidingItems != null ? Model.SlidingItems.GetItems<EditorialPageBase>() : new List<EditorialPageBase>();
+}
+
+@if (Model.SlidingItems != null || PageEditing.PageIsInEditMode)
+{
+    <div id="@guid" data-ride="carousel" class="carousel slide carousel-fade header-main-image header-text" data-time="@Model.SlidingInterval" data-auto="@Model.IsAutoSliding">
+        <div role="listbox" class="carousel-inner" @Html.EditAttributes(m => m.SlidingItems)>
+            @if (Model.SlidingItems != null)
+            {
+                for (int index = 0; index < filterItems.Count; index++)
+                {
+                    var pageItem = filterItems[index];
+                    var image = pageItem.MainImage ?? defaultImage;
+                    var heading = string.IsNullOrEmpty(pageItem.Heading) ? pageItem.Name : pageItem.Heading;
+                    var imgSrc = Url.ContentUrl(image);
+
+                    <div class="item @(index == 0 ? "active" : "")">
+                        <picture>
+                            <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen480)" media ="(max-width: 480px)">
+                            <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen992)" media="(max-width: 992px)">
+                            <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen1200)" media="(max-width: 1200px)">
+                            <img srcset="@imgSrc">
+                        </picture>
+                        <div class="container slide-info">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                    <div class="block-main-intro light-color">
+                                        <div class="outer-main-intro">
+                                            @if (!string.IsNullOrEmpty(pageItem.ContentCategory))
+                                            {
+                                                <p class="intro-cate">@pageItem.ContentCategory</p>
+                                            }
+                                            <h3 class="intro-title">@heading.ToMultiLineHTMLText(1)</h3>
+                                            <a href="@pageItem.GetFriendlyUrl()" class="intro-readmore">
+                                                @Html.TranslateFallback("/views/imagesliderblock/buttontile", "Read more")<span class="fa fa-arrow-right"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="item active">
+                    <img src="@defaultImage.GetFriendlyUrl()" alt="" style="width: 100%;">
+                </div>
+            }
+            @if (Model.SlidingItems != null && filterItems.Count > 1)
+            {
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ol class="carousel-indicators">
+                                @for (var i = 0; i < filterItems.Count; i++)
+                                {
+                                    <li class="@(i == 0 ? "active" : "")" data-target="#@guid" data-slide-to="@i"></li>
+                                }
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

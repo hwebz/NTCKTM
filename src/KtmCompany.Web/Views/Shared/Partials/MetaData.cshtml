@@ -1,0 +1,10 @@
+﻿@model MetaDataViewModel
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>@Model.Title</title>
+<meta name="description" content="@Model.Description">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+@Html.CanonicalLink()
+
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Foundation Search">

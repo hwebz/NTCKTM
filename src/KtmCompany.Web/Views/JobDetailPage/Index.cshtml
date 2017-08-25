@@ -1,0 +1,46 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Helpers
+
+@model JobDetailPage
+
+@{
+    var jobListingUrl = ContentReference.StartPage.Get<KtmCompany.Web.Models.PageTypes.StartPage>().SiteSettings.JobListingPage.GetFriendlyUrl();
+}
+
+<section class="section selected-new first-section sticky-container">
+    <div class="container">
+        <div class="row">
+            <div id="row-intro-news" class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line padding--first-section-bottom border-bottom-mobile">
+                <div class="block-main-intro">
+                    <div sticky="true" class="outer-main-intro" style="top: 0px;">
+                        <h3 class="intro-title">@ConfigurationSettingHelpers.GetJobListingPage().Heading</h3>
+                        <p class="intro-des">@ConfigurationSettingHelpers.GetJobListingPage().Abstract</p>
+                        @{ Html.RenderAction("Index", "JobFilter"); }
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 tripple-column-space table-row padding--first-section-bottom seperate-line-right">
+                
+                @Html.Partial("JobDetail", Model)
+
+                @*We have to move this out of JobDetail partial because we have a problem generating form to return to ajax calls*@
+                <div class="application-form" style="display: none">
+                    @{
+                        if (ConfigurationSettingHelpers.GetApplicationForm() != null)
+                        {
+                            Html.RenderContentData(ConfigurationSettingHelpers.GetApplicationForm(), false);
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        @Html.PropertyFor(x => x.RelatedJobs)
+    </div>
+</section>
+
+<script>
+    $(document).on("jobDetailBack", function () {
+        changeUrlParam("@jobListingUrl", $.urlParams());
+    });
+</script>

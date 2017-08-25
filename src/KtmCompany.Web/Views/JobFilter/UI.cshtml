@@ -1,0 +1,34 @@
+﻿@model KtmCompany.Web.Models.ViewModels.JobFilterViewModel
+
+<div class="selection-job">
+    <div class="dropdown-job-wrapper">
+        <div class="dropdown-job">
+            <select id="position-filter" name="position-filter" class="job-filter category">
+                <option value="">@Html.TranslateFallback("/views/jobfilter/allpositions", "All Positions")</option>
+                @if (Model.JobPositions != null)
+                {
+                    foreach (var item in Model.JobPositions)
+                    {
+                        <option value="@item.Value">@item.Key</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="dropdown-job-wrapper">
+        <div class="dropdown-job">
+            <select id="country-filter" name="country" class="job-filter category">
+                <option value="">@Html.TranslateFallback("/views/jobfilter/allcountries", "All Countries")</option>
+                @if (Model.Countries != null)
+                {
+                    foreach (var item in Model.Countries)
+                    {
+                        <option value="@item.Value">@item.Key</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <a href="#" id="btnJobSearch" class="intro-readmore">@Html.TranslateFallback("/views/jobfilter/search", "Search")<span class="fa fa-arrow-right"></span></a>
+</div>
+@RenderSection("Scripts", false)

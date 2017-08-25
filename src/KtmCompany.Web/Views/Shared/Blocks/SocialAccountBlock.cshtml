@@ -1,0 +1,15 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Helpers
+@model KtmCompany.Web.Models.SocialAccountBlock
+
+<div class="social-link-container">
+    @if (Model.SocialLinkItems != null)
+    {
+        foreach (var item in Model.SocialLinkItems)
+        {                
+            <a href="@item.Link" target="_blank" style="float: left;">
+                <img class="img-responsive" src="@ImageHelpers.ResizingW36(Url.ContentUrl(item.Icon))" style="margin-right: 10px;" />
+            </a>                
+        }
+    }
+</div>    

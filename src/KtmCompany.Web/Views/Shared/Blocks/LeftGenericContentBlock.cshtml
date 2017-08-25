@@ -1,0 +1,31 @@
+﻿@using KtmCompany.Web.Infrastructure.Extensions
+@model KtmCompany.Web.Models.BlockTypes.Common.LeftGenericContentBlock
+
+@{
+    var removeWrapperContainer = ViewData["removeWrapperContainer"] != null ? (bool)ViewData["removeWrapperContainer"] : false;
+}
+@if (!removeWrapperContainer)
+{
+    @:<div class="outer-main-intro">
+}
+
+<h3 class="intro-title">@Html.PropertyFor(x => x.Heading)</h3>
+@Html.Partial("AttachmentLinks", Model.AttachmentLinks,
+    new ViewDataDictionary() { new KeyValuePair<string, object>("EditAttributesString", @Html.EditAttributes(m => m.AttachmentLinks)) })
+
+@if (Model.Abstract != null)
+{
+    <div class="intro-des" @Html.EditAttributes(m => m.Abstract)>@Html.Raw(Model.Abstract)</div>
+}
+@if ((!Model.CallToAction.IsNullOrEmpty() && !string.IsNullOrEmpty(Model.CallToActionTitle)))
+{
+    <a href="@Url.ContentUrl(Model.CallToAction)" class="intro-readmore" @Html.EditAttributes(x => x.CallToActionTitle)>@Model.CallToActionTitle<span class="fa fa-arrow-right"></span></a>
+}
+@if (Model.ShowSocialAccountBlock)
+{
+    Html.RenderAction("GeneralSocialAccounts", "Global");
+}
+@if (!removeWrapperContainer)
+{
+    @:</div>
+}

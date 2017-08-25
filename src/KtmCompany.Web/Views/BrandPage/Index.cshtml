@@ -1,0 +1,32 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Models.PageTypes.Constants
+
+@model BrandPage
+
+@if (PageEditing.PageIsInEditMode)
+{
+    <div @Html.EditAttributes(m => m.TopBodyArea)>
+        @{ Html.RenderNoWrappersContentArea(Model.TopBodyArea); }
+    </div>
+        Html.RenderPartial("~/Views/Shared/Partials/PageTextBlock.cshtml", Model);
+    <div @Html.EditAttributes(m => m.MainBodyArea)>
+        @{ Html.RenderNoWrappersContentArea(Model.MainBodyArea); }
+    </div>
+}
+else
+{
+    @Html.PropertyFor(m => m.TopBodyArea)
+    Html.RenderPartial("~/Views/Shared/Partials/PageTextBlock.cshtml", Model);
+    @Html.PropertyFor(m => m.MainBodyArea)    
+}
+@if (!Model.Favicon.IsNullOrEmpty())
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('head').append("<link rel='shortcut icon' type='image/x-icon' href='@Url.ContentUrl(Model.Favicon)'>");
+        });
+    </script>
+}

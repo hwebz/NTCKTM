@@ -1,0 +1,56 @@
+﻿@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Infrastructure.Extensions
+@model InvestorSharePriceBlock
+
+<section class="section @(Model.IsSticky ? "sticky-container" : "") investor-share-price">
+    <div class="container">
+        <div class="row tripple-row table-style">
+            <div id="row-intro-news" class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row padding-section seperate-line">
+                @if ((!Model.CallToAction.IsNullOrEmpty() && !string.IsNullOrEmpty(Model.CallToActionTitle)))
+                {
+                    <p class="link top-link">
+                        <a href="@Url.ContentUrl(Model.CallToAction)" class="intro-readmore" @Html.EditAttributes(x => x.CallToActionTitle)>
+                            <span class="fa fa-arrow-left"></span>
+                            <span>@Model.CallToActionTitle</span>
+                        </a>
+                    </p>
+                }
+                @if (Model.LeftIFrameSource != null)
+                {
+                    <iframe src="@Model.LeftIFrameSource.GetFriendlyUrl()" frameborder="0" border="0" scrolling="no"></iframe>
+                }
+                @if ((!Model.CallToAction.IsNullOrEmpty() && !string.IsNullOrEmpty(Model.CallToActionTitle)))
+                {
+                    <p class="link left-link"><a href="@Url.ContentUrl(Model.CallToAction)" class="back-to-prev" @Html.EditAttributes(x => x.CallToActionTitle)><span class="fa fa-arrow-left"></span>@Model.CallToActionTitle</a></p>
+                }
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 news-module table-row padding-section seperate-line-right right-iframe-container">
+                <div class="row">
+                    @if (Model.RightIFrameSource != null)
+                    {
+                        <iframe src="@Model.RightIFrameSource.GetFriendlyUrl()" frameborder="0" border="0" scrolling="no"></iframe>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    setInvestorSharePriceIframeWidthHeight();
+
+    function setInvestorSharePriceIframeWidthHeight() {
+        var iframeContainer = $(".right-iframe-container");
+        var width = (iframeContainer.outerWidth()) / $(document).width() * 100;
+        if ($(window).width() > 768) {
+            iframeContainer.find("iframe").css({ 'width': width + 'vw', 'height': '940px' });
+        } else {
+            iframeContainer.find("iframe").css({ 'width': '100%', 'height': '985px' });
+        }
+    }
+
+    $(window).resize(function () {
+        setInvestorSharePriceIframeWidthHeight();
+    });
+</script>

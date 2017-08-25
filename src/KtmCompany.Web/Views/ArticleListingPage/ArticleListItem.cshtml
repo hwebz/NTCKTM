@@ -1,0 +1,26 @@
+﻿@using KtmCompany.Web.Infrastructure.Extensions
+@model ArticleListingPageViewModel
+
+@if (Model.Articles != null)
+{
+    var chunkedItems = Model.Articles.Chunk(2);
+    foreach (var row in chunkedItems)
+    {
+        <div class="row">
+            @foreach (var article in row)
+            {
+                <div class="col-xs-12 col-sm-12 col-md-6 tripple-column-space">
+                    @{ Html.RenderPartial("EditorialPageBase", article); }
+                </div>
+            }
+        </div>
+    }
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (typeof toggleLoadMoreContentsButton == 'function') {
+            var visible = '@Model.IsMoreItemsExist' === 'True';
+            toggleLoadMoreContentsButton(visible);
+        }
+    });
+</script>

@@ -1,0 +1,18 @@
+﻿@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Implementation.Validation
+@model KtmCompany.Web.Models.BlockTypes.EPiServerForms.CustomTextareaElementBlock
+
+@{
+    var formElement = Model.FormElement;
+    var labelText = Model.Label;
+    var isRequireField = Model.GetElementValidators().OfType<RequiredValidator>().Any();
+}
+
+<div class="Form__Element FormTextbox FormTextbox--Textarea @Model.GetValidationCssClasses() input-field" data-epiforms-element-name="@formElement.Code">
+    <div class="Form__Element__ValidationError at-error" style="display: none" data-epiforms-linked-name="@formElement.Code">
+    </div>
+    <div class="form-text-title__container">
+        @Model.PlaceHolder
+    </div>
+    <textarea name="@formElement.Code" id="@formElement.Guid" placeholder="@Model.PlaceHolder" @Html.Raw(formElement.AttributesString) class="FormTextbox__Input message @(isRequireField ? "required" : "")" onchange="formElementValueChanged(this.parentElement);">@Model.PredefinedValue</textarea>
+</div>

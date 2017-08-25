@@ -1,0 +1,44 @@
+﻿@model JobListingPage
+
+<section class="section sticky-container first-section">
+    <div class="container">
+        <div class="row tripple-row table-style">
+            <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line">
+                <div class="block-main-intro">
+                    <div class="outer-main-intro">
+                        <h3 class="intro-title">@Html.PropertyFor(x => x.Heading)</h3>
+                        <p class="intro-des">@Html.PropertyFor(x => x.Abstract)</p>
+                        @RenderSection("JobFilter", true)
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 table-row padding--first-section-bottom seperate-line-right">
+                @RenderBody()
+                @Html.HiddenFor(x => x.PageSize, new { id = "pageSize" })
+                <input type="hidden" value="1" id="currentPageIndex" />
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function loadJobs(pageIndex, pageSize, jobPosition, country) {
+        return $.ajax({
+            type: 'GET',
+            url: '@Url.Action("LoadJobs", "JobListingPage")',
+            data: { 'pageSize': pageSize, 'pageIndex': pageIndex, 'jobPosition': jobPosition, 'country': country },
+            dataType: 'html',
+            beforeSend: function () {
+                $('.loading').fadeIn('fast');
+            }
+        })
+        .then(function (data) {
+            $('#currentPageIndex').val(pageIndex);
+            return data;
+        })
+        .always(function () {
+            $('.loading').fadeOut('fast');
+        });
+    }
+</script>
+
+@RenderSection("Scripts", false)

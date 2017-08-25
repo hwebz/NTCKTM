@@ -1,0 +1,14 @@
+﻿@using EPiServer.Core
+@model GenericContentPage
+
+<div class="company-page @(Model.HasGrayBackground ? "gray-background" : "")">
+    @if (Model.MainContentArea != null && Model.MainContentArea.FilteredItems != null && Model.MainContentArea.FilteredItems.Any())
+    {
+        var firstItem = Model.MainContentArea.FilteredItems.ToList()[0].GetContent();
+        if (!(firstItem is StageSliderBlock || firstItem is BackgroundVideoBlock || firstItem is ImageBannerBlock))
+        {
+            <div class="first-empty-block"></div>
+        }
+    }
+    @Html.PropertyFor(x => x.MainContentArea)
+</div>

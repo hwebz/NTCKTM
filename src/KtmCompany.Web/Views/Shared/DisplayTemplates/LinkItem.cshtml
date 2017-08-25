@@ -1,0 +1,26 @@
+﻿@using EPiServer
+@model EPiServer.SpecializedProperties.LinkItem
+@{
+    var linkHref = string.Empty;
+    var linkTitle = string.Empty;
+    if (Model != null)
+    {
+        if (!string.IsNullOrEmpty(Model.Title) && Model.Title.StartsWith("?tab="))
+        {
+            var urlBuilder = new UrlBuilder(Model.Href);
+            var queryStringValue = linkTitle = Model.Title.Substring(5);            
+            urlBuilder.QueryCollection.Add("tab", queryStringValue);
+            linkHref = EPiServer.Web.Mvc.Html.UrlExtensions.ContentUrl(null, new Url(urlBuilder.ToString()));
+        }
+        else
+        {
+            linkHref = EPiServer.Web.Mvc.Html.UrlExtensions.ContentUrl(null, Model.Href);
+            linkTitle = Model.Title;
+        }
+    }
+
+}
+@if (Model != null)
+{
+    <a href="@linkHref" title="@linkTitle">@Model.Text</a>
+}

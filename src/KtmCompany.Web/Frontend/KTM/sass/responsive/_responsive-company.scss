@@ -1,0 +1,93 @@
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .company-page {
+    .section {
+      .company-struture {
+        padding-left: 50px;
+      }
+    }
+  }
+
+  .header-main-image {
+    .block-main-intro {
+      margin-top: 100px;
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .company-page {
+    .timeline-row {
+      .timeline-content {
+        padding-bottom: 50px;
+        .timeline-full {
+          display: none;
+        }
+      }
+      .timeline-cta {
+        display: block;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .company-page {
+
+    .section-info-map {
+      padding: 20px 15px;
+    }
+
+    .section {
+      .company-struture {
+        padding: 30px 15px;
+      }
+    }
+
+    .timeline-row {
+      .timeline-content {
+        padding-bottom: 50px;
+        .timeline-full {
+          display: none;
+        }
+      }
+      .timeline-cta {
+        display: block;
+      }
+    }
+
+    .carousel {
+      .location-detail {
+        position: inherit;
+        border: none;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        .location-box {
+          margin-top: 0;
+          padding-top: 50px;
+          .arrow-location-box {
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+
+  .header-main-image {
+    .slide-info {
+      left: 0;
+      -webkit-transform: none;
+      -moz-transform: none;
+      -ms-transform: none;
+      -o-transform: none;
+      transform: none;
+    }
+  }
+}
+

@@ -1,0 +1,45 @@
+/*==========  Non-Mobile First Method  ==========*/
+.module-with-icon-mobile, .mobile-wrapper {
+  display: none;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+  .career .carousel {
+      display: block;
+  }
+  .company-page .carousel {
+      display: block;
+  }
+  .module-with-icon-mobile {
+    display: block;
+    @include phone {
+      padding: 0 0 30px 0;
+      border-bottom: 1px solid #d9d9d9;
+    }
+  }
+  .mobile-wrapper {
+    display: block;
+  }
+  .career {
+    .has-border-bottom {
+      .col-sm-4 {
+        padding: 0 15px;
+      }
+    }
+
+    .slide-text {
+      .item {
+        padding: 0 15px;
+      }
+    }
+      .carousel-indicators {
+        /* bottom: 10px; */
+        left: 15px;
+      }
+  }
+
+  .partner {
+    padding: 50px 0;
+  }
+}

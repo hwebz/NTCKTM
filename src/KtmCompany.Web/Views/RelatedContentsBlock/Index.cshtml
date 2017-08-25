@@ -1,0 +1,67 @@
+﻿@using EPiServer.Core
+@using KtmCompany.Web.Infrastructure.Extensions
+@model RelatedContentsBlockViewModel
+
+@{
+    var items = new List<IContent>();
+    if (Model.CurrentBlock.DynamicDisplay)
+    {
+        if (Model.DynamicContents != null && Model.DynamicContents.Any())
+        {
+            foreach (var item in Model.DynamicContents)
+            {
+                items.Add(item);
+            }
+        }
+    }
+    else
+    {
+        if (Model.CurrentBlock.ManualItems != null && Model.CurrentBlock.ManualItems.Items.Any())
+        {
+            foreach (var item in Model.CurrentBlock.ManualItems.Items)
+            {
+                var content = item.ContentLink.GetContent();
+                items.Add(content);
+            }
+        }
+    }
+
+    var chunkedItems = items.Any() ? items.Chunk(3).ToList() : new List<IEnumerable<IContent>>();
+}
+@if (chunkedItems.Any())
+{
+    var guid = Guid.NewGuid();
+    <div class="row other-posts"><!--For Desktop-->
+        @for (var index = 0; index < chunkedItems.Count; index++)
+        {
+            <div class="related-posts-row row">
+                @foreach (var item in chunkedItems[index])
+                {
+                    <div class="col-xs-12 col-md-4 tripple-column-space">
+                        @{
+                            Html.RenderContentData(item, false);
+                        }
+                    </div>
+
+                }
+            </div>
+        }
+    </div>
+    <div class="row other-posts other-posts-mobile"><!--For Mobile-->
+        <div class="related-posts-row">
+            <div id="@guid" data-ride="carousel" class="media-carousel slide slide-text carousel-black-arrow">
+                <div role="listbox" class="carousel-inner owl-theme owl-carousel">
+                    @for (var index = 0; index < items.Count; index++)
+                    {
+                        var item = items[index];
+                        <div class="col-xs-12 col-sm-12 item">
+                            @{
+                                Html.RenderContentData(item, false);
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

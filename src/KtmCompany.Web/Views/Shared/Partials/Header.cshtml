@@ -1,0 +1,210 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Models.EditorModels
+@using KtmCompany.Web.Helpers
+
+@model HeaderViewModel
+
+@{
+    var logoItems = Model.BrandLogoLinks ?? new List<LogoLinkItem>();
+    var logoUrl = Url.ContentUrl(Model.LogoImage);
+    if (logoUrl == null)
+    {
+        logoUrl = "~/Frontend/KTM/images/logo.png";
+    }
+}
+
+@functions{
+    public string FormatMenuString(string menu)
+    {
+        return string.IsNullOrEmpty(menu) ? "" : menu.Replace(" ", "-");
+    }
+}
+
+<header class="header">
+    <div style="" class="container">
+        <div class="row">
+            <div class="col-sm-12 po-s">
+                <div class="pull-left">
+                    <div class="toggle-btn">
+                        <div class="icon menu1">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="logo">
+                        <a href="/"><img src="@logoUrl"></a>
+                    </div>
+                    <nav class="nav">
+                        <ul class="main-nav">
+                            @foreach (var item in Model.MenuItems)
+                            {
+                                <li class="@(item.Selected ? "active" : null)">
+                                    @Html.PageLink(item.Page, null, new { @data_parent_menu = FormatMenuString(item.Page.PageName) })
+                                </li>
+                            }
+                            <li class="function-addon">
+                                <a href="#" title="search" data-parent-menu="search">
+                                    <span class="ktm-icon ktm-icon-search-mini"></span>
+                                </a>
+                            </li>
+                            @if (Model.SupportedLanguages != null && Model.SupportedLanguages.Count() > 1)
+                            {
+                                <li class="function-addon">
+                                    <a href="" title="languages" data-parent-menu="languages"><span class="ktm-icon ktm-icon-globe"></span></a>
+                                </li>
+                            }
+                        </ul>
+                        <div class="row underline-menu">
+                            <span class="black-link"></span>
+                        </div>
+                    </nav>
+                </div>
+                <div class="brand-list pull-right">
+                    <ul>
+                        @if (logoItems.Any())
+                        {
+                            foreach (var item in logoItems)
+                            {
+                                <li>
+                                    @if (!string.IsNullOrEmpty(item.Link))
+                                    {
+                                        <a href="@item.Link" title="@item.Title" target="_bank"><img src="@item.LogoImage.GetFriendlyUrl()" alt="@item.Title"></a>
+                                    }
+                                    else
+                                    {
+                                        <img src="@item.LogoImage.GetFriendlyUrl()" alt="@item.Title">
+                                    }
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="nav-responsive">
+        <ul class="main-nav-responsive">
+            @if (Model.MenuItems != null)
+            {
+                foreach (var menuItem in Model.MenuItems)
+                {
+                    var active = menuItem.Selected ? "active" : string.Empty;
+                    <li class="@active">
+                        <a href="@Url.ContentUrl(menuItem.Page.ContentLink)" title="@FormatMenuString(menuItem.Page.PageName)" data-parent-menu="@FormatMenuString(menuItem.Page.PageName)">@menuItem.Page.PageName</a>
+                        @if (menuItem.Children != null && menuItem.Children.Any())
+                        {
+                            <div style="display: none" class="sub-menu-responsive">
+                                <ul>
+                                    @foreach (var subItem in menuItem.Children)
+                                    {
+                                        <li class="@(subItem.Selected ? "submenu-active" : null)"><a href="@Url.ContentUrl(subItem.Page.ContentLink)" title="@subItem.Page.PageName">@subItem.Page.PageName</a></li>
+                                    }
+                                </ul>
+                            </div>
+                            <span class="fa fa-angle-down nav-arrow"></span>
+                        }
+                    </li>
+                }
+            }
+            @if (Model.SupportedLanguages != null && Model.SupportedLanguages.Count() > 1)
+            {
+                <li>
+                    <a href="#" title="@Html.TranslateFallback("/views/header/languages", "Languages")">@Html.TranslateFallback("/views/header/languages", "Languages")</a>
+                    <div style="display: none" class="sub-menu-responsive">
+                        <ul>
+                            @foreach (var item in Model.SupportedLanguages)
+                            {
+                                <li class="@(item.Selected ? "active" : "")">
+                                    @Html.PageLink(@item.Text, Model.CurrentPage!= null?Model.CurrentPage.PageLink:ContentReference.StartPage, new { language = @item.Value }, null)
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <span class="fa fa-angle-down nav-arrow"></span>
+                </li>
+            }
+            <li class="function-addon">
+                <form method="get" action="@ConfigurationSettingHelpers.GetSearchPage().GetFriendlyUrl()" class="form-search">
+                    <input value="" name="searchText" placeholder="@Html.TranslateFallback("/views/header/search", "Search")" class="input-form">
+                    <span class="ktm-icon-search"></span>
+                    <a href="#" class="clear-input">x</a>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div id="search-sub-menu" class="sub-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <form method="get" action="@ConfigurationSettingHelpers.GetSearchPage().GetFriendlyUrl()" class="search-form">
+                    <input value="" name="searchText" class="input-form" placeholder="@Html.TranslateFallback("/views/header/search", "Search")" >
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.MenuItems != null && Model.MenuItems.Any())
+{
+    foreach (var menuItem in Model.MenuItems)
+    {
+        if (menuItem.Children != null && menuItem.Children.Any())
+        {
+            var hasSubmenuSelected = false;
+            foreach (var subItem in menuItem.Children)
+            {
+                if (!hasSubmenuSelected)
+                {
+                    hasSubmenuSelected = subItem.Selected;
+                }
+            }
+
+            <div id="@FormatMenuString(menuItem.Page.PageName)-sub-menu" class="sub-menu @(hasSubmenuSelected? "submenu-container-active": "")">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul>
+                                @foreach (var subItem in menuItem.Children)
+                                {
+                                    <li class="@(subItem.Selected ? "submenu-active" : null)"><a href="@Url.ContentUrl(subItem.Page.ContentLink)" title="@subItem.Page.PageName">@subItem.Page.PageName</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+
+@if (Model.SupportedLanguages != null && Model.SupportedLanguages.Count() > 1)
+{
+    <div id="languages-sub-menu" class="sub-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul>
+                        @foreach (var item in Model.SupportedLanguages)
+                        {
+                            <li class="@(item.Selected ? "active" : "")">
+                                @Html.PageLink(@item.Text, Model.CurrentPage != null ? Model.CurrentPage.PageLink : ContentReference.StartPage, new { language = @item.Value }, null)
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $('.input-form').keypress(function (event) {
+        if (event.keyCode == 10 || event.keyCode == 13) {
+            $('form').submit();
+        }
+    });
+</script>

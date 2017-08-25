@@ -1,0 +1,31 @@
+.gray-background {
+	background: url(../images/detail-header-bg.png) repeat-x top left;
+	.inform-title, .para-title {
+		font-family: "TradeGothicBoldCon", Arial, Helvetica, sans-serif;
+	}
+	
+	.inform-title {
+		font-size: 28px;
+		margin: 0;
+	}
+	
+	.para-title {
+		font-size: 18px;
+	}
+	
+	.block-txt {
+		margin: 20px 0;
+	}
+
+	.block-main-intro {
+		.outer-main-intro {
+			&:before {
+				top: 0;
+			}
+		}
+	}
+
+	.underline-txt {
+		text-decoration: underline;
+	}
+}

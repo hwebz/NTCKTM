@@ -1,0 +1,84 @@
+.management-board {
+
+  .avatar {
+    width: 150px;
+    margin-bottom: 20px;
+
+  }
+
+  .post-detail {
+    padding-bottom: 150px;
+    min-height: 500px;
+    position: relative;
+    @include respond-to-max($tabletSize) {
+      padding-bottom: 50px;
+      padding-top: 0;
+      border: none;
+      min-height: 1px;
+      &:before {
+        height: 0;
+      }
+    }
+  }
+
+  .timeline-row {
+    margin: 0;
+    .timeline-content {
+      padding-left: rem(35px);
+      margin: 0;
+      border: none;
+
+      @include respond-to-max($tabletSize) {
+        padding-left: rem(15px);
+      }
+
+      @include respond-to-min($tabletSize) {
+        padding-right: rem(35px);
+      }
+      
+      .timeline-full {
+        display: block;
+        @include respond-to-min($laptopSize) {
+          display: block !important;
+        }
+        @include respond-to-max($tabletSize) {
+          display: none;
+        }
+      }
+    }
+    .timeline-cta {
+      margin-bottom: 20px;
+      display: none;
+      @include respond-to-max($tabletSize) {
+        display: block;
+      }
+    }
+  }
+
+  .show-first {
+    .timeline-content {
+      .timeline-full {
+        @include respond-to-max($tabletSize) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .board-note {
+    padding: 20px 0 100px 20px;
+    @include respond-to-max($tabletSize) {
+      padding: 20px 0;
+    }
+  }
+
+  .padding-section {
+    padding-bottom: rem(0px);
+  }
+
+  .seperate-line {
+    .block-main-intro {
+      border: none;
+    }
+  }
+}

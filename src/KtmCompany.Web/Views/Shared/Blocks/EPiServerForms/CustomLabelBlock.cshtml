@@ -1,0 +1,16 @@
+﻿@using KtmCompany.Web.Enums
+@model KtmCompany.Web.Models.BlockTypes.EPiServerForms.CustomLabelBlock
+@{
+    var formElement = Model.FormElement;
+    var labelText = Model.Label;
+    var classString = string.Format("CustomLabelBlock {0}", (Model.RenderForMobile ? "custom-label-mobile" : "custom-label-desktop"));
+}
+@if (Model.AlignRight)
+{
+    <span style="margin-bottom: 20px; float: right; position: relative; vertical-align: middle;" class="@classString"><span class="required-icon">*</span>@Model.Label</span>
+    <div style="clear: both"></div>
+}
+else
+{
+    <span style="margin-bottom: 20px; position: relative; vertical-align: middle;" class="@classString"><span class="required-icon">*</span>@Model.Label</span>
+}

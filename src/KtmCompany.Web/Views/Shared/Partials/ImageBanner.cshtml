@@ -1,0 +1,49 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+@model EditorialPageBase
+@{
+    var image = Model.MainImage;
+    if (string.IsNullOrEmpty(Model.MainImage.GetFriendlyUrl()))
+    {
+        image = ContentReference.StartPage.Get<KtmCompany.Web.Models.PageTypes.StartPage>().SiteSettings.DefaultImage;
+    }
+    var imgSrc = Url.ContentUrl(image);
+}
+@if (!string.IsNullOrEmpty(Model.MainImage.GetFriendlyUrl()) || PageEditing.PageIsInEditMode)
+{
+    <div data-ride="carousel" class="carousel slide header-main-image header-text">
+        <div role="listbox" class="carousel-inner">
+            <div class="item active">
+                <picture @Html.EditAttributes(x => x.MainImage)>
+                    <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen480)" media="(max-width: 480px)">
+                    <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen992)" media="(max-width: 992px)">
+                    <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen1200)" media="(max-width: 1200px)">
+                    <img srcset="@imgSrc">
+                </picture>
+            </div>
+            <div class="container slide-info">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <div class="block-main-intro light-color">
+                            <div class="outer-main-intro">
+                                @if (!string.IsNullOrEmpty(Model.ContentCategory) || PageEditing.PageIsInEditMode)
+                                {
+                                    <p class="intro-cate" style="color: @CategoryHelpers.GetCategoryColor(Model.ContentCategory)" @Html.EditAttributes(x => x.ContentCategory)>@Model.ContentCategory</p>
+                                }
+                                <h3 class="intro-title" @Html.EditAttributes(x => x.Heading)>@Model.Heading.ToMultiLineHTMLText(1)</h3>
+                                <a href="#nextSection" class="intro-readmore btn-scroll-next">
+                                    @Html.TranslateFallback("/views/imagebanner/readmore", "Read more")<span class="fa fa-arrow-down"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="nextSection"></div>
+}

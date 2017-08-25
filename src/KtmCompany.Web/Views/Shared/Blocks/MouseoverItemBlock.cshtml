@@ -1,0 +1,14 @@
+﻿@using EPiServer.Editor
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Models.MediaTypes
+@model MouseoverItemBlock
+
+@if (Model.ImagesArea != null && Model.ImagesArea.FilteredItems != null && Model.ImagesArea.FilteredItems.Any())
+{
+    <section class="section our-brands">
+        <div class="gallery-ui">
+            @{ Html.RenderPartial("MouseoverItem", Model); }
+        </div>
+    </section>
+}

@@ -1,0 +1,56 @@
+﻿@using EPiServer.Editor
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Enums
+
+@model ImageBannerBlock
+
+@{ 
+    var imgSrc = Url.ContentUrl(Model.BackgroundImage);
+}
+
+@if (!string.IsNullOrEmpty(Model.BackgroundImage.GetFriendlyUrl()) || PageEditing.PageIsInEditMode)
+{
+    <div data-ride="carousel" class="carousel slide header-main-image header-text">
+        <div role="listbox" class="carousel-inner">
+            <div class="item active">
+                <picture>
+                    <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen480)" media="(max-width: 480px)">
+                    <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen992)" media="(max-width: 992px)">
+                    <source srcset="@ImageHelpers.StandardPercentageCrop(imgSrc,(short)ImageScreenWidthPercent.Screen1200)" media="(max-width: 1200px)">
+                    <img srcset="@imgSrc">
+                </picture>
+            </div>
+            <div class="container slide-info">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <div class="block-main-intro light-color">
+                            <div class="outer-main-intro">
+                                <p class="intro-cate" @Html.EditAttributes(m => m.Subline)>@Model.Subline</p>
+                                <h3 class="intro-title" @Html.EditAttributes(m => m.Headline)>@Model.Headline.ToMultiLineHTMLText(1)</h3>
+                                @Html.Partial("AttachmentLinks", Model.AttachmentLinks,
+                                    new ViewDataDictionary() {new KeyValuePair<string, object>("EditAttributesString", @Html.EditAttributes(m => m.AttachmentLinks))})
+                                @if (!string.IsNullOrEmpty(Model.LinkMoreTitle) || PageEditing.PageIsInEditMode)
+                                {
+                                    <a href="#nextSection" class="intro-readmore btn-scroll-next" @Html.EditAttributes(x => x.LinkMoreTitle)>
+                                        @Model.LinkMoreTitle
+                                        <span class="fa fa-arrow-down"></span>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (string.IsNullOrEmpty(Model.LinkMoreTitle))
+            {
+                <div class="mouse-container">
+                    <a href="#nextSection" class="btn-scroll-next">
+                        <span class="fa fa-angle-down"></span>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <div id="nextSection"></div>
+}

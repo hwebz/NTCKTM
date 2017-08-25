@@ -1,0 +1,56 @@
+﻿@using KtmCompany.Web.Infrastructure.Extensions
+@model GenericContentBlock
+
+@if (Model.LeftContent.LeftBackgroundImage.IsNullOrEmpty())
+{
+    <section class="section @(Model.IsSticky ? "sticky-container" : "")">
+        <div class="container">
+            <div class="row tripple-row table-style">
+                <div id="row-intro-news" class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row padding-section seperate-line">
+                    <div class="block-main-intro" @Html.EditAttributes(m => m.LeftContent)>
+                        @Html.DisplayFor(m => m.LeftContent)
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-8 news-module table-row padding-section seperate-line-right">
+                    <div class="row @(Model.ShowRightBottomHrLink ? "genericblock-border-bottom" : string.Empty)">
+                        @Html.PropertyFor(x => x.RightContentArea)
+                    </div>
+                    <div style="border: none" class="readmore-link readmore-like-mobile">
+                        @if ((Model.LeftContent != null && !Model.LeftContent.CallToAction.IsNullOrEmpty() && !string.IsNullOrEmpty(Model.LeftContent.CallToActionTitle)))
+                        {
+                            <a href="@Url.ContentUrl(Model.LeftContent.CallToAction)" class="intro-readmore" title="@Model.LeftContent.CallToActionTitle">@Model.LeftContent.CallToActionTitle<span class="fa fa-arrow-right"></span></a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <div data-ride="carousel" class="carousel slide slide-img caption-bg investor-relations">
+        <div class="section-info">
+            <div class="container">
+                <div class="row tripple-row">
+                    <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                        <div class="slider-captions dark-background light-color map-left-side right-section">
+                            <div style="background-image: url('@Url.ContentUrl(Model.LeftContent.LeftBackgroundImage)')" class="has_bg_img"></div>
+                            <div class="share-price table-data">
+                                <div class="table-data-left">
+                                    <div class="block-main-intro" @Html.EditAttributes(m => m.LeftContent)>
+                                        @Html.DisplayFor(m => m.LeftContent)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="listbox" class="carousel-inner map-inner height-map-inner investor-relations-inner">
+            <div class="section-map">
+                @Html.PropertyFor(x => x.RightContentArea, new { fromGenericPage = true })
+            </div>
+        </div>
+    </div>
+}

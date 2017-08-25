@@ -1,0 +1,35 @@
+﻿@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+@model SearchPageViewModel
+
+@if (Model.ResultPages != null && Model.ResultPages.Any())
+{
+    var chunkedItems = Model.ResultPages.Chunk(2).ToList();
+    for (var index = 0; index < chunkedItems.Count; index++)
+    {
+        <div class="row">
+            @foreach (var page in chunkedItems[index])
+            {
+                <div class="col-xs-12 col-sm-12 col-md-6 tripple-column-space">
+                    @{ Html.RenderPartial("EditorialPageBase", page); }
+                </div>
+            }
+        </div>
+    }
+}
+else if (Model.IsFirstLoad)
+{
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 tripple-column-space">
+            @ConfigurationSettingHelpers.GetMessageNoResults()
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(document).ready(function() {
+        if (typeof toggleLoadMoreContentsButton == 'function') {
+            var visible = '@Model.IsMoreItemsExist' === 'True';
+            toggleLoadMoreContentsButton(visible);
+        }
+    });
+</script>

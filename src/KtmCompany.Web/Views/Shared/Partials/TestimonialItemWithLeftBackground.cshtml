@@ -1,0 +1,50 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Models.PageTypes.Constants
+@model TestimonialItemBlock
+
+@{
+    var guid = Guid.NewGuid();    
+    var leftBackgroundImage = "";
+    if (!Model.LeftContent.LeftBackgroundImage.IsNullOrEmpty())
+    {
+        leftBackgroundImage = Url.ContentUrl(Model.LeftContent.LeftBackgroundImage);
+    }
+}
+
+<div id="slider@(guid)" data-ride="carousel" class="slide slide-img caption-bg slider-with-thumbnail">
+    <div role="listbox" class="carousel-inner map-inner height-map-inner" @Html.EditAttributes(m => m.Image)>
+        <div class="section-map">
+            <div class="map-section">
+                <div id="main-slider@(guid)" class="main-slider-carousel">
+                    <div class="item main-slider__item">
+                        @{ Html.RenderContentData(Model.Image.Get<IContent>(), false, TagNames.ContentSlider); }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-info">
+        <div class="container">
+            <div class="row tripple-row">
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                    <div class="slider-captions dark-background light-color map-left-side" @Html.EditAttributes(m => m.LeftContent)>
+                        @if (!leftBackgroundImage.IsNullOrEmpty())
+                        {
+                            <div style="background-image: url('@leftBackgroundImage')" class="has_bg_img"></div>
+                        }
+                        else
+                        {
+                            <div class="has_bg_img"></div>
+                        }
+                        <div id="thumbnail-slider@(guid)" class="">                                
+                            <div class="thumbnail-slider__item">                                    
+                                @{ Html.RenderContentData(Model.LeftContent, false); }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

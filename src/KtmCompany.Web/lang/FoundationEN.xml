@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <groups>
+      <groups>
+        <seo>SEO</seo>
+        <sitesettings>Site settings</sitesettings>
+        <advanced>Advanced</advanced>
+      </groups>
+    </groups>
+    <contenttypes>
+      <startpage>
+        <name>Start page</name>
+        <description>Start page of the site.</description>
+      </startpage>
+      <standardpage>
+        <name>Standard page</name>
+        <description>Standard page of the site.</description>
+      </standardpage>
+      <searchpage>
+        <name>Search page</name>
+        <description>Search page of the site.</description>
+      </searchpage>
+      <imageblock>
+        <name>Image</name>
+        <description>Image with title and alt text.</description>
+      </imageblock>
+      <genericmedia>
+        <name>Generic media</name>
+      </genericmedia>
+      <imagefile>
+        <name>Image</name>
+      </imagefile>
+      <icontentdata>
+        <properties>
+          <footercontent>
+            <caption>Footer content</caption>
+            <help>Footer content for the page.</help>
+          </footercontent>
+          <googleanalytics>
+            <caption>Google Analytics ID</caption>
+            <help>Google Analytics ID - example: XXXXX-Y.</help>
+          </googleanalytics>
+          <mainintro>
+            <caption>Main intro</caption>
+            <help>A preamble for the page.</help>
+          </mainintro>
+          <mainimage>
+            <caption>Main image</caption>
+            <help>Main image block of the page.</help>
+          </mainimage>
+          <thumbnailimageurl>
+            <caption>Thumbnail image</caption>
+            <help>Thumbnail image of the page.</help>
+          </thumbnailimageurl>
+          <mainbody>
+            <caption>Main body</caption>
+            <help>Main body of the page.</help>
+          </mainbody>
+          <heading>
+            <caption>Heading</caption>
+            <help>Heading of the page.</help>
+          </heading>
+          <metatitle>
+            <caption>Meta title</caption>
+            <help>Meta title of the page.</help>
+          </metatitle>
+          <metadescription>
+            <caption>Meta description</caption>
+            <help>Meta description of the page.</help>
+          </metadescription>
+          <hidefromsearch>
+            <caption>Hide from search</caption>
+            <help>Indicates whether page should be hidden from search.</help>
+          </hidefromsearch>
+          <pagesize>
+            <caption>Page size</caption>
+            <help>Number of hits per page.</help>
+          </pagesize>
+          <nohitstext>
+            <caption>No hits text.</caption>
+            <help>Text to show if no hits were returned by search.</help>
+          </nohitstext>
+          <summarytext>
+            <caption>Summary text.</caption>
+            <help>Summary text of the page.</help>
+          </summarytext>
+          <imageurl>
+            <caption>Image url</caption>
+            <help>Link to image.</help>
+          </imageurl>
+          <captiontext>
+            <caption>Caption text</caption>            
+          </captiontext>
+          <alttext>
+            <caption>Alternate text</caption>
+          </alttext>
+          <description>
+            <caption>Description</caption>
+          </description>
+        </properties>
+      </icontentdata>
+    </contenttypes>
+    <views>
+      <search>
+        <nomatches>No matches found</nomatches>
+        <defaultsummarytext>matches found</defaultsummarytext>
+      </search>
+      <error>
+        <errorhasoccured>An error has occured</errorhasoccured>
+        <controllername>Controller name</controllername>
+        <actionname>Action name</actionname>
+        <stacktrace>Stack trace</stacktrace>
+        <tryagain>Please try again in a few moments</tryagain>
+        <pagenotfound>Page not found</pagenotfound>
+      </error>
+    </views>
+    <validation>
+    </validation>
+  </language>
+</languages>

@@ -1,0 +1,35 @@
+﻿@using EPiServer.Security
+@model HandleErrorInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@LocalizationService.Current.GetString("/views/error/errorhasoccured")</title>
+    </head>
+    <body>
+        <div>
+            <h1>@LocalizationService.Current.GetString("/views/error/errorhasoccured")</h1>
+
+            @if (PrincipalInfo.HasAdminAccess)
+            {
+                <h2>@Model.Exception.Message</h2>
+                <p>
+                    @LocalizationService.Current.GetString("/views/error/controllername"): @Model.ControllerName<br />
+                    @LocalizationService.Current.GetString("/views/error/actionname"): @Model.ActionName<br />
+                </p>
+                <h3>@LocalizationService.Current.GetString("/views/error/stacktrace")</h3>
+                <pre>@Model.Exception.StackTrace</pre>
+            }
+            else
+            {
+                <p>
+                    @LocalizationService.Current.GetString("/views/error/tryagain")
+                </p>
+            }
+        </div>
+    </body>
+</html>

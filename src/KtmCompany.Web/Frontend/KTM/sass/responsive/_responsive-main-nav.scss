@@ -1,0 +1,303 @@
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+  .header {
+    .container {
+      position: relative;
+      .pull-right {
+        ul {
+            li {
+                margin-left: 0;
+                 img {
+                    width: 40%;
+                }
+            }
+        }
+      }
+    }
+    .main-nav {
+      .sub-menu-responsive {
+        top: 160px;
+      }
+    }
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .header {
+    .main-nav > li {
+      margin-right: 20px;
+      a {
+        font-size: 16px;
+      }
+    }
+
+    .main-nav .function-addon {
+      width: 55px;
+      margin: 0;
+    }
+
+    .main-nav {
+      .sub-menu-responsive {
+        top: 157px;
+      }
+    }
+  }
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  .sub-menu {
+    display: none;
+  }
+  .header {
+    padding: 0;
+    a {
+      outline: 0;
+    }
+
+    .toggle-btn, .nav-responsive {
+      display: block;
+    }
+    .toggle-btn {
+        position: absolute;
+        top: 10px;
+    }
+    .nav-responsive {
+      width: 100%;
+      position: absolute;
+      z-index: 16;
+      top: 97px;
+      font-family: "TradeGothicLT", Arial, Helvetica, sans-serif;
+      font-size: 17px;
+
+      .main-nav-responsive {
+        display: none;
+      }
+
+      ul {
+        background: #565656;
+        list-style: none;
+        padding: 0;
+        li {
+          width: 100%;
+          position: relative;
+
+          a {
+            padding: 15px;
+            display: block;
+            text-transform: uppercase;
+            color: white;
+            border-bottom: 1px solid #777777;
+            margin: 0 15px;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+
+          .sub-menu-responsive {
+            ul {
+              list-style: none;
+              padding: 0;
+              background: black;
+              li {
+
+                a {
+                  border: none;
+                }
+              }
+            }
+          }
+
+          .fa {
+            float: right;
+            color: white;
+            position: absolute;
+            font-size: 30px;
+            line-height: 2;
+            right: 28px;
+            top: 0;
+            display: block;
+            width: 40px;
+            text-align: center;
+          }
+        }
+
+        .function-addon {
+          color: white;
+          padding: 30px 0;
+          .form-search {
+
+            margin: 10px 15px;
+            border: 1px solid #777777;
+            .input-form {
+              background: #565656;
+              border: none;
+              width: 95%;
+              padding: 10px 20px 10px 50px;
+              font-size: 15px;
+            }
+
+            .ktm-icon-search {
+              display: block;
+              -webkit-transform: scale(0.5);
+              -moz-transform: scale(0.5);
+              -ms-transform: scale(0.5);
+              -o-transform: scale(0.5);
+              transform: scale(0.5);
+              position: absolute;
+              top: 38px;
+            }
+
+            .clear-input {
+              position: absolute;
+              border: none;
+              top: 47px;
+              right: 24px;
+              width: 18px;
+              padding: 0;
+              background: url(../images/clear-input.png) no-repeat center center;
+              background-size: contain;
+              text-indent: -9999px;
+            }
+          }
+        }
+      }
+    }
+
+    .pull-left {
+      margin-top: 10px;
+      position: relative;
+      .btn-toggle {
+        position: absolute;
+        top: 10px;
+      }
+      .menu1 {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 10px;
+        height: 3em;
+        margin: 2%;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 3.5em;
+        -webkit-tap-highlight-color: transparent;
+        float: left;
+      }
+
+      .menu1 span {
+        background: #222222;
+        border-radius: 2em;
+        height: 0.5em;
+        position: absolute;
+        -webkit-transition: 0.2s ease-in-out;
+        transition: 0.2s ease-in-out;
+        width: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .menu1 span { left: 0; }
+
+      .menu1 span:nth-child(1) { top: 0; }
+
+      .menu1 span:nth-child(2) { top: 1.2em; }
+
+      .menu1 span:nth-child(3) { top: 2.4em; }
+
+      .open.menu1 span:nth-child(1) {
+        -webkit-transform: rotate(45deg) translate(1em, 0.9em);
+        -ms-transform: rotate(45deg) translate(1em, 0.9em);
+        transform: rotate(45deg) translate(1em, 0.9em);
+      }
+
+      .open.menu1 span:nth-child(2) { opacity: 0; }
+
+      .open.menu1 span:nth-child(3) {
+        -webkit-transform: rotate(-45deg) translate(0.8em, -0.8em);
+        -ms-transform: rotate(-45deg) translate(0.8em, -0.8em);
+        transform: rotate(-45deg) translate(0.8em, -0.8em);
+      }
+
+      .logo {
+        float: right;
+        width: 165px;
+        margin-left: 60px;
+        margin-top: 10px;
+        margin-bottom: 53px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+    .container {
+      .pull-right {
+        width: 165px;
+        margin: 20px 0;
+        top: -6px;
+      }
+    }
+  }
+}
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  .header {
+    .nav-responsive {
+      top: 74px;
+      left: 0;
+      ul {
+        li {
+          .fa {
+            right: 13px;
+          }
+        }
+
+        .function-addon {
+          .form-search {
+            .clear-input {
+              right: 10px;
+            }
+          }
+        }
+      }
+    }
+    .pull-left {
+      margin-top: 5px;
+      .logo {
+        width: 110px;
+        margin-bottom: 40px;
+      }
+    }
+    .container {
+      .pull-right {
+        width: 110px;
+        top: -5px;
+      }
+    }
+
+
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+  .header {
+    .pull-left {
+      .logo {
+        width: 80px;
+        margin-top: 7px;
+        margin-left: 50px;
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+include _row-intro.jade
+mixin slider(name)
+	div(id=name,class="carousel slide slide-img", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/slide-1.jpg", alt="KTM")
+			div.item
+				img(src="images/slide-1.jpg", alt="KTM")
+			div.item
+				img(src="images/slide-1.jpg", alt="KTM")
+		div.section-info.col-sm-4
+			.block-main-intro.light-color
+				+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more')
+				ol.carousel-indicators
+					li(data-target="##{name}", data-slide-to="0", class="active")
+					li(data-target="##{name}", data-slide-to="1")
+					li(data-target="##{name}", data-slide-to="2")
+mixin company-slider(name, header, description, readmore)
+	div(id=name,class="carousel slide slide-img caption-bg", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/company-team.jpg", alt="KTM")
+			div.item
+				img(src="images/company-team.jpg", alt="KTM")
+			div.item
+				img(src="images/company-team.jpg", alt="KTM")
+		div.section-info.col-sm-4
+			.block-main-intro.light-color
+				+row-intro(header, description, readmore)
+				ol.carousel-indicators
+					li(data-target="##{name}", data-slide-to="0", class="active")
+					li(data-target="##{name}", data-slide-to="1")
+					li(data-target="##{name}", data-slide-to="2")
+
+mixin company-image-slider(name, header, description, readmore)
+	div(id=name,class="carousel slide slide-img", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/company-vision.jpg", alt="KTM")
+		div.section-info.col-sm-4
+			.block-main-intro.light-color
+				+row-intro(header, description, readmore)
+
+mixin company-slider-with-form(name, header, description, readmore)
+	div(id=name,class="carousel slide slide-img caption-bg row", data-ride="carousel")
+		div.section-info-map.col-sm-4
+			.block-main-intro.light-color
+				+row-intro-with-form(header, description, readmore)
+		div.section-map.col-sm-8
+			.map-section
+				div#googleMap
+mixin slider-news(name)
+	div(id=name,class="carousel slide", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/slide-news-1.jpg", alt="KTM")
+				.container.slide-info
+					.row
+						.col-sm-4
+							.block-main-intro.light-color
+								+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more', 'KTM')
+			div.item
+				img(src="images/slide-news-1.jpg", alt="KTM")
+				.container.slide-info
+					.row
+						.col-sm-4
+							.block-main-intro.light-color
+								+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more', 'KTM')
+			div.item
+				img(src="images/slide-news-1.jpg", alt="KTM")
+				.container.slide-info
+					.row
+						.col-sm-4
+							.block-main-intro.light-color
+								+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more', 'KTM')
+		.container
+			.row
+				.col-sm-12
+					ol.carousel-indicators
+						li(data-target="##{name}", data-slide-to="0", class="active")
+						li(data-target="##{name}", data-slide-to="1")
+						li(data-target="##{name}", data-slide-to="2")
+mixin slider-investor(name)
+	div(id=name,class="carousel slide", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/slide-news-1.jpg", alt="KTM")
+				.container.slide-info
+					.row
+						.col-sm-4
+							.block-main-intro.light-color
+								+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.', 'See more', 'KTM')
+							
+mixin selected-new-slider(name)
+	div(id=name,class="carousel slide slide-img", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/slide-1.jpg", alt="KTM")
+			div.item
+				img(src="images/slide-1.jpg", alt="KTM")
+			div.item
+				img(src="images/slide-1.jpg", alt="KTM")
+		div.indicator-wrapper
+			ol.carousel-indicators
+				li(data-target="##{name}", data-slide-to="0", class="active")
+				li(data-target="##{name}", data-slide-to="1")
+				li(data-target="##{name}", data-slide-to="2")
+
+mixin investor-image-slider(name, header, description, readmore)
+	div(id=name,class="carousel slide slide-img", data-ride="carousel")
+		div(class="carousel-inner", role="listbox")
+			div.item.active
+				img(src="images/company-vision.jpg", alt="KTM")
+		div.section-info.col-sm-4
+			.block-main-intro.light-color
+				+row-intro-links(header, description, readmore)

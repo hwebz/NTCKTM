@@ -1,0 +1,103 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Models.MediaTypes
+@using KtmCompany.Web.Models.PageTypes.Constants
+@model TestimonialBlock
+
+@{
+    var guid = Guid.NewGuid();
+    var slidingItems = Model.Images.GetItems<IContent>();
+    var classForLeftContent = slidingItems != null && slidingItems.Count > 1 && slidingItems.OfType<TestimonialItemBlock>().Any() ? "thumbnail-slider owl-theme owl-carousel" : "testimonial-image-only-slider";
+    var classForRightContent = slidingItems != null && slidingItems.Count > 1 && slidingItems.OfType<TestimonialItemBlock>().Any() ? "" : "testimonial-image-only-slider";
+}
+
+@if ((slidingItems != null && slidingItems.Count > 0) || PageEditing.PageIsInEditMode)
+{
+    <div id="slider@(guid)" data-ride="carousel" class="slide slide-img slider-with-thumbnail" data-interval="@(Model.IsAutoSliding && slidingItems != null && slidingItems.Count > 1 ? Model.SlidingInterval.ToString() : "false")">
+        <div role="listbox" class="carousel-inner" @Html.EditAttributes(m => m.Images)>
+            @if (slidingItems != null && slidingItems.Count > 0)
+            {
+                <div id="main-slider@(guid)" class="main-slider-carousel @(slidingItems.Count > 1 ? "owl-theme owl-carousel" : "") @classForRightContent">
+                    @foreach (var slidingItem in slidingItems)
+                    {
+                        <div class="item main-slider__item">
+                            @{
+
+                                if (slidingItem is ImageFile)
+                                {
+                                    Html.RenderContentData(slidingItem, false, TagNames.ContentSlider);
+                                }
+                                else
+                                {
+                                    var testimonialItem = slidingItem as TestimonialItemBlock;
+                                    if (testimonialItem != null)
+                                    {
+                                        Html.RenderContentData(testimonialItem.Image.Get<IContent>(), false, TagNames.ContentSlider);
+                                    }
+                                }
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+        <div class="section-info">
+            <div class="container">
+                <div class="row tripple-row">
+                    <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                        <div class="slider-captions dark-background light-color" @Html.EditAttributes(m => m.LeftContent)>
+                            <div class="has_bg_img"></div>
+                            @if (slidingItems != null && slidingItems.Count > 0)
+                            {
+                                <div id="thumbnail-slider@(guid)" class="@classForLeftContent">
+                                    @if (slidingItems.OfType<TestimonialItemBlock>().Any())
+                                    {
+                                        foreach (var slidingItem in slidingItems)
+                                        {
+                                            <div class="thumbnail-slider__item">
+                                                @{
+
+                                                    if (slidingItem is ImageFile)
+                                                    {
+                                                        Html.RenderContentData(Model.LeftContent, false);
+                                                    }
+                                                    else
+                                                    {
+                                                        var testimonialItem = slidingItem as TestimonialItemBlock;
+                                                        if (testimonialItem != null)
+                                                        {
+                                                            Html.RenderContentData(testimonialItem.LeftContent, false);
+                                                        }
+                                                    }
+                                                }
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="thumbnail-slider__item">
+                                            @{
+                                                var slidingItem = slidingItems[0];
+                                                if (slidingItem is ImageFile)
+                                                {
+                                                    Html.RenderContentData(Model.LeftContent, false);
+                                                }
+                                            }
+                                        </div>
+                                        if (slidingItems.Count > 1)
+                                        {
+                                            <ol class="carousel-indicators owl-indicators"></ol>
+
+                                        }
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,115 @@
+﻿@using KtmCompany.Web.Helpers
+@model ArticleListingPageViewModel
+
+@{
+    <div>@Html.PropertyFor(m => m.CurrentPage.HeaderStageSlider)</div>
+}
+
+<section class="section first-section sticky-container news">
+    <div id="section-1" class="container">
+        <div class="row tripple-row table-style">
+            <div id="row-intro-news" class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line">
+                <div class="block-main-intro">
+                    <div class="outer-main-intro has-dropdown">
+                        <h3 class="intro-title">@Html.PropertyFor(x => x.CurrentPage.Heading)</h3>
+                        <p class="intro-des">@Html.PropertyFor(x => x.CurrentPage.Abstract)</p>
+                        <div class="type-of-categories-mobile">
+                            <div class="category-dropdown">
+                                <select name="category" class="category">
+                                    @if (Model.TermFacetItem != null)
+                                    {
+                                        <option value="">@Html.TranslateFallback("/views/articlelistpage/allnews", "All news")</option>
+                                        foreach (var item in Model.TermFacetItem)
+                                        {
+                                            <option value="@item.Term">@item.Term</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="type-of-categories">
+                            <ul>
+                                @if (Model.TermFacetItem != null)
+                                {
+                                    <li class="active">
+                                        <a href="#" class="category">
+                                            <span>@Html.TranslateFallback("/views/articlelistpage/allnews", "All news")</span>
+                                        </a>
+                                    </li>
+                                    foreach (var item in Model.TermFacetItem)
+                                    {
+                                        <li>
+                                            <a href="#" class="category" data-content='@item.Term'>
+                                                <span>@item.Term</span>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 table-row padding--first-section-bottom seperate-line-right">
+                <div id="resultsPlaceHolder">
+                    @{ Html.RenderPartial("ArticleListItem", Model); }
+                </div>
+                <div class="load-more" style="display: none" id="loadMoreContents">
+                    <a href="">@Html.TranslateFallback("/views/articlelistpage/loadmorenews", "Load more news")<span class="fa fa-plus"></span></a>
+                </div>
+            </div>
+            @Html.HiddenFor(x => x.CurrentPage.PageSize, new { id = "pageSize" })
+            @Html.HiddenFor(x => x.ArticleCategory, new { id = "articleCategory" })
+            @Html.HiddenFor(x => x.CurrentPageIndex, new { id = "currentPageIndex" })
+        </div>
+    </div>
+</section>
+@Html.PropertyFor(m => m.CurrentPage.BottomContentArea)
+
+<script type="text/javascript">
+    $('a.category').click(function (event) {
+        event.preventDefault();
+        var category = $(this).attr('data-content');
+        LoadArticlesByCategory(category);
+        $('.type-of-categories li').removeClass('active');
+        setActiveItemsDirectory(category);
+    });
+
+    $('select.category').change(function () {
+        var category = $(this).children(":selected").val();
+        LoadArticlesByCategory(category);
+    });
+
+    function LoadArticlesByCategory(category) {
+        $('#articleCategory').val(category);
+        $('#currentPageIndex').val(0);
+        LoadMoreArticles(false);
+    }
+
+    $('#loadMoreContents').click(function () {
+        LoadMoreArticles(true);
+        return false;
+    });
+
+    function LoadMoreArticles(isAppendContent) {
+        $('.loading').fadeIn('fast');
+        var currentPageIndex = parseInt($('#currentPageIndex').val());
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("LoadMoreArticles", "ArticleListingPage")',
+            data: { 'pageSize': $('#pageSize').val(), 'currentPageIndex': currentPageIndex, 'category': $('#articleCategory').val() },
+            dataType: 'html',
+            success: function (data) {
+                if (isAppendContent) {
+                    $('#resultsPlaceHolder').append(data);
+                } else {
+                    $('#resultsPlaceHolder').html(data);
+                }
+                $('#currentPageIndex').val(currentPageIndex + 1);
+                $('.loading').fadeOut('fast');
+            },
+            error: function (a, b, ctx) {
+            }
+        });
+    }
+</script>

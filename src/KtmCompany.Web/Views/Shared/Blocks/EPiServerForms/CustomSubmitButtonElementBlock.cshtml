@@ -1,0 +1,14 @@
+﻿@using EPiServer.Forms.Helpers
+@model KtmCompany.Web.Models.BlockTypes.EPiServerForms.CustomSubmitButtonElementBlock
+@{
+    var formElement = Model.FormElement;
+    var buttonText = Model.Label;
+    var buttonDisableState = Model.GetElementDisableState(ViewContext.Controller.ControllerContext.HttpContext);
+}
+
+<div>
+    <button type="submit" name="@formElement.Code" id="@formElement.Guid" @Html.Raw(formElement.AttributesString) @buttonDisableState class="link-btns Form__Element FormSubmitButton submit-btn submit-btn-wrapper">
+        @buttonText
+        <span class="fa fa-arrow-right"></span>
+    </button>
+</div>

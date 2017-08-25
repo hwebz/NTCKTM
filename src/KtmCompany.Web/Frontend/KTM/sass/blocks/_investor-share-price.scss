@@ -1,0 +1,156 @@
+.investor-share-price {
+
+	.block-main-intro {
+		.outer-main-intro {
+			margin: 0;
+		}
+		.intro-des {
+			margin-bottom: 40px;
+		}
+	}
+	.row {
+		margin: 0;
+	}
+
+	.col-sm-6 {
+		padding: 0;
+	}
+	.back-to-prev {
+		text-transform: uppercase;
+		font-size: 18px;
+		color: #000;
+		display: block;
+		border-top: 1px solid #d9d9d9;
+		padding-top: 30px;
+		font-family: $font-second;
+		@include respond-to-max($tabletSize) {
+			padding: 20px 0;
+		}
+		&:hover {
+			text-decoration: none;
+			color: #7d7d7d !important;
+		}
+		span {
+			margin-right: 10px;
+		}
+	}
+
+	img {
+		width: 100%;
+		margin: 20px 0;
+	}
+}
+
+.information-block {
+	.filter-box {
+		@extend %ul-reset;
+		background: #ededee;
+		margin-bottom: 50px;
+		li {
+			width: 14.285%;
+			display: inline-block;
+			border-right: 1px solid #d9d9d9;
+
+			@include respond-to-max($tabletSize) {
+				width: 14.23%;
+			}
+			&:first-child {
+				border-left: 1px solid #d9d9d9;
+			}
+			a {
+				font-size: 18px;
+				color: #000;
+				display: block;
+				width: 100%;
+				text-align: center;
+				padding: 10px 0;
+				position: relative;
+				&:before {
+					content: "";
+					display: none;
+					height: 6px;
+					width: 100%;
+					background: #000;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+				}
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			&.active, &:hover {
+				a {
+					&:before {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+
+.frm-select-box {
+	font-size: 15px;
+	color: #797979;
+	padding: 5px 0;
+	border: 1px solid #d9d9d9;
+	margin: 5px 5px 5px 0;
+	width: auto;
+}
+.filter-select-box {
+	display: block;
+	min-height: 1px;
+	margin-top: 50px;
+
+	.select-box {
+		margin: 0;
+		label {
+			font-size: 15px;
+			color: #000;
+		}
+
+		.subject-dropdown {
+			select {
+				width: 55px;
+			}
+		}
+	}
+	.is-icon {
+		text-transform: uppercase;
+		color: #000;
+		font-size: 18px;
+		font-family: $font-second;
+		line-height: 2.5;
+		&:hover {
+			text-decoration: none;
+		}
+		span {
+			margin-right: 5px;
+		}
+		.fa {
+			margin-left: 0;
+		}
+	}
+
+	.block-input {
+		display: block;
+		float: left;
+		width: 185px;
+		margin-bottom: 20px;
+		text-align: left;
+
+		@include respond-to-max($tabletSize) {
+			margin-bottom: 0;
+		}
+	}
+
+	.col-md-6 {
+		padding-left: 0;
+	}
+}
+.block-main-intro.has-line {
+	border-bottom: 1px solid #d9d9d9;
+	padding: 0 0 20px;
+    margin-bottom: 40px;
+}

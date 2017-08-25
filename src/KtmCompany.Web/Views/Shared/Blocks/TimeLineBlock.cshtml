@@ -1,0 +1,21 @@
+﻿@using EPiServer.Core
+@using KtmCompany.Web.Infrastructure.Extensions
+@model TimeLineBlock
+
+@{
+    var items = Model.TimeLineItemsArea != null ? Model.TimeLineItemsArea.GetItems<TimeLineItemBlock>() : new List<TimeLineItemBlock>();
+}
+<div id="section-timeline-mobile" @Html.EditAttributes(m => m.TimeLineItemsArea)>
+    @foreach (var item in items)
+    {
+        Html.RenderPartial("TimeLineItemBlock", item, new ViewDataDictionary { new KeyValuePair<string, object>("renderForMobile", true) });
+    }
+</div>
+<div id="section-timeline"  @Html.EditAttributes(m => m.TimeLineItemsArea)>
+    <div class="section-timeline">
+        @foreach (var item in items)
+        {
+            Html.RenderPartial("TimeLineItemBlock", item, new ViewDataDictionary { new KeyValuePair<string, object>("renderForMobile", false) });
+        }
+    </div>
+</div>

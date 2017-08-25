@@ -1,0 +1,32 @@
+﻿@using EPiServer.Core
+@using KtmCompany.Web.Models.PageTypes.Constants
+@model TestimonialItemBlock
+
+@{
+    var guid = Guid.NewGuid();
+}
+<div id="slider@(guid)" data-ride="carousel" class="slide slide-img slider-with-thumbnail">
+    <div role="listbox" class="carousel-inner">
+        <div id="main-slider@(guid)" class="main-slider-carousel">
+            <div class="item main-slider__item" @Html.EditAttributes(m => m.Image)>
+                @{ Html.RenderContentData(Model.Image.Get<IContent>(), false, TagNames.ContentSlider); }
+            </div>
+        </div>
+    </div>
+    <div class="section-info">
+        <div class="container">
+            <div class="row tripple-row">
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                    <div class="slider-captions dark-background light-color" @Html.EditAttributes(m => m.LeftContent)>
+                        <div class="has_bg_img"></div>
+                        <div id="thumbnail-slider" class="thumbnail-slider">
+                            <div class="thumbnail-slider__item">
+                                @{ Html.RenderContentData(Model.LeftContent, false); }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <contenttypes>
+      <BackgroundVideoBlock>
+        <name>Background Video Block</name>
+        <description></description>
+        <properties>
+          <Headlines>
+            <caption>Headlines</caption>
+          </Headlines>
+          <Video>
+            <caption>Video</caption>
+          </Video>
+          <BackupImage>
+            <caption>Backup Image</caption>
+            <description>Image which is displayed when video is stopped</description>
+          </BackupImage>
+          <ButtonLabel>
+            <caption>Button Label</caption>
+          </ButtonLabel>
+          <IsHeadlineLooping>
+            <caption>Is Headline Looping</caption>
+          </IsHeadlineLooping>
+          <HeadlineDisplayInterval>
+            <caption>Headline Display Interval</caption>
+          </HeadlineDisplayInterval>
+          <VideoLayoutOption>
+            <caption>Video Layout Option</caption>
+          </VideoLayoutOption>
+        </properties>
+      </BackgroundVideoBlock>
+      <FooterBlock>
+        <name>Footer</name>
+        <properties>
+          <CompanyName>
+            <caption>Company Name</caption>
+          </CompanyName>
+          <Address1>
+            <caption>Address 1</caption>
+          </Address1>
+          <Address2>
+            <caption>Address 2</caption>
+          </Address2>
+          <Country>
+            <caption>Country</caption>
+          </Country>
+          <Phone>
+            <caption>Phone</caption>
+          </Phone>
+          <Fax>
+            <caption>Fax</caption>
+          </Fax>
+          <CopyrightInfo>
+            <caption>Copyright</caption>
+          </CopyrightInfo>
+          <FooterColumn1Links>
+            <caption>Column 1st Items</caption>
+          </FooterColumn1Links>
+          <FooterColumn2Links>
+            <caption>Column 2nd Items</caption>
+          </FooterColumn2Links>
+          <FooterColumn3Links>
+            <caption>Column 3rd Items</caption>
+          </FooterColumn3Links>
+          <FooterBottomLinks>
+            <caption>Bottom Items</caption>
+          </FooterBottomLinks>
+        </properties>
+      </FooterBlock>
+      <HeaderBlock>
+        <name>Header</name>
+        <properties>
+          <LogoImage>
+            <caption>Company Logo</caption>
+          </LogoImage>
+          <BrandLogoLinks>
+            <caption>Brand Logos</caption>
+          </BrandLogoLinks>
+        </properties>
+      </HeaderBlock>
+      <SiteSettingsBlock>
+        <name>Site Settings</name>
+        <properties>
+          <DefaultImage>
+            <caption>Default Image</caption>
+          </DefaultImage>
+          <SocialSharing>
+            <caption>Social Sharing</caption>
+          </SocialSharing>
+          <SocialSharingMobile>
+            <caption>Social Sharing Mobile</caption>
+          </SocialSharingMobile>
+          <SocialAccounts>
+            <caption>Social Accounts</caption>
+          </SocialAccounts>
+          <CategoryColors>
+            <caption>Category Colors</caption>
+          </CategoryColors>
+          <FadeInInterval>
+            <caption>Fade In Interval</caption>
+          </FadeInInterval>
+          <FadeOutInterval>
+            <caption>Fade Out Interval</caption>
+          </FadeOutInterval>
+          <ArticleListingPage>
+            <caption>News (Article) Listing Page</caption>
+          </ArticleListingPage>
+          <SearchPage>
+            <caption>Search Page</caption>
+          </SearchPage>
+          <JobListingPage>
+            <caption>Job Listing Page</caption>
+          </JobListingPage>
+          <MessageNoResults>
+            <caption>Message when search has no result</caption>
+          </MessageNoResults>
+          <DefaultLeftBackgroundImage>
+            <caption>Default left background image</caption>
+          </DefaultLeftBackgroundImage>
+          <GoogleAnalyticsId>
+            <caption>Google Analytics ID</caption>
+          </GoogleAnalyticsId>
+        </properties>
+      </SiteSettingsBlock>
+      <ArticlesBlock>
+        <name>Articles Block</name>
+        <properties>
+          <NumberOfArticles>
+            <caption>Number of Articles</caption>
+            <description>The number of articles will be displayed</description>
+          </NumberOfArticles>
+        </properties>
+      </ArticlesBlock>
+      <DataBlock>
+        <name>Data Block</name>
+        <properties>
+          <Abstract>
+            <caption>Abstract</caption>
+          </Abstract>
+          <CallToAction>
+            <caption>Call to Action</caption>
+          </CallToAction>
+          <StatisticInformationItems>
+            <caption>Statistic Information Items</caption>
+          </StatisticInformationItems>
+        </properties>
+      </DataBlock>
+      <GenericContentBlockBase>
+        <name>Generic Content Block Base</name>
+        <properties>
+          <LeftContent>
+            <caption>Left Content</caption>
+          </LeftContent>
+        </properties>
+      </GenericContentBlockBase>
+      <LeftGenericContentBlock>
+        <name>Left Generic Content Block</name>
+        <properties>
+          <Abstract>
+            <caption>Abstract</caption>
+          </Abstract>
+          <CallToActionTitle>
+            <caption>Call to Action Title</caption>
+          </CallToActionTitle>
+          <CallToAction>
+            <caption>Call to Action Link</caption>
+          </CallToAction>
+          <AttachmentLinks>
+            <caption>Attachment Links</caption>
+          </AttachmentLinks>
+          <ShowSocialAccountBlock>
+            <caption>Show Social Account Block</caption>
+          </ShowSocialAccountBlock>
+          <LeftBackgroundImage>
+            <caption>Left Background Image</caption>
+          </LeftBackgroundImage>
+        </properties>
+      </LeftGenericContentBlock>
+      <GenericContentBlock>
+        <name>Generic Content Block</name>
+        <properties>
+          <RightContentArea>
+            <caption>Right Content Area</caption>
+          </RightContentArea>
+          <ShowRightBottomHrLink>
+            <caption>Show Right Bottom Line</caption>
+            <description>Show Right Bottom Line</description>
+          </ShowRightBottomHrLink>
+        </properties>
+      </GenericContentBlock>
+      <TestimonialBlock>
+        <name>Testimonial Block</name>
+        <properties>
+          <LeftContent>
+            <caption>Default Left Content</caption>
+          </LeftContent>
+          <Images>
+            <caption>Images to slide</caption>
+          </Images>
+          <LeftBackgroundImage>
+            <caption>Left column background image</caption>
+          </LeftBackgroundImage>
+          <IsAutoSliding>
+            <caption>Auto slide?</caption>
+          </IsAutoSliding>
+          <SlidingInterval>
+            <caption>Sliding interval</caption>
+          </SlidingInterval>          
+        </properties>
+      </TestimonialBlock>
+      <TestimonialItemBlock>
+        <name>Testimonial Item</name>
+        <properties>
+          <Image>
+            <caption>Image</caption>
+          </Image>
+          <Text>
+            <caption>Text</caption>
+          </Text>
+        </properties>
+      </TestimonialItemBlock>
+      <MenuNavigationItemBlock>
+        <name>Menu Navigation Item</name>
+        <properties>
+          <Link>
+            <caption>Link</caption>
+          </Link>
+          <SubMenuItems>
+            <caption>Sub-Menu Items</caption>
+          </SubMenuItems>
+        </properties>
+      </MenuNavigationItemBlock>
+      <MouseoverBlock>
+        <name>Mouseover Block</name>
+        <properties>
+          <MouseoverArea>
+            <caption>Mouseover Area</caption>
+          </MouseoverArea>
+          <LoopTime>
+            <caption>Looping Interval (miliseconds)</caption>
+          </LoopTime>
+        </properties>
+      </MouseoverBlock>
+      <MouseoverItemBlock>
+        <name>Mouseover Item</name>
+        <properties>
+          <Category>
+            <caption>Category</caption>
+          </Category>
+          <ImagesArea>
+            <caption>Images</caption>
+          </ImagesArea>
+          <CallToActionLink>
+            <caption>Call to Action Link</caption>
+          </CallToActionLink>
+          <CallToActionTitle>
+            <caption>Call to Action Title</caption>
+          </CallToActionTitle>
+        </properties>
+      </MouseoverItemBlock>
+      <SocialShareBlock>
+        <name>Social Share Block</name>
+        <properties>
+          <PublisherId>
+            <caption>Publisher ID</caption>
+          </PublisherId>
+        </properties>
+      </SocialShareBlock>
+      <StatisticInformationBlock>
+        <name>Statistic Information Item</name>
+        <properties>
+          <StatisticNumber>
+            <caption>Statistic Number</caption>
+          </StatisticNumber>
+          <Title>
+            <caption>Title</caption>
+          </Title>
+          <Image>
+            <caption>Image</caption>
+          </Image>
+          <RightTitle>
+            <caption>Right Title</caption>
+          </RightTitle>
+          <CallToActionTitle>
+            <caption>Call to Action Title</caption>
+          </CallToActionTitle>
+          <CallToAction>
+            <caption>Call to Action</caption>
+          </CallToAction>
+          <ExternalSource>
+            <caption>External Source</caption>
+          </ExternalSource>
+        </properties>
+      </StatisticInformationBlock>
+      <TeaserBlock>
+        <name>Teaser Block</name>
+        <properties>
+          <Image>
+            <caption>Images</caption>
+          </Image>
+        </properties>
+      </TeaserBlock>
+      <TextBlock>
+        <name>Text Block</name>
+        <properties>
+          <Abstract>
+            <caption>Abstract</caption>
+          </Abstract>
+          <Subtitle>
+            <caption>Sub-Title</caption>
+          </Subtitle>
+          <MainBody>
+            <caption>Main Body</caption>
+          </MainBody>
+        </properties>
+      </TextBlock>
+      <TimeLineBlock>
+        <name>Timeline Block</name>
+        <properties>
+          <Abstract>
+            <caption>Abstract</caption>
+          </Abstract>
+          <TimeLineItemsArea>
+            <caption>Timeline Items</caption>
+          </TimeLineItemsArea>
+        </properties>
+      </TimeLineBlock>
+      <TimeLineItemBlock>
+        <name>Timeline Item</name>
+        <properties>
+          <Year>
+            <caption>Year</caption>
+            <ErrorMessage>Year must be a number</ErrorMessage>
+          </Year>
+          <Headline>
+            <caption>Headline</caption>
+          </Headline>
+          <Content>
+            <caption>Content</caption>
+          </Content>
+          <ImageSliderArea>
+            <caption>Image Slider</caption>
+          </ImageSliderArea>
+        </properties>
+      </TimeLineItemBlock>
+      <ArticleListingPage>
+        <name>Article Listing</name>
+        <properties>
+          <Abstract>
+            <caption>Abstract</caption>
+          </Abstract>
+          <PageSize>
+            <caption>Page Size</caption>
+          </PageSize>
+          <HeaderStageSlider>
+            <caption>Stage Slider</caption>
+          </HeaderStageSlider>
+          <BottomContentArea>
+            <caption>Bottom Content Area</caption>
+          </BottomContentArea>
+        </properties>
+      </ArticleListingPage>
+      <ArticlePage>
+        <name>Article Detail</name>
+        <properties>
+          <Subtitle>
+            <caption>Sub-Title</caption>
+          </Subtitle>
+          <ImageSlider>
+            <caption>Image Slider</caption>
+          </ImageSlider>
+          <RelatedNews>
+            <caption>Related News</caption>
+          </RelatedNews>
+          <AttachmentFile>
+            <caption>Attachment File</caption>
+          </AttachmentFile>
+          <AttachmentText>
+            <caption>File Name</caption>
+          </AttachmentText>
+        </properties>
+      </ArticlePage>
+      <BrandPage>
+        <name>Brand Detail</name>
+        <properties>
+          <VideoHeader>
+            <caption>Video Header</caption>
+          </VideoHeader>
+          <TopBodyArea>
+            <caption>Top Body Area</caption>
+          </TopBodyArea>
+          <MainBodyArea>
+            <caption>Main Body Content</caption>
+          </MainBodyArea>
+        </properties>
+      </BrandPage>
+      <EditorialPageBase>
+        <name>Editorial Pagebase</name>
+        <properties>
+          <MainIntro>
+            <caption>Main Introduction</caption>
+          </MainIntro>
+          <MainImage>
+            <caption>Header Image</caption>
+          </MainImage>
+          <ThumbnailImageUrl>
+            <caption>Thumbnail Image URL</caption>
+          </ThumbnailImageUrl>
+          <MainBody>
+            <caption>Main Body</caption>
+          </MainBody>
+          <ContentCategory>
+            <caption>Content Category</caption>
+          </ContentCategory>
+          <SubHeader>
+            <caption>Sub-Header</caption>
+          </SubHeader>
+        </properties>
+      </EditorialPageBase>
+      <GenericContentPage>
+        <name>Generic Content</name>
+        <properties>
+          <TopBodyArea>
+            <caption>Top Body Area</caption>
+          </TopBodyArea>
+          <MainContentArea>
+            <caption>Main Content Area</caption>
+          </MainContentArea>
+          <HasGrayBackground>
+            <caption>Has Gray Background</caption>
+          </HasGrayBackground>
+        </properties>
+      </GenericContentPage>
+      <StartPage>
+        <name>Start Page (Home Page)</name>
+        <properties>
+          <VideoHeader>
+            <caption>Video Header</caption>
+          </VideoHeader>
+          <Body>
+            <caption>Main Content Body</caption>
+          </Body>
+          <Header>
+            <caption>Header</caption>
+          </Header>
+          <Footer>
+            <caption>Footer</caption>
+          </Footer>
+          <SiteSettings>
+            <caption>Site Settings</caption>
+          </SiteSettings>
+        </properties>
+      </StartPage>
+      <ContentSliderBlock>
+        <name>Content Slider Block</name>
+        <properties>
+          <SlidingItems>
+            <caption>Sliding Items</caption>
+          </SlidingItems>
+          <IsAutoSliding>
+            <caption>Is Auto-Sliding</caption>
+          </IsAutoSliding>
+          <SlidingInterval>
+            <caption>Sliding Interval (1,000 - 10,000 miliseconds)</caption>
+          </SlidingInterval>
+          <IsMiniatureSlider>
+            <caption>Is Miniature Slider</caption>
+          </IsMiniatureSlider>
+        </properties>
+      </ContentSliderBlock>
+      <StageSliderBlock>
+        <name>Stage Slider Block</name>
+        <properties>
+          <SlidingItems>
+            <caption>Sliding Items</caption>
+          </SlidingItems>
+          <IsAutoSliding>
+            <caption>Is Auto-Sliding</caption>
+          </IsAutoSliding>
+          <SlidingInterval>
+            <caption>Sliding Interval (1,000 - 10,000 miliseconds)</caption>
+          </SlidingInterval>
+        </properties>
+      </StageSliderBlock>
+      <VideoBlock>
+        <name>Video Block</name>
+        <properties>
+          <Video>
+            <caption>Video</caption>
+          </Video>
+          <BackupImage>
+            <caption>Backup Image</caption>
+          </BackupImage>
+        </properties>
+      </VideoBlock>
+      <ImageBannerBlock>
+        <name>Image Banner Block</name>
+        <properties>
+          <Subline>
+            <caption>Subline</caption>
+          </Subline>
+          <BackgroundImage>
+            <caption>Background Image</caption>
+          </BackgroundImage>
+          <LinkMoreTitle>
+            <caption>"Scroll down" Link Text</caption>
+          </LinkMoreTitle>
+          <AttachmentLinks>
+            <caption>Attachment Links</caption>
+          </AttachmentLinks>
+        </properties>
+      </ImageBannerBlock>
+      <ManagementBoardPage>
+        <name>Management Board Page</name>
+        <properties>
+          <ImageBanner>
+            <caption>Image Banner</caption>
+          </ImageBanner>
+          <BottomText>
+            <caption>Board Remarks</caption>
+          </BottomText>
+          <MainIntro>
+            <caption>Page Description</caption>
+          </MainIntro>
+        </properties>
+      </ManagementBoardPage>
+      <MemberPage>
+        <name>Member Page</name>
+        <properties>
+          <Image>
+            <caption>Avatar Image</caption>
+          </Image>
+          <DateOfBirth>
+            <caption>Date of Birth</caption>
+          </DateOfBirth>
+          <AppointedUntilDate>
+            <caption>Appointed until</caption>
+          </AppointedUntilDate>
+          <ResponsibleTitle>
+            <caption>Responsible Title</caption>
+          </ResponsibleTitle>
+          <ResponsibleDescription>
+            <caption>Responsible Description</caption>
+          </ResponsibleDescription>
+          <BriefHistory>
+            <caption>Brief History</caption>
+          </BriefHistory>
+        </properties>
+      </MemberPage>
+      <InformationTabsBlock>
+        <name>Information Tabs Block</name>
+        <properties>
+          <Abstract>
+            <caption>Abstract</caption>
+          </Abstract>
+          <TabItems>
+            <caption>Tab Items</caption>
+          </TabItems>
+          <AllItemsTabTitle>
+            <caption>All Items Tab Title</caption>
+          </AllItemsTabTitle>
+        </properties>
+      </InformationTabsBlock>
+      <InformationTabItemBlock>
+        <name>Information Tab Item</name>
+        <properties>
+          <SubHeader>
+            <caption>Sub-Header</caption>
+          </SubHeader>
+          <MainBody>
+            <caption>Main Body</caption>
+          </MainBody>
+          <DocumentListing>
+            <caption>List of Blocks inside</caption>
+          </DocumentListing>
+          <BackgroundImage>
+            <caption>Background Image</caption>
+          </BackgroundImage>
+        </properties>
+      </InformationTabItemBlock>
+      <JobDetailPage>
+        <name>Job Detail Page</name>
+        <properties>
+          <JobPosition>
+            <caption>Job Position</caption>
+          </JobPosition>
+          <Country>
+            <caption>Country</caption>
+          </Country>
+          <ApplyForm>
+            <caption>Apply Form</caption>
+          </ApplyForm>
+          <RelatedJobs>
+            <caption>Related Jobs</caption>
+          </RelatedJobs>
+        </properties>
+      </JobDetailPage>
+      <JobListingPage>
+        <name>Job Listing Page</name>
+        <properties>
+          <Abstract>
+            <caption>Abstract</caption>
+          </Abstract>
+          <PageSize>
+            <caption>Page Size</caption>
+          </PageSize>
+        </properties>
+      </JobListingPage>
+      <CompanyLocationsBlock>
+        <properties>
+          <CompanyLocationItemsArea>
+            <caption>Company Location Items</caption>
+          </CompanyLocationItemsArea>
+          <LeftBackgroundImage>
+            <caption>Left Background Image</caption>
+          </LeftBackgroundImage>
+        </properties>
+      </CompanyLocationsBlock>
+      <CompanyLocationItemBlock>
+        <properties>
+          <Location>
+            <caption>Location</caption>
+          </Location>
+          <City>
+            <caption>City</caption>
+          </City>
+          <AddressLine1>
+            <caption>Address Line 1</caption>
+          </AddressLine1>
+          <AddressLine2>
+            <caption>Address Line 2</caption>
+          </AddressLine2>
+          <PhoneNumber>
+            <caption>Phone Number</caption>
+          </PhoneNumber>
+          <FaxNumber>
+            <caption>Fax Number</caption>
+          </FaxNumber>
+          <Website>
+            <caption>Website</caption>
+          </Website>
+          <GeoLocationString>
+            <caption>Geo Location</caption>
+          </GeoLocationString>
+          <GoogleMapMarker>
+            <caption>Google Map Marker</caption>
+          </GoogleMapMarker>
+        </properties>
+      </CompanyLocationItemBlock>
+      <ContactUsPage>
+        <name>Contact Us Page</name>
+        <properties>
+          <ImageBannerBlock>
+            <caption>Image Banner Block</caption>
+          </ImageBannerBlock>
+          <ProductWebsiteLinks>
+            <caption>Product Website Links</caption>
+          </ProductWebsiteLinks>
+          <ContactUsContent>
+            <caption>Contact Us Content</caption>
+          </ContactUsContent>
+          <ContactFormHeading>
+            <caption>Contact Form Heading</caption>
+          </ContactFormHeading>
+          <ContactFormAbstract>
+            <caption>Contact Form Abstract</caption>
+          </ContactFormAbstract>
+          <ContactFormContainer>
+            <caption>Contact Form Container</caption>
+          </ContactFormContainer>
+        </properties>
+      </ContactUsPage>
+      <CustomCaptchaElementBlock>
+        <name>Custom Captcha</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+        </properties>
+      </CustomCaptchaElementBlock>
+      <CustomChoiceElementBlock>
+        <name>Custom Choice</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+        </properties>
+      </CustomChoiceElementBlock>
+      <CustomSelectionElementBlock>
+        <name>Custom Selection</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+        </properties>
+      </CustomSelectionElementBlock>
+      <CustomSubmitButtonElementBlock>
+        <name>Custom Submit button</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+        </properties>
+      </CustomSubmitButtonElementBlock>
+      <CustomTextareaElementBlock>
+        <name>Custom Textarea</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+        </properties>
+      </CustomTextareaElementBlock>
+      <CustomTextBoxElementBlock>
+        <name>Custom Text</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+          <IsDigitOnly>
+            <caption>Is only allow digits</caption>
+          </IsDigitOnly>
+        </properties>
+      </CustomTextBoxElementBlock>
+      <CustomDateSelectionBlock>
+        <name>Custom Date Selection</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+        </properties>
+      </CustomDateSelectionBlock>
+      <CustomFormContainerBlock>
+        <name>Custom Form Container Block</name>
+        <properties>
+          <NumberOfColumns>
+            <caption>Number of Columns</caption>
+          </NumberOfColumns>
+          <MessageHeadingAfterSubmit>
+            <caption>Message Heading after Submit</caption>
+          </MessageHeadingAfterSubmit>
+          <MessageAbstractAfterSubmit>
+            <caption>Message Abstract after Submit</caption>
+          </MessageAbstractAfterSubmit>
+        </properties>
+      </CustomFormContainerBlock>
+      <CustomLabelBlock>
+        <name>Custom Label</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+          <AlignRight>
+            <caption>Align Right</caption>
+          </AlignRight>
+          <RenderForMobile>
+            <caption>Render for Mobile</caption>
+          </RenderForMobile>
+        </properties>
+      </CustomLabelBlock>
+      <CustomSectionHeadingBlock>
+        <name>Custom Section Heading</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+        </properties>
+      </CustomSectionHeadingBlock>
+      <CustomCheckboxBlock>
+        <name>Custom Checkbox</name>
+        <properties>
+          <ColumnIndex>
+            <caption>Column Index</caption>
+          </ColumnIndex>
+          <FullRowWidth>
+            <caption>Full Row Width</caption>
+          </FullRowWidth>
+        </properties>
+      </CustomCheckboxBlock>
+      <RelatedContentsBlock>
+        <name>Related Contents Block</name>
+        <properties>
+          <ManualItems>
+            <caption>Manual Items</caption>
+          </ManualItems>
+          <DynamicDisplay>
+            <caption>Dynamic Display</caption>
+          </DynamicDisplay>
+          <MaxItemsPerContent>
+            <caption>Number of Items (Dynamic Content)</caption>
+          </MaxItemsPerContent>
+        </properties>
+      </RelatedContentsBlock>
+      <MediaListingSliderBlock>
+        <name>Media Listing Slider Block</name>
+        <properties>
+          <AttachmentLinks>
+            <caption>Attachment Links</caption>
+          </AttachmentLinks>
+          <ContentArea>
+            <caption>Content Area</caption>
+          </ContentArea>
+          <LeftBackgroundImage>
+            <caption>Left Background Image</caption>
+          </LeftBackgroundImage>
+        </properties>
+      </MediaListingSliderBlock>
+      <MediaStreamBlock>
+        <name>Media Stream Block</name>
+        <properties>
+          <ContentArea>
+            <caption>Content Area</caption>
+          </ContentArea>
+        </properties>
+      </MediaStreamBlock>
+      <MediaListingBlock>
+        <name>Media Listing Block</name>
+        <properties>
+          <MediaItems>
+            <caption>Media Items</caption>
+          </MediaItems>
+        </properties>
+      </MediaListingBlock>
+      <CareerPathsBlock>
+        <name>Career Paths Block</name>
+        <properties>
+          <CareerPathItems>
+            <caption>Sliding Items</caption>
+          </CareerPathItems>
+          <LeftBackgroundImage>
+            <caption>Left Background Image</caption>
+          </LeftBackgroundImage>
+        </properties>
+      </CareerPathsBlock>
+      <GenericContentBlock>
+        <name>Generic Content Block</name>
+        <properties>
+          <ShowRightBottomHrLink>
+            <caption>Show Bottom Separation Line</caption>
+          </ShowRightBottomHrLink>
+          <ContentArea>
+            <caption>Content Area</caption>
+          </ContentArea>
+          <LeftBackgroundImage>
+            <caption>Left Background Image</caption>
+          </LeftBackgroundImage>
+          <IsSticky>
+            <caption>Is Sticky Allowed</caption>
+          </IsSticky>
+        </properties>
+      </GenericContentBlock>
+      <TextInformationListingBlock>
+        <name>Text Information Listing Block</name>
+        <properties>
+          <TextInformationItems>
+            <caption>Text Information Items</caption>
+          </TextInformationItems>
+          <NumberOfColumns>
+            <caption>Number of Columns</caption>
+          </NumberOfColumns>
+        </properties>
+      </TextInformationListingBlock>
+      <DocumentListingBlock>
+        <name>Document Listing Block</name>
+        <properties>
+          <Documents>
+            <caption>Documents</caption>
+          </Documents>
+          <IsDisplayBlockName>
+            <caption>Display Block Name</caption>
+          </IsDisplayBlockName>
+        </properties>
+      </DocumentListingBlock>
+      <NewsletterBlock>
+        <name>Newsletter Block</name>
+        <properties>
+          <FormContainerArea>
+            <caption>Form Container Area</caption>
+          </FormContainerArea>
+          <BackgroundImage>
+            <caption>Background Image</caption>
+          </BackgroundImage>
+        </properties>
+      </NewsletterBlock>
+      <StatementBlock>
+        <name>Statement Block</name>
+        <properties>
+          <header>
+            <caption>Header</caption>
+          </header>
+          <subheader>
+            <caption>Sub-header</caption>
+          </subheader>
+        </properties>
+      </StatementBlock>
+      <PartnersBlock>
+        <name>Partners Block</name>
+        <properties>
+          <partners>
+            <caption>Partners</caption>
+          </partners>
+        </properties>
+      </PartnersBlock>
+      <IFrameContentBlock>
+        <name>IFrame Content Block</name>
+        <properties>
+          <IFrameSource>
+            <caption>IFrame Source</caption>
+          </IFrameSource>
+        </properties>
+      </IFrameContentBlock>
+      <MediaDataBase>
+        <name>Generic Media</name>
+        <properties>
+          <title>
+            <caption>Title</caption>
+          </title>
+          <description>
+            <caption>Description</caption>
+          </description>
+          <filesizeinkb>
+            <caption>File Size in Kb</caption>
+          </filesizeinkb>
+          <publishdate>
+            <caption>Publish Date</caption>
+          </publishdate>
+        </properties>
+      </MediaDataBase>
+      <DocumentFile>
+        <name>Document File</name>
+      </DocumentFile>
+      <ExcelFile>
+        <name>Excel File</name>
+      </ExcelFile>
+      <PDFFile>
+        <name>PDF File</name>
+      </PDFFile>
+      <CompressedFile>
+        <name>Compressed File</name>
+      </CompressedFile>
+      <SharePriceDataBlock>
+        <name>Share Price Data Block</name>
+        <properties>
+          <ImportDataFile>
+            <caption>Import Data File</caption>
+          </ImportDataFile>
+        </properties>
+      </SharePriceDataBlock>
+      <SocialAccountBlock>
+        <name>
+          Social Account Block
+        </name>
+        <properties>
+          <SocialLinkItems>
+            <caption>Social Link Items</caption>
+          </SocialLinkItems>
+        </properties>
+      </SocialAccountBlock>
+      <InvestorSharePriceBlock>
+        <name>Investor Share Price Block</name>
+        <properties>
+          <IsSticky>
+            <caption>Is Sticky Allowed</caption>
+          </IsSticky>
+          <CallToActionTitle>
+            <caption>Call to Action Title</caption>
+          </CallToActionTitle>
+          <CallToAction>
+            <caption>Call to Action Link</caption>
+          </CallToAction>
+          <LeftIFrameSource>
+            <caption>Left IFrame Source</caption>
+          </LeftIFrameSource>
+          <RightIFrameSource>
+            <caption>Right IFrame Source</caption>
+          </RightIFrameSource>
+        </properties>
+      </InvestorSharePriceBlock>
+      <RowLayoutBlock>
+        <name>Row Layout Block</name>
+      </RowLayoutBlock>
+    </contenttypes>
+    <views>
+      <common>
+        <noitemsfound>No items found</noitemsfound>
+        <detailcontent>
+          <sharethis>Share this</sharethis>
+        </detailcontent>
+        <seemore>See More</seemore>
+        <all>All</all>
+        <allreports>All Reports</allreports>
+      </common>
+      <footer>
+        <fax>Fax</fax>
+        <phone>Phone</phone>
+      </footer>
+      <imagesliderblock>
+        <buttontile>Read more</buttontile>
+      </imagesliderblock>
+      <articlelistpage>
+        <allnews>All news</allnews>
+        <loadmorenews>Load more news</loadmorenews>
+      </articlelistpage>
+      <imagebanner>
+        <readmore>Read more</readmore>
+      </imagebanner>
+      <articlepage>
+        <backtonews>Back to news</backtonews>
+      </articlepage>
+      <searchpage>
+        <all>All</all>
+        <loadmore>Load more</loadmore>
+        <searchtext>Search Text</searchtext>
+        <results>Results</results>
+        <searchresults>Search Results:</searchresults>
+      </searchpage>
+      <pagenotfound>
+        <title>sorry</title>
+        <text>404\nthat page\ndoesn't seem\nto exist</text>
+        <backtohome>Back to home</backtohome>
+      </pagenotfound>
+      <joblistpage>
+        <loadmorejobs>
+          Load more jobs
+        </loadmorejobs>
+        <viewalloffers>
+          View all jobs offers
+        </viewalloffers>
+      </joblistpage>
+      <jobdetailpage>
+        <applynow>
+          Apply now
+        </applynow>
+        <back>Back</back>
+      </jobdetailpage>
+      <jobitemlist>
+        <nojobfound>No available job found.</nojobfound>
+      </jobitemlist>
+      <jobfilter>
+        <allpositions>All Positions</allpositions>
+        <allcountries>All Countries</allcountries>
+        <search>Search</search>
+      </jobfilter>
+      <CompanyLocationsBlock>
+        <phone>Phone</phone>
+        <fax>Fax</fax>
+        <continent>Continent</continent>
+        <country>Country</country>
+        <findlocation>Find Location</findlocation>
+        <findotherlocation>Find Other Location</findotherlocation>
+        <back>Back</back>
+      </CompanyLocationsBlock>
+      <header>
+        <languages>Languages</languages>
+        <search>Search</search>
+      </header>
+      <ManagementBoardPage>
+        <born>born</born>
+        <appointeduntil>appointed until</appointeduntil>
+      </ManagementBoardPage>
+      <documentlistingblock>
+        <title>Title</title>
+        <date>Date</date>
+        <size>Size</size>
+        <download>Download</download>
+      </documentlistingblock>
+    </views>
+    <property>
+      <enum>
+        <VideoLayoutOption>
+          <name>Video Layout Option</name>
+          <TextAlignCentreAndLoop>Text align centre and loop</TextAlignCentreAndLoop>
+          <TextAlignLeft>Text align left</TextAlignLeft>
+        </VideoLayoutOption>
+        <NumberOfColumns>
+          <name>Number of Columns</name>
+          <OneColumn>One Column</OneColumn>
+          <TwoColumn>Two Columns</TwoColumn>
+          <ThreeColumn>Three Columns</ThreeColumn>
+        </NumberOfColumns>
+      </enum>
+    </property>
+    <format>
+      <datetime>
+        <publishdate>dd MMMM yyyy</publishdate>
+      </datetime>
+    </format>
+  </language>
+</languages>

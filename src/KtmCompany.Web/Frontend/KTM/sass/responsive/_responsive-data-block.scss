@@ -1,0 +1,69 @@
+/*==========  Non-Mobile First Method  ==========*/
+
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (max-width: 1200px) {
+    .section {
+        .module-feature {
+            .ebit,
+            .revenue {
+                span {
+                    margin-left: 17px;
+                }
+            }
+        }
+    }
+}
+
+
+/* Medium Devices, Desktops */
+
+@media only screen and (max-width: 992px) {
+    .section {
+
+        .module-feature {
+            .ebit,
+            .revenue {
+                span {
+                    margin-left: 13px;
+                }
+            }
+        }
+    }
+}
+
+
+/* Extra Small Devices, Phones */
+
+@media only screen and (max-width: 480px) {
+    .carousel {
+        .carousel-inner {
+            .item {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+/* Custom, iPhone Retina */
+
+@media only screen and (max-width: 320px) {
+    .section {
+
+        .module-feature {
+            .ebit,
+            .revenue {
+                span {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+
+

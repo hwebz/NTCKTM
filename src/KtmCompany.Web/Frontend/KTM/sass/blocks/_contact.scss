@@ -1,0 +1,481 @@
+@import "vars";
+
+.contact-us {
+    background-image: none;
+
+    .row-intro {
+        border: none;
+    }
+
+    .guide-to-webs {
+        margin-right: 20px;
+    }
+
+    .post-detail {
+        .address {
+            margin-top: 35px;
+        }
+    }
+
+    .information-block {
+        margin-bottom: rem(95px);
+
+        @include respond-to-max($tabletSize) {
+            margin-bottom: rem(30px);
+        }
+    }
+
+    .link {
+        .intro-readmore {
+            display: block;
+        }
+    }
+}
+
+.post-detail {
+    &:before {
+        content: ' ';
+        display: block;
+        background: #d9d9d9;
+        height: 1px;
+        width: 90%;
+        position: absolute;
+        bottom: 0;
+        left: 35px;
+    }
+
+    @include respond-to-max($tabletSize) {
+        &:before {
+            left: 15px;
+        }
+    }
+}
+
+.selected-new {
+    .col-sm-7 {
+        .post-detail {
+            @include respond-to-min($tabletSize) {
+                &:before {
+                    height: 0;
+                }
+            }
+        }
+    }
+}
+
+.post-title {
+    h3 {
+        margin-top: 0;
+    }
+}
+
+.input-field {
+    margin-top: 20px;
+
+    .alert-message, .at-error, .at-warning {
+        position: relative;
+        width: 100%;
+        background: #ff6c6c;
+        color: white;
+        padding: 10px;
+        margin: 0;
+
+        &:before {
+            position: absolute;
+            border: 15px solid transparent;
+            border-top-color: #ff6c6c;
+            right: 6px;
+            bottom: -23px;
+            content: "";
+        }
+
+        .arrowdown {
+            position: absolute;
+            border: 15px solid transparent;
+            border-top-color: #ff6c6c;
+            right: 6px;
+            bottom: -23px;
+        }
+    }
+}
+
+.link-btns {
+    background: transparent;
+    border: 0;
+    text-transform: uppercase;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.mobile-number-wrapper {
+    .alert-message {
+        display: block;
+    }
+}
+
+.input-field {
+    position: relative;
+
+    .glyphicon {
+        top: 47px;
+        right: 4.5px;
+
+        &.glyphicon-ok {
+            display: none;
+        }
+
+        &:before {
+            color: #FF6C6C;
+        }
+    }
+}
+
+
+.short-dropdown {
+    select.subject {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-position: 92% 50%;
+    }
+}
+
+.subject-dropdown {
+    background: white url(../images/dropdown-icon.png) no-repeat right 10px center;
+    background-size: initial;
+    border: 1px solid #d9d9d9;
+
+    select {
+        border: none;
+        background-color: transparent;
+
+        @include old-ie() {
+            padding-right: 9px;
+        }
+    }
+
+    select.subject {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-position: 90% 50%;
+
+        @include respond-to-min($tabletSize) {
+            background-position: 92% 50%;
+        }
+
+        @include respond-to-min($desktopSize) {
+            background-position: 90% 50%;
+        }
+
+        @include respond-to-min($largeSize) {
+            background-position: 93% 50%;
+        }
+    }
+}
+
+.short-dropdown {
+    width: 70px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin-left: 10px;
+
+    select {
+        padding: 10px 0 10px 0;
+        background: url(../images/dropdown-icon.png) no-repeat top right;
+        background-size: contain;
+    }
+}
+
+textarea.message {
+    height: 293px;
+    resize: none;
+    background-size: 12%;
+}
+
+.robot-text {
+
+    a {
+        color: black;
+    }
+
+    #star, .fa-umbrella, .fa-star {
+        color: #9c9a98;
+    }
+
+    .fa {
+        margin: 0 5px;
+    }
+
+    @include respond-to-max($desktopSize) {
+        font-size: 12px;
+    }
+}
+
+input, select, textarea {
+    border: 1px solid #d9d9d9;
+
+    @include respond-to-max($tabletSize) {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.alert-message {
+    display: none;
+}
+
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    margin: 0;
+}
+
+.FormTextbox__Input {
+    &::-webkit-input-placeholder {
+        color: #808080;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        color: #808080;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: #808080;
+    }
+
+    &:-ms-input-placeholder {
+        color: #808080;
+    }
+}
+
+input[type="checkbox"] {
+    margin: 0 5px 3px 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.male {
+    margin-right: 20px;
+
+    @include respond-to-min($desktopSize) {
+        padding-right: 30px;
+    }
+}
+
+.gender {
+    clear: both;
+    padding-left: 15px;
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .male, .female {
+        float: left;
+    }
+
+    .star {
+        position: static;
+        margin-right: rem(5px);
+    }
+
+    .text-right {
+        @include respond-to-max($tabletSize) {
+            text-align: left;
+        }
+    }
+
+    @include respond-to-max($tabletSize) {
+        padding: 0 15px;
+    }
+}
+
+.required {
+    background: transparent url(../images/required.png) no-repeat 98% center;
+    background-size: initial;
+
+    &.at-required, &.at-invalid {
+        background: transparent;
+    }
+}
+
+.error {
+    background: transparent url(../images/warning.png) no-repeat 100% center;
+    background-size: contain;
+    border: 1px solid #ff6c6c;
+}
+
+.valid {
+    background: transparent url(../images/valid.png) no-repeat 98% center;
+    background-size: contain;
+}
+
+textarea.required {
+    background: transparent url(../images/required.png) no-repeat right 10px top 18px;
+    background-size: initial;
+}
+
+.contact-form {
+    .input-inline {
+        span {
+            color: #000;
+        }
+    }
+
+    .nice-select {
+        margin: 22px 0 0;
+    }
+}
+
+.act-form .submit-btn {
+    &.submit-btn-wrapper {
+        margin-top: rem(30px);
+        border: 2px solid #000;
+        padding: rem(0 15px);
+        height: rem(45px);
+        line-height: rem(45px);
+        width: auto;
+
+        input {
+            margin: 0;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.newsletterblock {
+    .act-form .submit-btn {
+        &.submit-btn-wrapper {
+            border: 2px solid #fff;
+            margin: 0;
+        }
+    }
+
+    .required, .error, .valid {
+        background-color: white;
+    }
+}
+
+.FormCaptcha .FormCaptcha__Image {
+    width: 100%;
+}
+
+.custom-label-mobile {
+    display: block;
+
+    @include respond-to-min($desktopSize) {
+        display: none;
+    }
+}
+
+.custom-label-desktop {
+    display: none;
+
+    @include respond-to-min($desktopSize) {
+        display: block;
+    }
+}
+
+.CustomCheckboxContainer {
+    position: relative;
+
+    input {
+        position: relative;
+        margin: 3px 0 0;
+        vertical-align: top;
+
+        @include respond-to-min($desktopSize) {
+            margin: 5px 0 0;
+        }
+    }
+    .FormChoice__Description-Star {
+        float: left;
+        line-height: 23px;
+        margin-top: 2px;
+
+        @include respond-to-min($desktopSize) {
+            margin-top: 0;
+        }
+    }
+
+    .FormChoice__Description {
+        display: inline-block;
+        width: 85%;
+    }
+
+    p {
+        line-height: 20px;
+    }
+}
+
+.row-empty-content {
+    height: 1px;
+}
+
+.newsletter-column {
+    @include respond-to-max($tabletSize) {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    &.tripple-column-space {
+        @include respond-to-min-max($tabletSize, $laptopSize) {
+            padding-left: rem(15px);
+            padding-right: rem(15px);
+        }
+    }
+
+    .outer-main-intro {
+        &:before {
+            display: none;
+        }
+
+        .intro-des {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.CustomLabelBlock {
+    padding: 11px 0;
+}
+
+.CustomCheckboxBlock {
+    padding: 8px 0;
+}
+
+.act-form .Form__MainBody .Form__Element {
+    margin: rem(0 0 20px);
+
+    &.CustomDateSelectionBlock {
+        @include old-ie() {
+            margin: rem(0 0 18px);
+        }
+    }
+}
+
+.form-text-title__container {
+    display: none;
+
+    @include old-ie(){
+        display: block;
+        color: #000;
+        margin: rem(10px 0 5px);
+
+        .newsletter-column &{
+            color: #fff;
+        }
+
+    }
+}

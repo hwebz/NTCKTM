@@ -1,0 +1,26 @@
+﻿@model MediaListingBlock
+
+@{
+    var guid = Guid.NewGuid();
+}
+@if (Model.MediaItems != null && Model.MediaItems.Any())
+{
+    <div class="section-grid">
+        <div class="grid-section hidden-xs"><!--For desktop-->
+            @{
+                Html.RenderPartial("MediaListingItems", Model.MediaItems, new ViewDataDictionary {new KeyValuePair<string, object>("renderForDesktop", true)});
+            }
+        </div>
+        <div class="grid-section grid-section-mobile hidden-sm hidden-md hidden-lg"><!--For mobile-->
+            <div class="row">
+                <div id="@guid" class="media-carousel">
+                    <div role="listbox" class="carousel-inner owl-theme owl-carousel">
+                        @{
+                            Html.RenderPartial("MediaListingItems", Model.MediaItems, new ViewDataDictionary {new KeyValuePair<string, object>("renderForDesktop", false)});
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

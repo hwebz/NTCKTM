@@ -1,0 +1,37 @@
+﻿@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Implementation.Validation
+
+@model KtmCompany.Web.Models.BlockTypes.EPiServerForms.CustomTextBoxElementBlock
+
+@{
+    var isRequireField = Model.GetElementValidators().OfType<RequiredValidator>().Any();
+    var formElement = Model.FormElement;
+}
+<div class="Form__Element FormTextbox input-field @Model.GetValidationCssClasses()" data-epiforms-element-name="@formElement.Code">
+    <div class="Form__Element__ValidationError at-error" style="display: none" data-epiforms-linked-name="@formElement.Code">
+    </div>
+    <div class="form-text-title__container">
+        @Model.PlaceHolder
+    </div>
+    <input type="text" name="@formElement.Code" id="@formElement.Guid" value="@Model.PredefinedValue" placeholder="@Model.PlaceHolder" @Html.Raw(formElement.AttributesString) class="FormTextbox__Input @(isRequireField ? "required" : "")" onchange="formElementValueChanged(this.parentElement); ">
+</div>
+@if (Model.IsDigitOnly)
+{
+    <script type="text/javascript">
+        $("#" + '@(formElement.Guid)').keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+    </script>
+}

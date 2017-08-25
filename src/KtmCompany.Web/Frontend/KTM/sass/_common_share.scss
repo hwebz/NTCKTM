@@ -1,0 +1,412 @@
+html, body  {
+    font-size: 16px;
+}
+
+a {
+    &:active, &:focus, &:hover {
+        outline: none !important;
+    }
+}
+.no-gutter {
+    padding: 0;
+}
+$section-padding:64px;
+.container {
+    @include respond-to-min($largeSize) {
+        width: rem(1630px);
+    }
+}
+
+.triple-container {
+    @include respond-to-min($tabletSize) {
+        padding-left: rem($tripple-space-tablet);
+        padding-right: rem($tripple-space-tablet);
+    }
+    @include respond-to-min($largeSize) {
+        padding-left: rem($tripple-space);
+        padding-right: rem($tripple-space);
+    }
+}
+.tripple-row {
+    @include respond-to-min($desktopSize) {
+        margin-left: rem(-$tripple-space-tablet);
+        margin-right: rem(-$tripple-space-tablet);
+    }
+    @include respond-to-min($largeSize) {
+        margin-left: rem(-$tripple-space);
+        margin-right: rem(-$tripple-space);
+    }
+}
+.tripple-column-space {
+    @include respond-to-min($tabletSize) {
+        padding-left: rem($tripple-space-tablet);
+        padding-right: rem($tripple-space-tablet);
+    }
+    @include respond-to-min($largeSize) {
+        padding-left: rem($tripple-space);
+        padding-right: rem($tripple-space);
+    }
+    &.no-padding-left {
+        @include respond-to-min($largeSize) {
+            padding-left: 0;
+        }
+    }
+    &.no-padding-right {
+        @include respond-to-min($largeSize) {
+            padding-right: 0;
+        }
+    }
+}
+
+.dark-background {
+    position: relative;
+    height: 100%;
+    z-index: 999;
+    .has_bg_img {
+        background: rgba(0, 0, 0, 0.6);
+        background-repeat:no-repeat;
+        background-position: right 0;
+        display: block;
+        right: 0;
+        /*background-size: 40%;*/
+        position: absolute;
+        height: 100%;
+        width: rem(1900px);
+        @include respond-to-min(1000px) {
+            background-size: cover;
+        }
+    }
+
+    &.bg-img-share-price {
+        &:before {
+            background: url(../images/share-price-bg.jpg) no-repeat right 0;
+            right: 0;
+            background-size: 60% 100%;
+            @include respond-to-max($tabletSize) {
+                background-size: 50% 100%;
+            }
+        }
+    }
+
+    &.bg-img-general-meeting {
+        &:before {
+            background: url(../images/general-meeting-bg.jpg) no-repeat right 0;
+            right: 0;
+            background-size: 60% 100%;
+            @include respond-to-max($tabletSize) {
+                background-size: 50% 100%;
+            }
+        }
+    }
+
+    &.location-bg {
+        &:before {
+            background: url(../images/slide-2-480.jpg) no-repeat right 0;
+            right: -10%;
+            background-size: 60% 100%;
+            @include respond-to-max($tabletSize) {
+                background-size: 50% 100%;
+            }
+        }
+    }
+}
+.seperate-line {
+    position: relative;
+    &:after {
+        position: absolute;
+        top: 0;
+        width: rem(1px);
+        bottom: 0px;
+        background: #d9d9d9;
+        content: ' ';
+        display: none;
+        @include respond-to-min($tabletSize) {
+            display: block;
+            right: rem($tripple-space-tablet);
+        }
+        @include respond-to-min($largeSize) {
+            right: rem($tripple-space);
+        }
+    }
+
+    @include respond-to-max($tabletSize) {
+        .intro-readmore {
+            display: none;
+            &#btnJobSearch {
+                display: block;
+            }
+        }
+
+        .outer-main-intro {
+            margin-bottom: 30px;
+            top: 0 !important;
+        }
+    }
+}
+
+.seperate-line-right {
+    &:before {
+        position: absolute;
+        top: 0;
+        width: rem(1px);
+        bottom: 0px;
+        background: #d9d9d9;
+        content: ' ';
+        display: none;
+        @include respond-to-min($tabletSize) {
+            display: block;
+            left: rem(- $tripple-space-tablet - 1px);
+        }
+        @include respond-to-min($largeSize) {
+            left: rem(- $tripple-space - 1px);
+        }
+    }
+}
+.section-career-path .owl-theme .owl-dots {
+    opacity: 0;
+    pointer-events: none;
+}
+.section-grid .grid-section {
+    .media-carousel {
+        .item-text .overlay {
+            padding: rem(0 15px);
+            .overlay-content {
+                position: relative;
+            }
+        }
+    }
+}
+.media-carousel {
+    .owl-theme .owl-nav.disabled + .owl-dots {
+        margin: 0;
+        padding: rem(15px 0);
+    }
+    .owl-theme .owl-dots {
+        .owl-dot {
+            span {
+                border: 2px solid #000;
+                background: #fff;
+            }
+            &.active {
+                span {
+                    background: #000;
+                }
+            }
+        }
+    }
+}
+.contentsliderblock {
+    .media-carousel {
+        .owl-theme .owl-dots {
+            @include respond-to-min($tabletSize) {
+                text-align: left;
+            }
+        }
+        .slide-text {
+            .item {
+                padding: rem(0 15px);
+            }
+        }
+    }
+}
+.block {
+    &.backgroundvideoblock, &.imagebannerblock, &.stagesliderblock {
+        & + .block:not(.backgroundvideoblock), & + .block:not(.imagebannerblock), & + .block:not(.stagesliderblock), & + .block:not(.first-empty-block) {
+            section{
+                padding-top: rem(35px);
+                @include respond-to-min($tabletSize) {
+                    padding-top: rem(100px);
+                }
+                @include respond-to-min($desktopSize) {
+                    padding-top: rem(150px);
+                }
+                @include respond-to-min($largeSize) {
+                    padding-top: rem(195px);
+                }
+                .padding-section {
+                    padding-top: 0;
+                    //padding-bottom: 0;
+                }
+            }
+        }
+    }
+}
+.first-empty-block + .row-wrapper-block {
+    .block:not(.backgroundvideoblock), & + .block:not(.imagebannerblock), & + .block:not(.stagesliderblock), & + .block:not(.first-empty-block) {
+        &:first-child {
+            section{
+                padding-top: rem(35px);
+                @include respond-to-min($tabletSize) {
+                    padding-top: rem(100px);
+                }
+                @include respond-to-min($desktopSize) {
+                    padding-top: rem(150px);
+                }
+                @include respond-to-min($largeSize) {
+                    padding-top: rem(195px);
+                }
+                .padding-section {
+                    padding-top: 0;
+                    //padding-bottom: 0;
+                }
+            }
+        }
+    }
+}
+.header-slider__video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    @include respond-to-min($desktopSize) {
+        display: block;
+    }
+
+    video {
+        opacity: 0;
+    }
+
+    .vjs-big-play-button, .vjs-control-bar, .vjs-error-display {
+        display: none !important;
+    }
+
+    .vjs-controls-disabled .vjs-big-play-button, .vjs-using-native-controls .vjs-big-play-button, .vjs-loading-spinner, .vjs-poster {
+        display: none;
+    }
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+video::-webkit-media-controls {
+    display: none !important;
+}
+#videoBanner {
+    height: 100%;
+}
+.vjs-hidden, .vjs-loading-spinner, .vjs-control-bar, .vjs-error-display {
+    display: none;
+}
+
+.vjs-big-play-button {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    background: rgba(255,255,255, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+
+    &:after {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin:-10px 0 0 -5px;
+        width: 0;
+        height: 0;
+        border: none;
+        border-left: 15px solid #666;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+
+    span {
+        display: none;
+    }
+}
+.slider-with-thumbnail {
+    position: relative;
+    .section-info {
+        pointer-events: none;
+        @include respond-to-max($tabletSize) {
+            position: static;
+        }
+    }
+    .carousel-inner {
+        &.height-map-inner {
+            &.map-inner {
+                min-height: 0;
+            }
+            .map-section {
+                height: auto;
+            }
+        }
+    }
+    .thumbnail-slider {
+        position: relative;
+        height: 100%;
+        pointer-events: auto;
+        &.owl-theme .owl-dots {
+            opacity: 1;
+            position: absolute;
+            left: -7px;
+            z-index: 9999;
+            top: rem(12px);
+            bottom: auto;
+
+            @include respond-to-min($tabletSize) {
+                top: auto;
+                bottom: 30px;
+            }
+            @include respond-to-min($desktopSize) {
+                top: auto;
+                bottom: 30px;
+            }
+            @include respond-to-min($laptopSize) {
+                top: auto;
+                bottom: 70px;
+            }
+            @include respond-to-min($largeSize){
+                bottom: rem(95px);
+            }
+            .owl-dot {
+                pointer-events: auto;
+                span {
+                    background: none;
+                    border: 1px solid #fff;
+                }
+                &.active {
+                    span {
+                        background: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .outer-main-intro {
+        &:before {
+            display: none;
+        }
+    }
+}
+input {
+    &:focus {
+        &::-webkit-input-placeholder { color:transparent; }
+        &:-moz-placeholder { color:transparent; opacity:0;}
+        &::-moz-placeholder { color:transparent; opacity:0;}
+        &:-ms-input-placeholder { color:transparent; }
+    }
+}
+.image-as-background {
+    position: relative;
+    @include respond-to-max($tabletSize) {
+        height: auto !important;
+    }
+    img {
+        width: 100%;
+        height: auto;
+        @include respond-to-min($tabletSize) {
+            position: absolute;
+            top: 0px;
+        }
+    }
+}

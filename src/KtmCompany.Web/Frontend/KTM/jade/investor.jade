@@ -1,0 +1,29 @@
+﻿extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+	title Investor
+block header
+	header.header
+		.container
+			.row
+				.col-sm-12.po-s
+					include ./blocks/_shared/_header.jade
+	+slider-investor("slider-4")
+block content
+	section.section
+		.container
+			.row
+				.col-sm-4.row-intro.cut-line#row-about-company
+					.block-main-intro
+						+row-intro('More about the company', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum risus sollicitudin ligula facilisis convallis. Praesent a vehicula leo. Aenean sed.')
+				.col-sm-8.news-module
+					.block-context
+						p.fw7.h1 KTM AG strives to maintain a policy of transparent, timely and comprehensive information and communication with the capital market participants and the general public.
+						p We therefore provide information on KTM’s financial situation and future development at regular intervals.
+						p The Investor Relations Team at KTM AG is convinced that confidence in our company and products can only be secured with a transparent, timely and comprehensive information and communication policy. As a result, we aim to give investors, analysts and the general public a comprehensive insight into the current economic situation and future development.
+	section.section
+		include ./blocks/_info-block.jade
+	footer
+		include ./blocks/_shared/_footer.jade

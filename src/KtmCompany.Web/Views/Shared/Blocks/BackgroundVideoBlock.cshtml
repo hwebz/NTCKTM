@@ -1,0 +1,53 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Models.EditorModels
+@using KtmCompany.Web.Helpers
+
+@model BackgroundVideoBlock
+
+@{
+    var fadeInInterval = ContentReference.StartPage.Get<KtmCompany.Web.Models.PageTypes.StartPage>().SiteSettings.FadeInInterval;
+    var fadeOutInterval = ContentReference.StartPage.Get<KtmCompany.Web.Models.PageTypes.StartPage>().SiteSettings.FadeOutInterval;
+    var headlines = Model.Headlines ?? new List<HeadLine>();
+    var headlineString = string.Join("|", headlines.Select(m => m.Text.ToMultiLineHTMLText(1).ToHtmlString()));
+    if (!Model.IsHeadlineLooping && headlines.Count > 1)
+    {
+        headlineString = headlines[0].Text;
+    }
+    var imgSrc = Url.ContentUrl(Model.BackupImage);
+}
+@if (Model.VideoLayoutOption == VideoLayoutOption.TextAlignLeft)
+{
+    Html.RenderPartial("VideoBanner", Model);
+}
+else
+{
+    <section class="main-slider">
+        <video id="videoBanner" src="@Model.Video.GetFriendlyUrl()" autoplay="autoplay" muted="muted" @Html.EditAttributes(m => m.Video)></video>
+        <picture>
+            <source srcset="@ImageHelpers.Resizing(imgSrc,(short)ImageScreenWidthPercent.Screen480)" media="(max-width: 480px)" />
+            <img srcset="@imgSrc" alt="poster" class="video-poster" />
+        </picture>
+        <div class="text-ovelay @(headlines.Any() ? "" : "text-in-video")">
+            @if (headlines.Any())
+            {
+                <p id="text-message" data-text="@headlineString" data-loop="@Model.IsHeadlineLooping.ToString().ToLower()" data-duration="@Model.HeadlineDisplayInterval" data-fade-in="@fadeInInterval" data-fade-out="@fadeOutInterval" class="text-ovelay-primary">
+                    <span></span>
+                </p>
+            }
+            @if (PageEditing.PageIsInEditMode || !string.IsNullOrEmpty(Model.ButtonLabel))
+            {
+                <p @Html.EditAttributes(m => m.ButtonLabel) class="discover-btn">
+                    <a href="#nextcontent" data-target="#nextcontent" class="ktm-button ktm-ghost-button">@Model.ButtonLabel<span class="fa fa-arrow-down"></span></a>
+                </p>
+                <p class="discover-btn-mobile">
+                    <a href="#nextcontent" class="video-control"><img src="/Frontend/KTM/images/play-icon.png" /></a>
+                </p>
+            }
+        </div>
+    </section>
+    <div id="nextcontent"></div>
+}

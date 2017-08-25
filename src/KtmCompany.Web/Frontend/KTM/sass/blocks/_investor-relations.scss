@@ -1,0 +1,227 @@
+.webpage-btn {
+    text-transform: uppercase;
+    font-family: $font-second;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 15px;
+    display: block;
+
+    &:hover {
+        color: #7d7d7d !important;
+        span.fa-arrow-right {
+            background-position: 100% 50%;
+            -webkit-animation: loop-arrow 0.8s;
+            animation: loop-arrow 0.8s;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+        }
+
+    }
+}
+
+.slider-part {
+    margin: 30px 0 0;
+    .link {
+        padding: 0;
+        position: relative;
+        .webpage-btn {
+            color: white;
+            margin-left: 28px;
+            overflow-wrap: break-word;
+
+            &:hover {
+                text-decoration: none;
+            }
+            .fa-download {
+                position: absolute;
+                left: 0;
+                top: 2px;
+            }
+        }
+
+        &:last-child {
+            .webpage-btn {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+.green-text {
+    color: green;
+    position: relative;
+    margin-left: 45px;
+    &:before {
+        content: '';
+        border: 10px solid transparent;
+        border-bottom-color: green;
+        position: absolute;
+        top: 35%;
+        left: -35px;
+        @include respond-to-max($tabletSize) {
+            top: 28%;
+        }
+    }
+}
+.post-detail {
+    //padding: 0 15px;
+    img {
+        width: 100%;
+    }
+
+    .information-block {
+        padding: 0;
+
+        &.contact-infor-column {
+            @include respond-to-min($desktopSize) {
+                padding-left: rem(35px);
+                padding-right: rem(35px);
+            }
+
+            a {
+                color: inherit;
+
+                &[href^="mailto"] {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+}
+
+.corporate-governance {
+    .col-sm-7 {
+        padding-bottom: 0;
+    }
+}
+
+.corporate-governance {
+    .post-detail {
+        .col-sm-6 {
+            margin: 30px 0;
+        }
+    }
+}
+
+.investor-relations {
+    .table-data {
+        margin: 0;
+        .col-sm-4,
+        .intro-readmore {
+            color: white;
+        }
+        .block-main-intro .outer-main-intro::before {
+            display: none;
+        }
+        .col-sm-8 {
+            padding: 0;
+            p {
+                text-align: right;
+            }
+        }
+        table {
+            width: 100%;
+            td,
+            th {
+                word-break: break-word;
+                width: 15%;
+                padding: 15px;
+                font-size: rem(14px);
+                &:first-child {
+                    width: 25%;
+                }
+                @include respond-to-min($laptopSize) {
+                    padding: 15px 30px;
+                    font-size: 16px;
+                }
+            }
+            thead tr th {
+                padding-top: 70px;
+                text-align: left;
+                font-size: 18px;
+                font-family: "TradeGothicBold", Arial, Helvetica, sans-serif;
+                @include respond-to-max($laptopSize) {
+                    font-size: 14px;
+                }
+                @include respond-to-max($largeSize) {
+                    font-size: 16px;
+                }
+            }
+            tbody tr:last-child td {
+                padding-bottom: 70px;
+            }
+            tr td:first-child,
+            tr th:first-child {
+                padding-left: 35px;
+                @include respond-to-min($largeSize) {
+                    padding-left: 80px;
+                }
+            }
+            tr td:last-child,
+            tr th:last-child {
+                @include respond-to-min($largeSize) {
+                    padding-right: 80px;
+                }
+            }
+            thead tr:nth-child(odd) {
+                background-color: #e4e4e4;
+            }
+            tbody tr:nth-child(even) {
+                background-color: #e4e4e4;
+            }
+            thead tr:nth-child(even) {
+                background-color: #ededed;
+            }
+            tbody tr:nth-child(odd) {
+                background-color: #ededed;
+            }
+        }
+    }
+}
+
+.table-data-left {
+    padding: 0;
+}
+
+.share-price,
+.general-meeting {
+    .mobile {
+        display: none;
+        .year-2010,
+        .year-2012,
+        .year-2013,
+        .year-2014 {
+            display: none;
+        }
+        .category-dropdown {
+            .category {
+                width: 100%;
+                font-weight: normal;
+                font-size: 13px;
+                font-family: "TradeGothicLT", Arial, Helvetica, sans-serif;
+                padding: 10px 0px 10px 5px;
+            }
+        }
+    }
+}
+
+.carousel-inner.map-inner.height-map-inner.investor-relations-inner {
+    @include respond-to-min($tabletSize) {
+        min-height: 1px;
+    }
+}
+
+
+.table-data-right {
+    position: relative;
+    .figure {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        padding: 0 50px;
+        text-align: right;
+    }
+}
+

@@ -1,0 +1,483 @@
+﻿{
+  "EUR": {
+    "RegionId": "EUR",
+    "RegionName": "Europe",    
+    "SupportedLanguages": [
+      {
+        "LanguageId": "at",
+        "LanguageName": "Austria"
+      },
+      {
+        "LanguageId": "be-nl",
+        "LanguageName": "Belgium (EN)"
+      },
+      {
+        "LanguageId": "be-fr",
+        "LanguageName": "Belgium (FR)"
+      },
+      {
+        "LanguageId": "cz",
+        "LanguageName": "Czech Republic"
+      },
+      {
+        "LanguageId": "dk",
+        "LanguageName": "Denmark"
+      },
+      {
+        "LanguageId": "fi",
+        "LanguageName": "Finland"
+      },
+      {
+        "LanguageId": "fr",
+        "LanguageName": "France"
+      },
+      {
+        "LanguageId": "de",
+        "LanguageName": "Germany"
+      },
+      {
+        "LanguageId": "gr",
+        "LanguageName": "Greece"
+      },
+      {
+        "LanguageId": "hu",
+        "LanguageName": "Hungary"
+      },
+      {
+        "LanguageId": "ie",
+        "LanguageName": "Ireland"
+      },
+      {
+        "LanguageId": "it",
+        "LanguageName": "Italy"
+      },
+      {
+        "LanguageId": "nl",
+        "LanguageName": "Netherlands"
+      },
+      {
+        "LanguageId": "no",
+        "LanguageName": "Norway"
+      },
+      {
+        "LanguageId": "pl",
+        "LanguageName": "Poland"
+      },
+      {
+        "LanguageId": "pt",
+        "LanguageName": "Portugal"
+      },
+      {
+        "LanguageId": "ro",
+        "LanguageName": "Romania"
+      },
+      {
+        "LanguageId": "ru",
+        "LanguageName": "Russia"
+      },
+      {
+        "LanguageId": "sk",
+        "LanguageName": "Slovakia"
+      },
+      {
+        "LanguageId": "sl",
+        "LanguageName": "Slovenia"
+      },
+      {
+        "LanguageId": "es",
+        "LanguageName": "Spain"
+      },
+      {
+        "LanguageId": "se",
+        "LanguageName": "Swenden"
+      },
+      {
+        "LanguageId": "ch-de",
+        "LanguageName": "Switzerland (GER)"
+      },
+      {
+        "LanguageId": "ch-fr",
+        "LanguageName": "Switzerland (FR)"
+      },
+      {
+        "LanguageId": "ch-it",
+        "LanguageName": "Switzerland (IT)"
+      },
+      {
+        "LanguageId": "tr",
+        "LanguageName": "Turkey"
+      },
+      {
+        "LanguageId": "gb",
+        "LanguageName": "United Kingdom"
+      }
+    ],   
+    "Countries": [
+       {
+        "CountryId": "at",
+        "CountryName": "Austria"
+      },
+      {
+        "CountryId": "be",
+        "CountryName": "Belgium"
+      },      
+      {
+        "CountryId": "cz",
+        "CountryName": "Czech Republic"
+      },
+      {
+        "CountryId": "dk",
+        "CountryName": "Denmark"
+      },
+      {
+        "CountryId": "fi",
+        "CountryName": "Finland"
+      },
+      {
+        "CountryId": "fr",
+        "CountryName": "France"
+      },
+      {
+        "CountryId": "de",
+        "CountryName": "Germany"
+      },
+      {
+        "CountryId": "gr",
+        "CountryName": "Greece"
+      },
+      {
+        "CountryId": "hu",
+        "CountryName": "Hungary"
+      },
+      {
+        "CountryId": "ie",
+        "CountryName": "Ireland"
+      },
+      {
+        "CountryId": "it",
+        "CountryName": "Italy"
+      },
+      {
+        "CountryId": "nl",
+        "CountryName": "Netherlands"
+      },
+      {
+        "CountryId": "no",
+        "CountryName": "Norway"
+      },
+      {
+        "CountryId": "pl",
+        "CountryName": "Poland"
+      },
+      {
+        "CountryId": "pt",
+        "CountryName": "Portugal"
+      },
+      {
+        "CountryId": "ro",
+        "CountryName": "Romania"
+      },
+      {
+        "CountryId": "ru",
+        "CountryName": "Russia"
+      },
+      {
+        "CountryId": "sk",
+        "CountryName": "Slovakia"
+      },
+      {
+        "CountryId": "sl",
+        "CountryName": "Slovenia"
+      },
+      {
+        "CountryId": "es",
+        "CountryName": "Spain"
+      },
+      {
+        "CountryId": "se",
+        "CountryName": "Swenden"
+      },
+      {
+        "CountryId": "ch",
+        "CountryName": "Switzerland"
+      },      
+      {
+        "CountryId": "tr",
+        "CountryName": "Turkey"
+      },
+      {
+        "CountryId": "gb",
+        "CountryName": "United Kingdom"
+      }
+    ]
+  },
+  "NA": {
+    "RegionId": "NA",
+    "RegionName": "North America",    
+    "SupportedLanguages": [
+      {
+        "LanguageId": "ca-en",
+        "LanguageName": "Canada"
+      },
+      {
+        "LanguageId": "ca-fr",
+        "LanguageName": "Canada (FR)"
+      },
+      {
+        "LanguageId": "int-mx",
+        "LanguageName": "Mexico"
+      }
+    ],    
+    "Countries": [
+      {
+        "CountryId": "ca",
+        "CountryName": "Canada"
+      },      
+      {
+        "CountryId": "mx",
+        "CountryName": "Mexico"
+      }
+    ]
+  },
+  "ME": {
+    "RegionId": "ME",
+    "RegionName": "Middle East",
+    "RegionDisplayName":  "ME",
+    "SupportedLanguages": [
+      {
+        "LanguageId": "ae",
+        "LanguageName": "Arab Emirates"
+      }
+    ],   
+    "Countries": [
+       {
+        "CountryId": "ae",
+        "CountryName": "Arab Emirates"
+      }
+    ]
+  },
+  "SA": {
+    "RegionId": "SA",
+    "RegionName": "South America",    
+    "SupportedLanguages": [
+      {
+        "LanguageId": "ar",
+        "LanguageName": "Argentina"
+      },
+      {
+        "LanguageId": "br",
+        "LanguageName": "Brazil"
+      },
+      {
+        "LanguageId": "bo",
+        "LanguageName": "Bolivia"
+      },
+      {
+        "LanguageId": "cr",
+        "LanguageName": "Costa Rica"
+      },
+      {
+        "LanguageId": "ec",
+        "LanguageName": "Ecuador"
+      },
+      {
+        "LanguageId": "py",
+        "LanguageName": "Paraguay"
+      },
+      {
+        "LanguageId": "pe",
+        "LanguageName": "Peru"
+      }
+    ],   
+    "Countries": [
+      {
+        "CountryId": "ar",
+        "CountryName": "Argentina"
+      },
+      {
+        "CountryId": "br",
+        "CountryName": "Brazil"
+      },
+      {
+        "CountryId": "bo",
+        "CountryName": "Bolivia"
+      },
+      {
+        "CountryId": "cr",
+        "CountryName": "Costa Rica"
+      },
+      {
+        "CountryId": "ec",
+        "CountryName": "Ecuador"
+      },
+      {
+        "CountryId": "py",
+        "CountryName": "Paraguay"
+      },
+      {
+        "CountryId": "pe",
+        "CountryName": "Peru"
+      }
+    ]
+  },
+  "AS": {
+    "RegionId": "AS",
+    "RegionName": "Asia",
+    "SupportedLanguages": [
+      {
+        "LanguageId": "my",
+        "LanguageName": "Malaysia"
+      },
+      {
+        "LanguageId": "kh",
+        "LanguageName": "Cambodia"
+      },
+      {
+        "LanguageId": "ph",
+        "LanguageName": "Philippines"
+      },
+      {
+        "LanguageId": "pf",
+        "LanguageName": "French Polynesia (FR)"
+      },
+      {
+        "LanguageId": "sg",
+        "LanguageName": "Singapore"
+      },
+      {
+        "LanguageId": "hk",
+        "LanguageName": "Hong Kong"
+      },
+      {
+        "LanguageId": "kr",
+        "LanguageName": "South Korea"
+      },
+      {
+        "LanguageId": "in",
+        "LanguageName": "India"
+      },
+      {
+        "LanguageId": "tw",
+        "LanguageName": "Taiwan"
+      },
+      {
+        "LanguageId": "id",
+        "LanguageName": "Indonesia"
+      },
+      {
+        "LanguageId": "th",
+        "LanguageName": "Thailand"
+      },
+      {
+        "LanguageId": "jp",
+        "LanguageName": "Japan"
+      },
+      {
+        "LanguageId": "vn",
+        "LanguageName": "Vietnam"
+      },
+      {
+        "LanguageId": "nc",
+        "LanguageName": "New Caledonia (FR)"
+      }
+    ],
+    "Countries": [
+      {
+        "CountryId": "my",
+        "CountryName": "Malaysia"
+      },
+      {
+        "CountryId": "kh",
+        "CountryName": "Cambodia"
+      },
+      {
+        "CountryId": "ph",
+        "CountryName": "Philippines"
+      },
+      {
+        "CountryId": "pf",
+        "CountryName": "French Polynesia"
+      },
+      {
+        "CountryId": "sg",
+        "CountryName": "Singapore"
+      },
+      {
+        "CountryId": "hk",
+        "CountryName": "Hong Kong"
+      },
+      {
+        "CountryId": "kr",
+        "CountryName": "South Korea"
+      },
+      {
+        "CountryId": "in",
+        "CountryName": "India"
+      },
+      {
+        "CountryId": "tw",
+        "CountryName": "Taiwan"
+      },
+      {
+        "CountryId": "id",
+        "CountryName": "Indonesia"
+      },
+      {
+        "CountryId": "th",
+        "CountryName": "Thailand"
+      },
+      {
+        "CountryId": "jp",
+        "CountryName": "Japan"
+      },
+      {
+        "CountryId": "vn",
+        "CountryName": "Vietnam"
+      },
+      {
+        "CountryId": "nc",
+        "CountryName": "New Caledonia"
+      }
+    ]
+  },
+  "OC": {
+    "RegionId": "OC",
+    "RegionName": "Oceania",
+    "SupportedLanguages": [
+      {
+        "LanguageId": "au",
+        "LanguageName": "Australia"
+      },
+      {
+        "LanguageId": "nz",
+        "LanguageName": "New Zealand"
+      }
+    ],
+    "Countries": [
+      {
+        "CountryId": "au",
+        "CountryName": "Australia"
+      },
+      {
+        "CountryId": "nz",
+        "CountryName": "New Zealand"
+      }
+    ]
+  },
+  "AF": {
+    "RegionId": "AF",
+    "RegionName": "Africa",    
+    "SupportedLanguages": [
+      {
+        "LanguageId": "za",
+        "LanguageName": "South Africa"
+      }
+    ],   
+    "Countries": [
+       {
+        "CountryId": "za",
+        "CountryName": "South Africa"
+      }
+    ]
+  }
+}

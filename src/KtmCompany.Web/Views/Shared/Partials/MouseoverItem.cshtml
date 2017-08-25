@@ -1,0 +1,35 @@
+﻿@using EPiServer.Editor
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Models.MediaTypes
+@model MouseoverItemBlock
+
+@if (Model.ImagesArea != null && Model.ImagesArea.Items != null && Model.ImagesArea.Items.Any())
+{
+    var imagesUrls = new List<string>();
+    for (int index = 0; index < Model.ImagesArea.Items.Count; index++)
+    {
+        var item = Model.ImagesArea.Items[index];
+        var content = item.ContentLink.GetContent();
+        if (content is ImageFile)
+        {
+            imagesUrls.Add(Url.ContentUrl(item.ContentLink));
+        }
+    }
+
+    <div class="block-gallery" style="background-image: url('@(imagesUrls[0])')">
+        @for (int index = 0; index < imagesUrls.Count; index++)
+        {
+            <img src="@imagesUrls[index]" style="display: none" class="@(index == 0 ? "active" : "")"/>
+        }
+        @if ((!Model.CallToActionLink.IsNullOrEmpty() && !string.IsNullOrEmpty(Model.CallToActionTitle)) || PageEditing.PageIsInEditMode)
+        {
+            <div class="bottom-link">
+                <a href="@Url.ContentUrl(Model.CallToActionLink)" title="@Model.CallToActionTitle" @Html.EditAttributes(m => m.CallToActionTitle)>
+                    @Model.CallToActionTitle<span class="fa fa-arrow-right"></span>
+                </a>
+            </div>
+        }
+        <div style="background: @CategoryHelpers.GetCategoryColor(Model.ContentCategory)" class="cate-color"></div>
+    </div>
+}

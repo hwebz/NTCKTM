@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KtmCompany.Web", "src\KtmCompany.Web\KtmCompany.Web.csproj", "{43A99D37-D201-4105-B626-2C3BC961F41B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Geta.Staging|Any CPU = Geta.Staging|Any CPU
+		Geta.Test|Any CPU = Geta.Test|Any CPU
+		KTM.Live.1|Any CPU = KTM.Live.1|Any CPU
+		KTM.Live.2|Any CPU = KTM.Live.2|Any CPU
+		KTM.Live.Edit|Any CPU = KTM.Live.Edit|Any CPU
+		KTM.Staging.1|Any CPU = KTM.Staging.1|Any CPU
+		KTM.Staging.Edit|Any CPU = KTM.Staging.Edit|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.Geta.Staging|Any CPU.ActiveCfg = Geta.Staging|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.Geta.Staging|Any CPU.Build.0 = Geta.Staging|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.Geta.Test|Any CPU.ActiveCfg = Geta.Test|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.Geta.Test|Any CPU.Build.0 = Geta.Test|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Live.1|Any CPU.ActiveCfg = KTM.Live.1|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Live.1|Any CPU.Build.0 = KTM.Live.1|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Live.2|Any CPU.ActiveCfg = KTM.Live.2|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Live.2|Any CPU.Build.0 = KTM.Live.2|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Live.Edit|Any CPU.ActiveCfg = KTM.Live.Edit|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Live.Edit|Any CPU.Build.0 = KTM.Live.Edit|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Staging.1|Any CPU.ActiveCfg = KTM.Staging.1|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Staging.1|Any CPU.Build.0 = KTM.Staging.1|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Staging.Edit|Any CPU.ActiveCfg = KTM.Staging.Edit|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.KTM.Staging.Edit|Any CPU.Build.0 = KTM.Staging.Edit|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A99D37-D201-4105-B626-2C3BC961F41B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

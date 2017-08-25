@@ -1,0 +1,32 @@
+﻿@using EPiServer.Editor
+@model PartnersBlock
+
+@if ((Model.Partners != null && Model.Partners.Any()) || PageEditing.PageIsInEditMode)
+{
+    <section class="section padding-section">
+        <div class="container">
+            <div class="row">
+                @if (Model.Partners != null && Model.Partners.Any())
+                {
+                    foreach (var item in Model.Partners)
+                    {
+                        <div class="col-xs-4 col-sm-2">
+                            <div class="item-partner">
+                                @if (!string.IsNullOrEmpty(item.Link))
+                                {
+                                    <a href="@item.Link" title="@item.Title" target="_bank">
+                                        <img src="@item.LogoImage.GetFriendlyUrl()" alt="@item.Title" class="img-responsive">
+                                    </a>
+                                }
+                                else
+                                {
+                                    <img src="@item.LogoImage.GetFriendlyUrl()" alt="@item.Title" class="img-responsive">
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+}

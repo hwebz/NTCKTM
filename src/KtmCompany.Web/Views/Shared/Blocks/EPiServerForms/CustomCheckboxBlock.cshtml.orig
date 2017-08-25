@@ -1,0 +1,29 @@
+﻿@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Implementation.Validation
+@model KtmCompany.Web.Models.BlockTypes.EPiServerForms.CustomCheckboxBlock
+
+@{
+    var formElement = Model.FormElement;
+    var labelText = Model.Label;
+    var isRequireField = Model.GetElementValidators().OfType<RequiredValidator>().Any();
+}
+
+<div class="Form__Element FormChoice input-field CustomCheckboxBlock notice" id="@formElement.Guid" data-epiforms-element-name="@formElement.Code" @formElement.AttributesString>
+    <div class="Form__Element__ValidationError at-error" style="display: none" data-epiforms-linked-name="@formElement.Code">        
+    </div>
+<<<<<<< HEAD
+    <div class="CustomCheckboxContainer">
+=======
+    <div style="float: left; width: 100%;" class="CustomCheckboxContainer">
+>>>>>>> fbcddb8ecac8199f69255fe4098d6e9d7027d448
+        <input type="checkbox" name="@formElement.Code" class="FormChoice__Input FormChoice__Input--Checkbox" value="@formElement.Value" onchange="formElementValueChanged(this.parentElement.parentElement);">
+        <div style="float: left; width: 90%;">
+            @if (isRequireField)
+            {
+                <span class="icon-require" style="float: left;margin-top: 2px">*</span>
+            }
+            @Html.Raw(Model.CustomLabel)
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>

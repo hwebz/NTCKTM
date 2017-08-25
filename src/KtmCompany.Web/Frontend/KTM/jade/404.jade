@@ -1,0 +1,26 @@
+extends _root.jade
+include ./blocks/_row-intro.jade
+include ./blocks/_slider.jade
+include ./blocks/_main-slider.jade
+block title
+    title Home Page
+block header
+    header.header.header-image-not-found
+        .container
+            .row
+                .col-sm-12.po-s
+                    include ./blocks/_shared/_header.jade
+        section.section(style="position:relative;")
+            img(src='images/main-slider.jpg', alt='Header image post')
+            .container.slide-info
+                .row
+                    .col-sm-4
+                        .block-main-intro.light-color
+                            .outer-main-intro
+                                a(href="#", class="intro-cate") Sorry
+                            h3.intro-title 404 <br />That page <br />doesn't seem <br />to exist
+                                a(href="#", class="intro-readmore") Back to home
+                                    span.fa.fa-arrow-right
+block content
+    footer
+        include ./blocks/_shared/_footer.jade

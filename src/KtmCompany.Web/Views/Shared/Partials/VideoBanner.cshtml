@@ -1,0 +1,47 @@
+﻿@using EPiServer.Editor
+@using KtmCompany.Web.Enums
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Models.EditorModels
+@model BackgroundVideoBlock
+
+@{
+    var imgSrc = Url.ContentUrl(Model.BackupImage);
+}
+
+<section style="position: relative;" class="section main-slider">
+    <video id="videoBanner" src="@Model.Video.GetFriendlyUrl()" autoplay muted></video>
+    <picture>
+        <source srcset="@ImageHelpers.Resizing(imgSrc,(short)ImageScreenWidthPercent.Screen480)" media="(max-width: 480px)">
+        <img srcset="@imgSrc" class="video-poster">
+    </picture>
+    <div class="videoBannerText col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        @{
+            var headlines = Model.Headlines ?? new List<HeadLine>();
+            if (headlines.Any())
+            {
+                const string icon = "<span class=\"ktm-icon ktm-icon-double-right\">»</span>";
+                var headlineParts = headlines[0].Text.ToMultiLineHTMLText(1).ToString().Split(new string[] { "<br>" }, StringSplitOptions.None);
+                if (headlineParts.Length == 1)
+                {
+                    headlineParts = new string[] { headlineParts[0], " ", icon.Trim() };
+                }
+                else
+                {
+                    headlineParts[1] = headlineParts[1] + " " + icon;
+                }
+                var headline = string.Join("<p>", headlineParts);
+
+                <p>
+                    @Html.Raw(headline)
+                </p>
+            }
+        }
+    </div>
+    <div class="mouse-container">
+        <a href="#nextSection" class="btn-scroll-next">
+            <span class="fa fa-angle-down"></span>
+        </a>
+    </div>
+</section>
+<div id="nextSection"></div>

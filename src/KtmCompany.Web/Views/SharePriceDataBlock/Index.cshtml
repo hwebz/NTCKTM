@@ -1,0 +1,68 @@
+﻿@model SharePriceDataBlock
+<div class="investor-relations">
+    <div class="share-price table-data" @Html.EditAttributes(m => m.ImportDataFile)>
+        @if (Model.ColumnNames.Count > 0 && Model.SharePriceIndexes.Count > 0)
+        {
+            <div class="table-data-right desktop">
+                <table>
+                    <thead>
+                    <tr>
+                        @foreach (var columnName in Model.ColumnNames)
+                        {
+                            <th>@columnName</th>
+                        }
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.SharePriceIndexes)
+                    {
+                        <tr>
+                            <td>@item.IndexName</td>
+                            @foreach (var shareData in item.Data)
+                            {
+                                <td>@shareData.Value</td>
+                            }
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+                <span class="figure">@Html.PropertyFor(x => x.TableRemarks)</span>
+            </div>
+            <div class="table-data-right mobile">
+                <table share-price-table>
+                    <thead>
+                    <tr>
+                        <th>@Model.ColumnNames[0]</th>
+                        <th class="category-dropdown">
+                            <select class="category" share-price-selection>
+                                @for (var i = 1; i < Model.ColumnNames.Count; i++)
+                                {
+                                    <option value="@Model.ColumnNames[i]">@Model.ColumnNames[i]</option>
+                                }
+                            </select>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.SharePriceIndexes)
+                    {
+                        <tr>
+                            <td>@item.IndexName</td>
+                            @{
+                                var isFirst = true;
+                                foreach (var shareData in item.Data)
+                                {
+                                    <td share-price-time="@shareData.Time" style="display: @(isFirst ? "initial" : "none")">@shareData.Value</td>
+                                    isFirst = false;
+                                }
+                            }
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+                <span class="figure">@Html.PropertyFor(x => x.TableRemarks)</span>
+            </div>
+        }
+    </div>
+</div>
+@Html.FullRefreshPropertiesMetaData(new []{"ImportDataFile"})

@@ -1,0 +1,42 @@
+﻿@using EPiServer.Web.Mvc.Html
+
+@model InformationTabItemBlock
+
+<section style="background-image: none" class="section section-bg">
+    <div class="container">
+        <div class="row">
+            <div id="row-intro-news" class="col-sm-4 row-intro">
+                <div class="block-main-intro">
+                    <div class="outer-main-intro-other">
+                        <h3 class="intro-title"></h3>
+                        <p class="intro-des"></p>
+                    </div>
+                    <div class="type-of-categories">
+                        <ul>
+                            <li class="active"><a href="#" title="@Model.Name"><span>@Html.PropertyFor(m => m.Name)</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="type-of-categories-mobile">
+                            <div class="category-dropdown">
+                                <select name="category" class="category">
+                                    <option value="@Model.Name">@Model.Name</option>
+                                </select>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="right-module col-sm-8">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2 class="heading" @Html.EditAttributes(m => m.SubHeader)>@Model.SubHeader</h2>
+                        <p class="description">@Html.PropertyFor(m => m.MainBody)</p>
+                        <div>@Html.PropertyFor(p=>p.AddtionalContentArea)</div>
+                    </div>
+                    <div class="col-sm-6" style="height: 350px;" @Html.EditAttributes(m => m.BackgroundImage)><img src="@Model.BackgroundImage.GetFriendlyUrl()" alt="" style="width: auto;height: 100%"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@Html.FullRefreshPropertiesMetaData(new []{ "BackgroundImage" })

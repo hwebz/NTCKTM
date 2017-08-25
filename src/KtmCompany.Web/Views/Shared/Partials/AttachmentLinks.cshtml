@@ -1,0 +1,25 @@
+﻿@using EPiServer
+@using EPiServer.Editor
+@model EPiServer.SpecializedProperties.LinkItemCollection
+
+@{
+    var editAttributesString = ViewData["EditAttributesString"] as MvcHtmlString;
+    var additionalClass = ViewData["additionalClass"] as string;
+}
+
+@if ((Model != null && Model.Any()) || PageEditing.PageIsInEditMode)
+{
+    <div class="download-part address slider-part @additionalClass" @editAttributesString>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var attachment in Model)
+            {
+                <div class="link">
+                    <a href="@Url.ContentUrl(new Url(attachment.Href))" class="webpage-btn" download="">
+                        <span class="fa fa-download"></span>@attachment.Text
+                    </a>
+                </div>
+            }
+        }
+    </div>
+}

@@ -1,0 +1,96 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using KtmCompany.Web.Enums
+@model TextInformationListingBlock
+
+@functions
+{
+    private string GetTextAlign(TextAlign textAlign)
+    {
+        var style = "text-align: ";
+        switch (textAlign)
+        {
+            case TextAlign.Center:
+                style += "center";
+                break;
+            case TextAlign.Right:
+                style += "right";
+                break;
+            default:
+                style += "left";
+                break;
+        }
+        return style;
+    }
+}
+@{
+    var renderForDesktop = ViewData["renderForDesktop"] != null ? (bool) ViewData["renderForDesktop"] : true;
+    var renderForMobile = ViewData["renderForMobile"] != null ? (bool)ViewData["renderForMobile"] : true;
+}
+
+
+@if (Model.TextInformationItems != null && Model.TextInformationItems.Any())
+{
+    if (renderForDesktop)
+    {
+        var numberOfColumns = (int) Model.NumberOfColumns;
+        <div class="row hidden-xs">
+            @for (var columnIndex = 0; columnIndex < numberOfColumns; columnIndex++)
+            {
+                <div class="col-xs-12 col-md-@(12/numberOfColumns) tripple-column-space">
+                    @for (var itemIndex = 0; itemIndex < Model.TextInformationItems.Count; itemIndex++)
+                    {
+                        var item = Model.TextInformationItems[itemIndex];
+                        if (itemIndex%numberOfColumns == columnIndex)
+                        {
+                            <div class="module-with-icon">
+                                @if (!string.IsNullOrEmpty(item.Image.GetFriendlyUrl()) || PageEditing.PageIsInEditMode)
+                                {
+                                    <span style="display: block; @GetTextAlign(item.ImageAlign)">
+                                        <img src="@item.Image.GetFriendlyUrl()" alt=""/>
+                                    </span>
+                                }
+                                <h3>@item.Title</h3>
+                                <p>@item.Abstract</p>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        </div>
+    }
+    if (renderForMobile)
+    {
+        var guid = Guid.NewGuid();
+        <div class="module-with-icon-mobile">
+            <div class="draggable-container">
+                <ul role="tablist" class="nav nav-tabs draggable ui-draggable ui-draggable-handle">
+                    @for (var itemIndex = 0; itemIndex < Model.TextInformationItems.Count; itemIndex++)
+                    {
+                        var item = Model.TextInformationItems[itemIndex];
+                        <li role="presentation" class="@(itemIndex == 0 ? "active" : "")">
+                            <a href="#@(guid.ToString() + itemIndex)" aria-controls="@(guid.ToString() + itemIndex)" role="tab" data-toggle="tab">
+                                @if (!string.IsNullOrEmpty(item.Image.GetFriendlyUrl()) || PageEditing.PageIsInEditMode)
+                                {
+                                    <img src="@item.Image.GetFriendlyUrl()" alt="" />
+                                }
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="tab-content">
+                @for (var itemIndex = 0; itemIndex < Model.TextInformationItems.Count; itemIndex++)
+                {
+                    var item = Model.TextInformationItems[itemIndex];
+                    <div role="tabpanel" id="@(guid.ToString() + itemIndex)" class="tab-pane @(itemIndex == 0 ? "active" : "")">
+                        <div class="module-with-icon">
+                            <h3>@item.Title</h3>
+                            <p>@item.Abstract</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+}

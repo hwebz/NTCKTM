@@ -1,0 +1,11 @@
+﻿@using EPiServer.Core
+@model VideoBlock
+
+@{
+    var backupImage = Model.BackupImage == null ? ContentReference.StartPage.Get<KtmCompany.Web.Models.PageTypes.StartPage>().SiteSettings.DefaultImage.GetFriendlyUrl() : Model.BackupImage.GetFriendlyUrl();
+}
+
+<div class="videos" @Html.EditAttributes(m => m.Video)>
+    <video id="@Guid.NewGuid()" src="@Model.Video.GetFriendlyUrl()" poster="@backupImage" muted></video>
+    <span class="video-control"></span>
+</div>

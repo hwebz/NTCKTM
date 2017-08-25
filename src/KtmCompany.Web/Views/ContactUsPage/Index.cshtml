@@ -1,0 +1,66 @@
+﻿@using KtmCompany.Web.Infrastructure.Extensions;
+@model ContactUsPage
+
+
+@Html.PropertyFor(x => x.ImageBannerBlock)
+
+<section id="section-1" class="section contact-us first-section sticky-container">
+    <div class="container">
+        <div class="row tripple-row table-style">
+            <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line">
+                <div class="block-main-intro">
+                    <div class="outer-main-intro">
+                        <h3 class="intro-title">@Html.PropertyFor(x => x.Heading)</h3>
+                        <p class="intro-des">@Html.PropertyFor(x => x.Abstract)</p>
+                        @if (Model.ProductWebsiteLinks != null && Model.ProductWebsiteLinks.Any())
+                        {
+                            <p class="link">
+                                @for (var index = 0; index < Model.ProductWebsiteLinks.Count; index++)
+                                {
+                                    var linkItem = Model.ProductWebsiteLinks[index];
+                                    <a href="@linkItem.Href" class="intro-readmore">
+                                        @linkItem.Text<span class="fa fa-arrow-right"></span>
+                                    </a>
+                                }
+                            </p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 table-row padding--first-section-bottom seperate-line-right">
+                <div class="post-detail">
+                    @if (Model.ContactUsContent != null)
+                    {
+                        var chunkItems = Model.ContactUsContent.Chunk(2);
+                        foreach (var row in chunkItems)
+                        {
+                            foreach (var contactUs in row)
+                            {
+                                Html.RenderPartial("ContactUs", contactUs);
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section contact-us sticky-container">
+    <div class="container">
+        <div class="row tripple-row table-style contact-form-wrapper">
+            <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line padding-section">
+                <div class="block-main-intro">
+                    <div class="outer-main-intro">
+                        <h3 class="intro-title">@Html.PropertyFor(x => x.ContactFormHeading)</h3>
+                        <p class="intro-des">@Html.PropertyFor(x => x.ContactFormAbstract)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 right-block table-row padding-section contact-area seperate-line-right">
+                <div class="">
+                    @Html.PropertyFor(m => m.ContactFormContainer)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

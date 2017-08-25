@@ -1,0 +1,76 @@
+﻿@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+@using KtmCompany.Web.Helpers
+@using KtmCompany.Web.Infrastructure.Extensions
+@model ArticlePage
+
+@{ Html.RenderPartial("~/Views/Shared/Partials/ImageBanner.cshtml", Model); }
+
+<section id="selected-new" class="section selected-new first-section sticky-container @(string.IsNullOrEmpty(Model.MainImage.GetFriendlyUrl()) ? "" : "selected-new-header")">
+    <div id="section-1" class="container">
+        <div class="row tripple-row table-style">
+            <div id="row-intro-news" class="col-xs-12 col-sm-5 col-md-4 tripple-column-space table-row seperate-line">
+                <div class="block-main-intro">
+                    <div class="outer-main-intro">
+                        @{
+                            var articleListingPageUrl = ConfigurationSettingHelpers.GetArticleListingPageUrl();
+                            if (!articleListingPageUrl.IsNullOrEmpty())
+                            {
+                                <p class="link top-link">
+                                    <a href="@Url.ContentUrl(articleListingPageUrl)" class="intro-readmore">
+                                        <span class="fa fa-arrow-left"></span>
+                                        <span>@Html.TranslateFallback("/views/articlepage/backtonews", "Back to news")</span>
+                                    </a>
+                                </p>
+                            }
+                        }
+                        @if (!string.IsNullOrEmpty(Model.ContentCategory) || PageEditing.PageIsInEditMode)
+                        {
+                            <a href="#" class="intro-cate" style="color: @CategoryHelpers.GetCategoryColor(Model.ContentCategory)">@Html.PropertyFor(x => x.ContentCategory)</a>
+                        }
+                        <h3 class="intro-title">@Html.PropertyFor(x => x.Heading)</h3>
+                        <p class="intro-des" @Html.EditAttributes(x => x.StartPublish)>@Model.StartPublish.ToGenericFormatDateString()</p>
+                        <div class="social-btns">
+                            @Html.Action("GeneralSocialSharing", "Global")
+                        </div>
+                        @if (!articleListingPageUrl.IsNullOrEmpty())
+                        {
+                            <p class="link left-link">
+                                <a href="@Url.ContentUrl(articleListingPageUrl)" class="intro-readmore">
+                                    <span class="fa fa-arrow-left"></span>
+                                    <span>@Html.TranslateFallback("/views/articlepage/backtonews", "Back to news")</span>
+                                </a>
+                            </p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 col-md-8 tripple-column-space table-row padding--first-section-bottom seperate-line-right">
+                <div class="row">
+                    <div class="post-detail selectd-post">
+                        <div class="post-title">
+                            <h3 class="selected-new-title">@Html.PropertyFor(x => x.SubHeader)</h3>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-main-content">
+                                @Html.PropertyFor(x => x.MainBody)
+                            </div>
+                        </div>
+                        @if ((!Model.AttachmentFile.IsNullOrEmpty() && !string.IsNullOrEmpty(Model.AttachmentText)) || PageEditing.PageIsInEditMode)
+                        {
+                            <p class="link">
+                                <a href="@Model.AttachmentFile.GetFriendlyUrl()" class="intro-readmore" @Html.EditAttributes(m => m.AttachmentFile) download="">
+                                    <span class="fa fa-download"></span>
+                                    <span>
+                                        @Model.AttachmentText
+                                    </span>
+                                </a>
+                            </p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.PropertyFor(m => m.RelatedNews)
+    </div>
+</section>

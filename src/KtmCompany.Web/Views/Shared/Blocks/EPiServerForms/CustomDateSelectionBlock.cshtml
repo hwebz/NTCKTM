@@ -1,0 +1,68 @@
+﻿@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Implementation.Validation
+
+@model KtmCompany.Web.Models.BlockTypes.EPiServerForms.CustomDateSelectionBlock
+@{
+    var formElement = Model.FormElement;
+    var isRequireField = Model.GetElementValidators().OfType<RequiredValidator>().Any();
+}
+
+<div class="Form__Element FormTextbox CustomDateSelectionBlock input-field @Model.GetValidationCssClasses() select-box" data-epiforms-element-name="@formElement.Code">
+    <div class="Form__Element__ValidationError at-error" style="display: none" data-epiforms-linked-name="@formElement.Code">
+    </div>
+    <input type="text" name="@formElement.Code" id="@formElement.Guid" placeholder="@Model.PlaceHolder" @Html.Raw(formElement.AttributesString) class="FormTextbox__Input" style="display: none"/>
+    <div class="CustomDateSelectionContainer">
+        @if (isRequireField)
+        {
+            <span class="icon-require" style="margin-top: 10px; float: left">*</span>
+        }
+        <label>@Html.PropertyFor(x => x.Label)</label>
+        <div class="subject-dropdown first-dropdown-date">
+            <select placeholder="DD" onchange="setValueForHiddenDate('@formElement.Guid'); " id="@(formElement.Guid)day" class="day">
+                <option value="">DD</option>
+                @{
+                    for (var day = 1; day <= 31; day++)
+                    {
+                        <option value="@day.ToString("D2")">@day.ToString("D2")</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="subject-dropdown">
+            <select placeholder="MM" onchange="setValueForHiddenDate('@formElement.Guid'); " id="@(formElement.Guid)month" class="month">
+                <option value="">MM</option>
+                @{
+                    for (var month = 1; month <= 12; month++)
+                    {
+                        <option value="@month.ToString("D2")">@month.ToString("D2")</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="subject-dropdown dropdown-date-year">
+            <select placeholder="YYYY" onchange="setValueForHiddenDate('@formElement.Guid'); " id="@(formElement.Guid)year" class="year">
+                <option value="">YYYY</option>
+                @{
+                    var currentYear = DateTime.Now.Year;
+                    for (var year = currentYear - 100; year <= currentYear; year++)
+                    {
+                        <option value="@year.ToString("D4")">@year.ToString("D4")</option>
+                    }
+                }
+            </select>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    function setValueForHiddenDate(guid) {
+        var day = $('#' + guid + 'day').val();
+        var month = $('#' + guid + 'month').val();
+        var year = $('#' + guid + 'year').val();
+        var dateField = $('#' + guid);
+        dateField.val(day + '/' + month + '/' + year);
+        if (@isRequireField.ToString().ToLower()) {
+            validateDateInDDMMYYYYFormat(dateField.parent());
+        }
+    }
+</script>

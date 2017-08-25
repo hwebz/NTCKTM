@@ -1,0 +1,111 @@
+
+@media only screen and (max-width: 992px) {
+    .investor-relations,
+    .investor-downloads {
+        .table-data {
+            table {
+                th {
+                    font-size: 16px;
+                }
+
+                td, th {
+                    padding: 10px;
+                }
+
+                thead tr th {
+                    padding-top: 15px;
+                }
+
+                tr td:last-child, tr th:last-child {
+                    padding-right: 0;
+                    text-align: center;
+
+                    &[share-price-time] {
+                        text-align: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    .investor-relations {
+        .table-data {
+            table {
+                tbody tr:last-child td {
+                    padding-bottom: 70px;
+                }
+
+                tr td:first-child, tr th:first-child {
+                    padding-left: 35px;
+                }
+            }
+        }
+    }
+
+    #general-meeting {
+        .table-data {
+            table {
+                tbody tr:last-child td {
+                    padding-bottom: 15px;
+                }
+
+                tr td:last-child, tr th:last-child {
+                    padding-right: 15px;
+                }
+            }
+        }
+    }
+
+    .share-price,
+    .general-meeting,
+    .investor-downloads {
+        .mobile {
+            display: block;
+        }
+
+        .desktop {
+            display: none;
+        }
+    }
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+    .share-price, .general-meeting {
+        .block-main-intro {
+            border-bottom: 0;
+        }
+    }
+
+    .investor-relations-policy {
+        .row-intro {
+            padding: 0;
+        }
+    }
+
+    .group-up {
+        .row-intro {
+            padding: 0;
+        }
+    }
+
+    .investor-share-price {
+        .container {
+            padding: 0;
+        }
+
+        .below-description {
+            margin-top: 0;
+        }
+    }
+
+    .investor-relations,
+    .investor-downloads {
+        .table-data {
+            table {
+                tr td:first-child, tr th:first-child {
+                    padding-left: 15px;
+                }
+            }
+        }
+    }
+}

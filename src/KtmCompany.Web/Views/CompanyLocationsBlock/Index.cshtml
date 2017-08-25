@@ -1,0 +1,219 @@
+﻿@using KtmCompany.Web.Helpers
+@model CompanyLocationsBlockViewModel
+@{
+    var idPrefix = Guid.NewGuid();
+}
+<div data-ride="carousel" class="carousel slide slide-img caption-bg">
+    <div class="section-info">
+        <div class="container">
+            <div class="row tripple-row">
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space company-location-map-default">
+                    <div class="slider-captions dark-background light-color map-left-side has_bg_img">
+                        <div style="background-image: url('@CommonHelpers.GetLeftBackgroundImage(Model.LeftBackgroundImage)')" class="has_bg_img"></div>
+                        <div class="outer-main-intro" @Html.EditAttributes(m => m.CurrentBlock.LeftContent)>
+                            @Html.DisplayFor(m => m.CurrentBlock.LeftContent, new { removeWrapperContainer = true })
+                            <div class="selection-job">
+                                <div class="dropdown-job-wrapper">
+                                    <div class="dropdown-job">
+                                        @Html.DropDownList("region", Model.RegionSelections, new { filteredSelection = "#" + idPrefix + "_Country", id = idPrefix + "_Region" })
+                                    </div>
+                                </div>
+                                <div class="dropdown-job-wrapper">
+                                    <div class="dropdown-job">
+                                        @Html.DropDownList("country", Model.CountrySelections, new {id = idPrefix + "_Country"})
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <a href="javascript:findLocation(false);" class="intro-readmore">@Html.TranslateFallback("/views/companylocationsblock/findlocation", "Find Location")<span class="fa fa-arrow-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space location-info company-location-map-found">
+                    <div class="slider-captions dark-background light-color map-left-side location-bg has_bg_img">
+                        <div class="has_bg_img company-location-map-found-bg-img"></div>
+                        <div class="outer-main-intro">
+                            <h3 class="intro-title"></h3>
+                            <p class="intro-des">&nbsp;</p>
+                            <a href="javascript:findOtherLocation();" class="intro-readmore">@Html.TranslateFallback("/views/companylocationsblock/findotherlocation", "Find Other Location")<span class="fa fa-arrow-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="listbox" class="carousel-inner map-inner height-map-inner" @Html.EditAttributes(m => m.CurrentBlock.CompanyLocationItemsArea)>
+        <div class="section-map">
+            <div class="map-section">
+                <div id="googleMap" class="right-section"></div>
+            </div>
+        </div>
+    </div>
+    <div class="location-info-mobile">
+        <div class="container company-location-map-found company-location-map-found-mobile" style="display: none">
+            <div class="row tripple-row">
+                <div class="col-xs-12 col-sm-5 col-md-4 tripple-column-space">
+                    <div class="slider-captions dark-background light-color map-left-side location-bg has_bg_img">
+                        <div class="has_bg_img company-location-map-found-bg-img"></div>
+                        <div class="outer-main-intro">
+                            <h3 class="intro-title"></h3>
+                            <p class="intro-des">&nbsp;</p>
+                            <a href="javascript:findOtherLocation();" class="intro-readmore">@Html.TranslateFallback("/views/companylocationsblock/findotherlocation", "Find Other Location")<span class="fa fa-arrow-up"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var selectLocation = false;
+    $(window).resize(function() {
+        if ($(window).width() < 768) {
+            $('.company-location-map-default').show();
+            $('.company-location-map-found').hide();
+            if (selectLocation) {
+                $('.company-location-map-found-mobile').show();
+            }
+        }
+    });
+    var countries = @(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CountrySelections)));
+    function findOtherLocation() {
+        $('.company-location-map-found').hide();
+        $('.company-location-map-default').show();
+        if ($(window).width() < 768) {
+            $('html, body').animate({
+                scrollTop: $('.company-location-map-default').offset().top
+            }, 400);
+        }
+        //calculateMapHeight();
+    }
+
+    function findLocation(firstLoad) {
+        var region = $("#@(idPrefix)_Region").val();
+        var country = $("#@(idPrefix)_Country").val();
+
+        if (!firstLoad) {
+            $('.loading').fadeIn('fast');
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("FindLocation", "CompanyLocationsBlock")',
+            data: { 'region': region, 'country': country },
+            dataType: 'json',
+            success: function (data) {
+                init_map(data);
+                if (!firstLoad) {
+                    $('.loading').fadeOut('fast');
+                }
+            },
+            error: function () {
+                init_map(new Array());
+                if (!firstLoad) {
+                    $('.loading').fadeOut('fast');
+                }
+            }
+        });
+    }
+
+    function init_map(locations) {
+        var markers = new Array();
+        var bounds = new google.maps.LatLngBounds();
+        var map = initializeGoogleMapStyles();
+        if (locations && locations.length > 0) {
+            var infowindow = new google.maps.InfoWindow();
+
+            for (var i = 0; i < locations.length; i++) {
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i].Latitude, locations[i].Longitude),
+                    map: map
+                });
+
+                var markerSrc = "";
+                switch (locations[i].GoogleMapMarker) {
+                case 0://KTM
+                    markerSrc = "/Frontend/KTM/images/pin-2.png";
+                    break;
+                case 1://Husqvarna
+                    markerSrc = "/Frontend/KTM/images/pin-1.png";
+                    break;
+                case 2://Both
+                    markerSrc = "/Frontend/KTM/images/pin-3.png";
+                    break;
+                }
+                if (markerSrc != "") {
+                    marker.setIcon(markerSrc);
+                }
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        var location = locations[i];
+                        $(".company-location-map-found .intro-title").html(location.Name);
+                        var content = "";
+
+                        if (location.AddressLine1) {
+                            content += location.AddressLine1;
+                        }
+                        if (location.AddressLine2) {
+                            content += "<br/>" + location.AddressLine2;
+                        }
+                        if (location.City) {
+                            content += "<br/>" + location.City;
+                        }
+                        if (location.Country) {
+                            content += " " + location.Country;
+                        }
+                        if (location.PhoneNumber) {
+                            content += "<br/>@Html.TranslateFallback("/views/companylocationsblock/phone", "Phone"): " + "<a class='phone' href='tel:" + location.PhoneNumber + "'>" + location.PhoneNumber + "</a>";
+                        }
+                        if (location.FaxNumber) {
+                            content += "<br/>@Html.TranslateFallback("/views/companylocationsblock/fax", "Fax"): " + location.FaxNumber;
+                        }
+                        if (location.Email) {
+                            content += "<br/><a target='_blank' href='mailto:" + location.Email + "'>" + location.Email + "</a>";
+                        }
+                        if (location.Website) {
+                            var website = location.Website;
+                            if (website.indexOf("http://") != 0) {
+                                website = "http://" + website;
+                            }
+                            content += "<br/><a target='_blank' href='" + website + "'>" + website + "</a>";
+                        }
+                        if ($(window).width() >= 768) {
+                            $('.company-location-map-default').hide();
+                        }
+                        $(".company-location-map-found .intro-des").html(content);
+                        var leftBackgroundImage = '';
+                        if (location.LeftBackgroundImage != "") {
+                            leftBackgroundImage = location.LeftBackgroundImage;
+                        } else {
+                            leftBackgroundImage = '@CommonHelpers.GetLeftBackgroundImage(null)';
+                        }
+                        $(".company-location-map-found .company-location-map-found-bg-img").css('background-image', "url('" + leftBackgroundImage + "')");
+                        if ($(window).width() >= 768) {
+                            $('.company-location-map-found').show();
+                        } else {
+                            $('.company-location-map-found-mobile').show();
+                            $('html, body').animate({
+                                scrollTop: $('.company-location-map-found-mobile').offset().top
+                            }, 400);
+                        }
+                        selectLocation = true;
+                        //calculateMapHeight();
+                        //infowindow.setContent(content);
+                        //infowindow.open(map, marker);
+                    }
+                })(marker, i));
+
+                bounds.extend(marker.getPosition());
+
+                markers.push(marker);
+            }
+            map.fitBounds(bounds);
+        }
+    }
+
+    $(window).load(function () {
+        findLocation(true);
+    });
+</script>

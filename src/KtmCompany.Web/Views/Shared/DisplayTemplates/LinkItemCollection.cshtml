@@ -1,0 +1,39 @@
+﻿@using EPiServer.Core
+@using EPiServer.SpecializedProperties
+@model LinkItemCollection
+
+@{
+    var noRenderULContainer = ViewData["noRenderULContainer"] != null ? (bool)ViewData["noRenderULContainer"] : false;
+}
+@if (!noRenderULContainer)
+{
+    @:<ul class="@ViewData["class"]" style="@ViewData["style"]">
+}
+@{
+    var additionalLink = ViewData["additionalLink"] as LinkItem;
+    var itemStyle = ViewData["itemStyle"] ?? string.Empty;
+    var currentPage = ViewData["currentPage"] as ContentReference;
+    var selected = ViewData["selected"] as string;
+}
+
+@foreach (var linkItem in Model ?? Enumerable.Empty<LinkItem>())
+{
+    var itemClass = "";
+    if (selected != null)
+    {
+        if (currentPage == linkItem.ToContentReference())
+        {
+            itemClass = selected;
+        }
+    }
+    <li class="@itemClass" style="@itemStyle">@Html.Partial("LinkItem", linkItem)</li>
+}
+
+@if (additionalLink != null && !string.IsNullOrWhiteSpace(additionalLink.Href))
+{
+    <li style="@itemStyle">@Html.Partial("LinkItem", additionalLink)</li>
+}
+@if (!noRenderULContainer)
+{
+    @:</ul>
+}

@@ -1,0 +1,109 @@
+﻿@using KtmCompany.Web.Helpers
+
+@{ 
+    Layout = "JobListingPageUI.cshtml";
+}
+@model JobListingPage
+
+@section JobFilter
+{ 
+    @{
+        Html.RenderAction("Partial", "JobFilter");
+    }
+}
+
+<div class="jobListingView" id="jobListingIntro">
+    <div class="structure-detail">
+        <h3>@Html.PropertyFor(x => x.SubHeader)</h3>
+        @Html.PropertyFor(x => x.Introduction)
+    </div>
+    <a href="@Model.GetFriendlyUrl()" class="intro-readmore">
+        @Html.TranslateFallback("/views/joblistpage/viewalloffers", "View all jobs offers") <span class="fa fa-arrow-right"></span>
+    </a>
+</div>
+<div id="jobListingView" class="jobListingView" style="display:none">
+    <div id="resultsPlaceHolder" class="row-list-jobs"></div>
+    <div class="load-more" style="display: none" id="loadMoreContents">
+        <a href="">@Html.TranslateFallback("/views/joblistpage/loadmorejobs", "Load more jobs")<span class="fa fa-plus"></span></a>
+    </div>
+</div>
+<div id="jobDetailView" class="jobListingView" style="display:none">
+    <div class="detail">
+
+    </div>
+    @*We have to move this out of JobDetail partial because we have a problem generating form to return to ajax calls*@
+    <div class="application-form" style="display: none">
+        @{
+            if (ConfigurationSettingHelpers.GetApplicationForm() != null)
+            {
+                Html.RenderContentData(ConfigurationSettingHelpers.GetApplicationForm(), false);
+            }
+        }
+    </div>
+</div>
+    @section Scripts
+{
+        <script>
+            (function () {
+                var params = {};
+
+                $(document).on("jobFilterChanged", function (event, newParams) {
+                    params = newParams;
+                    FilterJob();
+                });
+
+                $('#loadMoreContents').click(function () {
+                    loadJobs(parseInt($('#currentPageIndex').val()) + 1, $('#pageSize').val(), params.JobPosition, params.Country)
+                        .then(function (data) {
+                            $('#resultsPlaceHolder').append(data);
+                        });
+                    return false;
+                });
+
+                $("#jobListingView").on("click", ".url-listing-item", function () {
+                    var pageId = $(this).closest(".item-news").data("pageid");
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '@Url.Action("Partial", "JobDetailPage")',
+                        data: { 'pageId': pageId },
+                        dataType: 'html',
+                        beforeSend: function () {
+                            $('.loading').fadeIn('fast');
+                        }
+                    })
+                    .then(function (data) {
+                        $("#jobDetailView .detail").html(data);
+                        $(".application-form").hide();
+                        showView("#jobDetailView");
+                    })
+                    .always(function () {
+                        $('.loading').fadeOut('fast');
+                    });
+                    return false;
+                });
+
+                function FilterJob() {
+                    if (!params.JobPosition && !params.Country) {
+                        showView("#jobListingIntro");
+                    }
+                    else {
+                        loadJobs(1, $('#pageSize').val(), params.JobPosition, params.Country)
+                            .then(function (data) {
+                                $('#resultsPlaceHolder').html(data);
+                                showView("#jobListingView");
+                            });
+                    }
+                }
+
+                function showView(id) {
+                    $(".jobListingView").hide();
+                    $(id).show();
+                }
+
+                $(document).on("jobDetailBack", function () {
+                    FilterJob();
+                });
+            })();
+        </script>
+    }

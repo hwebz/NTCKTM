@@ -1,0 +1,58 @@
+﻿@using EPiServer.Cms.Shell
+@using EPiServer.Editor
+@using KtmCompany.Web.Infrastructure.Extensions
+@using KtmCompany.Web.Models.MediaTypes
+@using Microsoft.Ajax.Utilities
+@model DocumentListingBlock
+
+@{
+    var documents = Model.Documents.GetItems<MediaDataBase>();
+    var fromGenericPage = ViewData["fromGenericPage"] != null ? (bool)ViewData["fromGenericPage"] : false;
+}
+@if (fromGenericPage)
+{
+    @:<div class="general-meeting table-data" @Html.EditAttributes(x => x.Documents)>
+        @:<div class="table-data-right">
+}
+else
+{
+    @:<div class="inner-block-article investor-downloads" @Html.EditAttributes(x => x.Documents)>
+        @:<div class="block-main-intro">
+            @:<div class="row yearly-report table-data">
+                @:<h3 class="intro-title">@Html.PropertyFor(m => m.Name)</h3>
+}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 50%">@Html.TranslateFallback("/views/documentlistingblock/title", "Title")</th>
+                                <th class="desktop" style="width: 20%">@Html.TranslateFallback("/views/documentlistingblock/date", "Date")</th>
+                                <th class="desktop" style="width: 10%">@Html.TranslateFallback("/views/documentlistingblock/size", "Size")</th>
+                                <th>@Html.TranslateFallback("/views/documentlistingblock/download", "Download")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var document in documents)
+                            {
+                                <tr>
+                                    <td>@document.Title</td>
+                                    <td class="desktop">@(document.PublishDate.HasValue ? document.PublishDate.Value.ToGenericFormatDateString() : string.Empty)</td>
+                                    <td class="desktop">@document.FileSizeInKb KB</td>
+                                    <td>
+                                        <a href="@document.PublicUrl()" download=""><span class="fa fa-download"></span></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+@if (fromGenericPage)
+{
+        @:</div>
+    @:</div>
+}
+else
+{
+            @:</div >
+        @:</div >
+    @:</div >
+}
+@Html.FullRefreshPropertiesMetaData(new[] { "Documents" })

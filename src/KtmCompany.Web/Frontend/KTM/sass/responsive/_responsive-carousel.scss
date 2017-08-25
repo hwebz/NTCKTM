@@ -1,0 +1,36 @@
+/* Small Devices, Tablets */
+@media only screen and (max-width : 992px) {
+  .header-text {
+    .block-main-intro {
+      .outer-main-intro {
+        padding: 0;
+      }
+    }
+    .carousel-indicators {
+      padding: 0 15px;
+    }
+  }
+  .carousel {
+    .section-info {
+      width: 100%;
+      @include respond-to-max($tabletSize) {
+        position: inherit;
+        .carousel-indicators {
+          top: 27px;
+          bottom: auto;
+        }
+      }
+      .block-main-intro {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  #related-post-slider,
+  .post-main-content {
+      .carousel-indicators {
+        text-align: center;
+      }
+  }
+
+}

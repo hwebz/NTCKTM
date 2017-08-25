@@ -1,0 +1,28 @@
+﻿@model IFrameContentBlock
+
+<div class="col-xs-12">
+    <div class="inner-block-article">
+        <div class="row">
+            <div class="information-block">
+                <iframe src="@Model.IFrameSource.GetFriendlyUrl()" frameborder="0" border="0" scrolling="no"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    setIframeWidthHeight();
+
+    function setIframeWidthHeight() {
+        var width = ($(".block.iframecontentblock.col-lg-12.col-md-12.col-sm-12.col-xs-12").width()) / $(document).width() * 100;
+        if ($(window).width() > 768) {
+            $("iframe").css({ 'width': width + 'vw', 'height': '940px' });
+        } else {
+            $("iframe").css({ 'width': '100%', 'height': '985px' });
+        }
+    }
+    
+    $(window).resize(function () {
+        setIframeWidthHeight();
+    });
+</script>

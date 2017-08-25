@@ -1,0 +1,11 @@
+﻿@model TextBlock
+
+<div class="structure-detail">
+    @if (!string.IsNullOrEmpty(Model.Heading))
+    {
+        <h3>@Html.PropertyFor(x => x.Heading)</h3>
+    }
+    @Html.PropertyFor(x => x.MainBody)
+    @Html.Partial("AttachmentLinks", Model.AttachmentLinks, 
+    new ViewDataDictionary() {new KeyValuePair<string, object>("EditAttributesString", @Html.EditAttributes(m => m.AttachmentLinks))})
+</div>            

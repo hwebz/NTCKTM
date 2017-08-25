@@ -1,0 +1,38 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+
+@model KtmCompany.Web.Models.EditorModels.ContactUs
+
+<div class="col-xs-12 col-sm-12 col-md-6 information-block tripple-column-space contact-infor-column">
+    <div class="post-title">
+        <h3>@Html.PropertyFor(x => x.Heading)</h3>
+    </div>
+    <div class="description post-content">
+        <p>@Html.PropertyFor(x => x.Abstract)</p>
+    </div>
+    <div class="address">
+        <p>
+            @if (!string.IsNullOrEmpty(Model.BranchName) || PageEditing.PageIsInEditMode)
+            {
+                @Html.PropertyFor(x => x.BranchName)<br/>
+            }
+            @if (!string.IsNullOrEmpty(Model.AddressLine1) || PageEditing.PageIsInEditMode)
+            {
+                @Html.PropertyFor(x => x.AddressLine1)<br/>
+            }
+            @if (!string.IsNullOrEmpty(Model.AddressLine2) || PageEditing.PageIsInEditMode)
+            {
+                @Html.PropertyFor(x => x.AddressLine2)<br/>
+            }
+            @if (!string.IsNullOrEmpty(Model.PhoneNumber) || PageEditing.PageIsInEditMode)
+            {
+                <a href="tel:@Model.PhoneNumber" @Html.EditAttributes(x => x.PhoneNumber)>@Model.PhoneNumber</a><br/>
+            }
+            @if (!string.IsNullOrEmpty(Model.Email) || PageEditing.PageIsInEditMode)
+            {
+                <a href="mailto:@Model.Email" @Html.EditAttributes(x => x.Email)>@Model.Email</a>
+            }
+        </p>
+    </div>
+</div>
